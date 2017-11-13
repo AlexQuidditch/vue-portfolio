@@ -17,6 +17,8 @@
 
 </script>
 
+<style src="normalize-css/normalize.css" lang="css"></style>
+
 <style lang="scss">
 
 	@import "./stylesheets/partials/_layout";

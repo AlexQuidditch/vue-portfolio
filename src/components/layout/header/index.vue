@@ -24,7 +24,11 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%;
-
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 50%;
+    }
   }
 
 </style>
