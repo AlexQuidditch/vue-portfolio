@@ -9,8 +9,7 @@ Vue.config.productionTip = false;
 Vue.config.performance = true;
 
 const app = new Vue({
-  el: '#wrapper',
 	router , store,
   template: '<App/>',
   components: { App }
-})
+}).$mount('#wrapper')
