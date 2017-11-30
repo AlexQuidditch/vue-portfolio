@@ -1,15 +1,21 @@
 <template lang="html">
-  <main id="main" class="main" :style="{ backgroundImage: 'url(/static/' + Displayed.background + ')' }">
+  <main id="main" class="main">
     <div class="case">
       <h1 class="case-title">
         <span class="case-title__task">{{ Displayed.task }}</span>
         <br />
         <span :class=" '_' + Case"
-              class="case-title__title">{{ Displayed.title }}</span>
+              class="case-title__title">
+          {{ Displayed.title }}
+        </span>
       </h1>
       <p class="case__description">{{ Displayed.description }}</p>
       <h4 class="case__current">{{ DisplayedIndex }}</h4>
-      <!-- <router-link :to="{ name: 'Detail', params: { Case : Displayed.link }}"> > </router-link> -->
+      <router-link :to="{ path: '/case/' + Displayed.link }"
+                   :class=" '_' + Case"
+                   class="case__link">
+        <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
+      </router-link>
       <nav class="case-navigation">
         <ul class="navigation-list">
           <li v-for="caseRoute in Cases" :key="caseRoute.route"
@@ -21,18 +27,24 @@
         </ul>
       </nav>
     </div>
-    <div :class=" '_' + Case"
-         class="preview">
-      <img :src=" '/static/' + Displayed.picture " alt=""
-           class="preview__picture" />
-    </div>
+    <transition name="fade" mode="out-in">
+      <div :class=" '_' + Case" :key="Displayed.background"
+           :style="{ backgroundImage: 'url(/static/' + Displayed.background + ')' }"
+           class="preview">
+        <img :src=" '/static/' + Displayed.picture " :alt="Displayed.title"
+             class="preview__picture" />
+      </div>
+    </transition>
   </main>
 </template>
 
 <script>
 
+  import IconArrowRight from '../../icons/arrow-right';
+
   export default {
     name: "Base",
+    components: { IconArrowRight },
     props: {
       'Case': {
         type: String,
@@ -56,7 +68,7 @@
           description: 'UX/UI, разработка структуры, взаимодействия между пользователями, прототипирование, анимация.',
           picture: 'time/preview.png',
           background: 'time/bg.jpg',
-          link: ''
+          link: 'v-dele'
         },
         {
           route: 'travel',
@@ -65,7 +77,7 @@
           description: 'Проработка концепции, UI, 3D-моделирование и еще много всего интересного',
           picture: 'travel/preview.png',
           background: 'travel/bg0.jpg',
-          link: ''
+          link: 'travel-app'
         },
         {
           route: 'prosto',
@@ -74,7 +86,7 @@
           description: 'Разработка сайта для студии рекламы под ключ. UI, анимация, Fluent Design.',
           picture: 'vseprosto/preview.png',
           background: 'vseprosto/preview-bg.jpg',
-          link: ''
+          link: 'vse-prosto'
         }
       ]
     }),
@@ -103,7 +115,7 @@
     display: flex;
     justify-content: space-between;
     min-height: 100vh;
-    background-size: contain;
+    background-size: cover;
     background-position: 50vw top;
     background-repeat: no-repeat;
   }
@@ -117,9 +129,9 @@
   .case {
     position: relative;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    align-content: center;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: flex-end;
     padding: 0 70px;
     &__description {
       width: 470px;
@@ -138,13 +150,37 @@
       color: #4a4a4a;
       color: var(--charcoal-grey);
     }
+    &__link {
+      position: relative;
+      size: 50px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+      transition: .3s ease-in-out;
+      &._vdele {
+        background-image: linear-gradient(225deg, #50e3c2, #1c9bf7);
+        background-image: linear-gradient(225deg, var(--aqua-marine), var(--azure));
+      }
+      &._travel {
+      	background-image: linear-gradient(45deg, #8cc34b, rgba(140, 195, 75, 0.8));
+      	background-image: linear-gradient(45deg, var(--booger), var(--booger--80));
+      }
+      &._prosto {
+      	background-image: linear-gradient(225deg, #fbda61, #f76b1c);
+      	background-image: linear-gradient(225deg, var(--sand-yellow), var(--orange));
+      }
+    }
+    &__link-icon {
+      position: absolute;
+      @include center(xy);
+      width: 25px;
+    }
   }
   .case-title {
     width: 470px;
     font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
     font-size: 36px;
     font-weight: bold;
-    line-height: 1.39;
+    line-height: 1.4;
     &__task {}
     &__title {
       &._vdele {

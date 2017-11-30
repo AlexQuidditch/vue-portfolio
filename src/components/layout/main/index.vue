@@ -1,5 +1,7 @@
 <template lang="html">
-  <router-view></router-view>
+  <transition name="fade" mode="out-in" appear>
+    <router-view></router-view>
+  </transition>
 </template>
 
 <script>

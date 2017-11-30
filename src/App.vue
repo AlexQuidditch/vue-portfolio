@@ -73,7 +73,7 @@
 	  position: relative;
 		size: 100% auto;
 		min-height: 100%;
-		max-width: 1180px;
+		max-width: 1080px;
 		margin: 0 auto;
 	}
 

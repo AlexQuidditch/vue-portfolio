@@ -21,9 +21,11 @@
   export default {
     name: 'Page-Header',
     components: { IconMenu },
-    data: () => ({
-      isPortfolio: false
-    })
+    computed: {
+      isPortfolio() {
+        return this.$route.fullPath.includes( '/case/' );
+      }
+    }
   };
 
 </script>
@@ -31,6 +33,7 @@
 <style lang="scss">
 
   .header {
+    z-index: 999;
     position: absolute;
     top: 0; left: 0;
     width: 100%;
@@ -38,6 +41,7 @@
     .container {
       display: flex;
       justify-content: space-between;
+      transition: padding-right 1s ease-in-out;
       &._half {
         padding-right: (1180px / 2 + 64px );
       }
