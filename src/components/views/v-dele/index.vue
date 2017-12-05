@@ -48,7 +48,7 @@
 
     <section class="adaptivity">
       <div class="container">
-        <img src="/static/time/mobile-mainpage.jpg" alt="Адаптивность в подарок" class="adaptivity__picture _first" />
+        <img src="/static/time/vp-adaptive.png" alt="Адаптивность в подарок" class="adaptivity__picture _first" />
         <div class="adaptivity-column"></div>
         <div class="adaptivity-column">
           <h3 class="adaptivity__title">

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Base from '@/components/views/base/index.vue';
+import Base from '../components/views/base/index.vue';
 
 import VDele from '../components/views/v-dele/index.vue';
 import TravelApp from '../components/views/travel-app/index.vue';
