@@ -20,7 +20,8 @@
         <ul class="navigation-list">
           <li v-for="caseRoute in Cases" :key="caseRoute.route"
               class="navigation-item">
-            <router-link :to="{ name: 'Base', params: { Case : caseRoute.route } }" :active-class=" '_' + caseRoute.route + '-active' "
+            <router-link :to="{ name: 'Base', params: { Case : caseRoute.route } }"
+                         :active-class=" '_' + caseRoute.route + '-active' "
                          class="navigation-item__link">
             </router-link>
           </li>
@@ -40,7 +41,7 @@
 
 <script>
 
-  import IconArrowRight from '../../icons/arrow-right';
+  import IconArrowRight from '../../icons/arrow-right.js';
 
   export default {
     name: "Base",
@@ -92,7 +93,7 @@
     }),
     computed: {
       DisplayedIndex() {
-        return  '0' + ( this.Cases.indexOf( this.Displayed ) + 1 )
+        return '0' + ( this.Cases.indexOf( this.Displayed ) + 1 )
       }
     },
     created() {
