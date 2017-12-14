@@ -1,7 +1,10 @@
 <template lang="html">
   <div id="wrapper" class="wrapper">
-    <page-header></page-header>
+    <page-header @toggleMenu="toggleMenu"></page-header>
     <page-main></page-main>
+    <transition name="fade" mode="out-in">
+      <page-menu v-if="menuIsOpen" @toggleMenu="toggleMenu"></page-menu>
+    </transition>
   </div>
 </template>
 
@@ -9,10 +12,22 @@
 
   import PageHeader from './components/layout/header/index.vue';
   import PageMain from './components/layout/main/index.vue';
+  import PageMenu from './components/layout/menu/index.vue';
 
   export default {
     name: 'Vue-Portfolio',
-    components: { PageHeader , PageMain },
+    components: { PageHeader , PageMain , PageMenu },
+    data: () => ({ menuIsOpen: false }),
+    methods: {
+      toggleMenu() {
+        this.menuIsOpen =! this.menuIsOpen;
+        if ( this.menuIsOpen ) {
+          document.body.style.overflow = 'hidden'
+        } else {
+          document.body.style.overflow = 'auto'
+        }
+      }
+    }
   };
 
 </script>
@@ -67,7 +82,7 @@
 		width: 100%;
 		min-height: 100vh;
 		color: #4a4a4a;
-		color: var(--charcoal-grey);
+    color: var(--charcoal-grey);
 	}
 
 	.container {

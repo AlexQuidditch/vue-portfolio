@@ -6,10 +6,10 @@
         <h3 class="header__title">Сергей <span>Иванов</span></h3>
         <h4 class="header__sub-title">WEB / APP / UI DESIGN</h4>
       </div>
-      <div class="header-menu">
+      <button @click="$emit('toggleMenu')" class="header-menu">
         <span class="header-menu__text">Меню</span>
         <icon-menu class="header-menu__icon"></icon-menu>
-      </div>
+      </button>
     </div>
   </header>
 </template>
@@ -67,6 +67,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    background-color: transparent;
+    border: none;
     &__text {
       font-size: 18px;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
