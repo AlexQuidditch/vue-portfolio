@@ -52,6 +52,7 @@
     --black-two: #303030;
     --bright-light-blue: #31c5f0;
     --eggplant: #0c0824;
+    --whited: #fff;
   }
 
 	html , body {
