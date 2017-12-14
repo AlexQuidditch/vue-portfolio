@@ -71,11 +71,11 @@
       <div class="container">
         <h3 class="workflow__title">Процесс работы:</h3>
         <p class="workflow__text">
-          Второй этап - разработка интеррактивных прототипов страниц в <span>Axure RP</span> для презентации заказчику. <br /><br />
+          Второй этап - разработка интеррактивных прототипов страниц в <strong>Axure RP</strong> для презентации заказчику. <br /><br />
 
-          Когда все предложения и замечания были рассмотрены, а прототипы утверждены, пришло время разработки дизайна в <span>Sketch</span> и анимации готовых макетов в <span>After Effects</span>, чтобы заказчик мог представить проект инвесторам. <br /><br />
+          Когда все предложения и замечания были рассмотрены, а прототипы утверждены, пришло время разработки дизайна в <strong>Sketch</strong> и анимации готовых макетов в <strong>After Effects</strong>, чтобы заказчик мог представить проект инвесторам. <br /><br />
 
-          Готовые макеты было решено передать верстальщику через <span>Zeplin</span>. <br />
+          Готовые макеты было решено передать верстальщику через <strong>Zeplin</strong>. <br />
           На данный момент проект в процессе верстки.
         </p>
         <ul class="workflow-list">
@@ -90,14 +90,62 @@
       </div>
     </section>
 
+    <section class="review">
+      <span class="review__back">TYPOGRAPHY</span>
+      <div class="container">
+        <div class="review-column">
+          <h3 class="review__title">Шрифты и цвет</h3>
+          <p class="review__text">
+            В проекте использована цветовая гамма 
+            главного инвестора проекта "АК БАРС БАНК"
+            и единая шрифтовая гарнитура Lato для
+            заголовков и текста.
+          </p>
+        </div>
+        <div class="review-column">
+          <ul class="review-list">
+            <li class="review-list-item _big">
+              <p class="review-list-item__title">HEADERS</p>
+              <span class="review-list-item__content">H1</span>
+              <p class="review-list-item__description">Lato Bold</p>
+            </li>
+            <li class="review-list-item _big">
+              <p class="review-list-item__title" style="font-family:'Lato-light'">TEXT</p>
+              <span class="review-list-item__content" style="font-family:'Lato-light';font-weight:300">Aa</span>
+              <p class="review-list-item__description">Lato Light</p>
+            </li>
+            <li class="review-list-item _009D2F">
+              <p class="review-list-item__description">009D2F</p>
+            </li>
+            <li class="review-list-item _D0021B">
+              <p class="review-list-item__description">D0021B</p>
+            </li>
+            <li class="review-list-item _small _4A4A4A">
+              <p class="review-list-item__description">4A4A4A</p>
+            </li>
+            <li class="review-list-item _small _F0F4F7">
+              <p class="review-list-item__description">F0F4F7</p>
+            </li>
+            <li class="review-list-item _small _FFFFFF">
+              <p class="review-list-item__description">FFFFFF</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <bottom-navigation></bottom-navigation>
+
   </main>
 </template>
 
-<!-- <script src="./script.js"> -->
 <script>
+
+  import BottomNavigation from '../../layout/bottom-nav/index.vue';
 
   export default {
     name: "V-Dele",
+    components: { BottomNavigation },
     data: () => ({
       Apps: [
         {

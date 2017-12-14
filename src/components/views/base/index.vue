@@ -44,7 +44,7 @@
   import IconArrowRight from '../../icons/arrow-right.js';
 
   export default {
-    name: "Base",
+    name: "PageBase",
     components: { IconArrowRight },
     props: {
       'Case': {
