@@ -1,12 +1,17 @@
 <template lang="html">
   <nav class="pg-menu">
     <ul class="pg-menu-list">
-      <li class="pg-menu-list__item">
-        <router-link :to="{ name: '' , params: {} }"
+      <li v-for="caseItem in Cases" class="pg-menu-list__item">
+        <router-link :to="{ name: caseItem.route }"
                      class="pg-menu-list__item-link">
-          dqwd
+          {{ caseItem.title }}
         </router-link>
       </li>
+      <!-- <li class="pg-menu-list__item">
+        <router-link :to="{ name:  }"
+                     class="pg-menu-list__item-link">
+        </router-link>
+      </li> -->
       <li class="pg-menu-list__item">
         <button @click="$emit('toggleMenu')" class="pg-menu-list__item-button">Закрыть</button>
       </li>
@@ -17,7 +22,30 @@
 <script>
 
   export default {
-    name: 'Page-Menu'
+    name: 'Page-Menu',
+    data: () => ({
+      Cases: [
+        {
+          title: 'В Деле',
+          route: 'VDele'
+        },
+        {
+          title: 'Travel App',
+          route: 'TravelApp'
+        },
+        {
+          title: 'Всё Просто',
+          route: 'VseProsto'
+        }
+      ]
+    }),
+    watch: {
+      '$route' ( to , from ) {
+        setTimeout(() => {
+          this.$emit('toggleMenu')
+        }, 450);
+      }
+    }
   };
 
 </script>
@@ -30,14 +58,32 @@
     z-index: 999;
     position: fixed;
     top: 0; left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(241deg, #50e3c2, #24a7ef 99%, #1c9bf7);
     background-image: linear-gradient(241deg, var(--aqua-marine), #24a7ef 99%, var(--azure));
     .pg-menu-list {
-      &__item {}
-      &__item-link {}
-      &__item-button {}
+      width: 80%;
+      &__item {
+        margin: 3rem 0;
+        text-align: center;
+      }
+      &__item-link {
+        font-size: 3rem;
+        color: #424242;
+        color: var(--charcoal-grey);
+        &:hover {
+          text-decoration: underline !important
+        }
+      }
+      &__item-button {
+        font-size: 3rem;
+        background-color: transparent;
+        border: none
+      }
     }
   }
 

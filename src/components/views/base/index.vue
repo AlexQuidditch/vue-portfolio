@@ -1,21 +1,23 @@
 <template lang="html">
   <main id="main" class="main">
     <div class="case">
-      <h1 class="case-title">
-        <span class="case-title__task">{{ Displayed.task }}</span>
-        <br />
-        <span :class=" '_' + Case"
-              class="case-title__title">
-          {{ Displayed.title }}
-        </span>
-      </h1>
-      <p class="case__description">{{ Displayed.description }}</p>
-      <h4 class="case__current">{{ DisplayedIndex }}</h4>
-      <router-link :to="{ path: '/case/' + Displayed.link }"
-                   :class=" '_' + Case"
-                   class="case__link">
-        <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
-      </router-link>
+      <div class="case-container">
+        <h1 class="case-title">
+          <span class="case-title__task">{{ Displayed.task }}</span>
+          <br />
+          <span :class=" '_' + Case"
+                class="case-title__title">
+            {{ Displayed.title }}
+          </span>
+        </h1>
+        <p class="case__description">{{ Displayed.description }}</p>
+        <h4 class="case__current">{{ DisplayedIndex }}</h4>
+        <router-link :to="{ path: '/case/' + Displayed.link }"
+                    :class=" '_' + Case"
+                    class="case__link">
+          <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
+        </router-link>
+      </div>
       <nav class="case-navigation">
         <ul class="navigation-list">
           <li v-for="caseRoute in Cases" :key="caseRoute.route"
@@ -28,10 +30,9 @@
         </ul>
       </nav>
     </div>
-    <transition name="fade" mode="out-in">
-      <div :class=" '_' + Case" :key="Displayed.background"
-           :style="{ backgroundImage: 'url(/static/' + Displayed.background + ')' }"
-           class="preview">
+    <transition name="fade-long" mode="out-in">
+      <div :class=" '_' + Case" :key="Displayed.background" class="preview">
+        <img :src=" '/static/' + Displayed.background" class="preview__background" />
         <img :src=" '/static/' + Displayed.picture " :alt="Displayed.title"
              class="preview__picture" />
       </div>
@@ -128,12 +129,19 @@
   }
 
   .case {
+    z-index: 100;
     position: relative;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-content: flex-end;
+    align-items: flex-end;
     padding: 0 70px;
+    background-color: #fff;
+    background-color: var(--whited);
+    .case-container {
+      max-width: 470px;
+    }
     &__description {
       width: 470px;
       font-size: 18px;
@@ -241,6 +249,7 @@
   }
 
   .preview {
+    z-index: 10;
     display: flex;
     align-items: center;
     &._vdele {
@@ -254,6 +263,11 @@
       background-image: linear-gradient(41deg, var(--black), rgba(255, 255, 255, 0.75));
     }
     &._prosto {}
+    &__background {
+      z-index: -10;
+      position: absolute;
+      top: 0; right: 0;
+    }
     &__picture {
       width: 100%;
       object-fit: contain;

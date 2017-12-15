@@ -34,7 +34,6 @@
   }
   &-enter-active,
   &-leave-active {
-    position: absolute;
     transition:
       opacity .75s ease-in-out,
       transform .75s ease-in-out
