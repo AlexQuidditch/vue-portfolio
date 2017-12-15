@@ -23,7 +23,9 @@
     components: { IconMenu },
     computed: {
       isPortfolio() {
-        return this.$route.fullPath.includes( '/case/' );
+        const isCase = this.$route.fullPath.includes( '/case/' );
+        const isAbout = this.$route.name == 'About';
+        return ( isCase || isAbout );
       }
     }
   };

@@ -267,6 +267,7 @@
       z-index: -10;
       position: absolute;
       top: 0; right: 0;
+      max-height: 100vh
     }
     &__picture {
       width: 100%;

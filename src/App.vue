@@ -90,8 +90,15 @@
 		size: 100% auto;
 		min-height: 100%;
 		max-width: 1080px;
-		margin: 0 auto;
-	}
+    margin: 0 auto;
+    @include MQ(Pp) {
+      padding: 0 25px;
+    }
+  }
+  
+  .main._column {
+    flex-flow: column
+  }
 
 	button {
 		cursor: pointer;

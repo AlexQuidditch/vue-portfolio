@@ -6,6 +6,10 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+import Resource from 'vue-resource';
+
+Vue.use(Resource);
+
 Vue.config.productionTip = false;
 Vue.config.performance = true;
 
