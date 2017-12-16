@@ -30,8 +30,8 @@
         </ul>
       </nav>
     </div>
-    <transition name="fade-long" mode="out-in">
-      <div :class=" '_' + Case" :key="Displayed.background" class="preview">
+    <transition name="fade" mode="out-in">
+      <div :key="Displayed.background" class="preview">
         <img :src=" '/static/' + Displayed.background" class="preview__background" />
         <img :src=" '/static/' + Displayed.picture " :alt="Displayed.title"
              class="preview__picture" />
@@ -69,7 +69,7 @@
           title: '"Время Пришло"',
           description: 'UX/UI, разработка структуры, взаимодействия между пользователями, прототипирование, анимация.',
           picture: 'time/preview.png',
-          background: 'time/bg.jpg',
+          background: 'time/time.jpg',
           link: 'v-dele'
         },
         {
@@ -161,6 +161,7 @@
     }
     &__link {
       position: relative;
+      display: block;
       size: 50px;
       border-radius: 50%;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
