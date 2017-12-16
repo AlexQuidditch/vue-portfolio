@@ -1,6 +1,6 @@
 <template lang="html">
   <header class="header">
-    <div :class="{ '_half' : !isPortfolio }"
+    <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp }"
          class="container">
       <div class="header-container">
         <h3 class="header__title">Сергей <span>Иванов</span></h3>
@@ -22,9 +22,12 @@
     name: 'Page-Header',
     components: { IconMenu },
     computed: {
-      isPortfolio() {
+      isTravelApp () {
+        return this.$route.name === 'TravelApp';
+      },
+      isPortfolio () {
         const isCase = this.$route.fullPath.includes( '/case/' );
-        const isAbout = this.$route.name == 'About';
+        const isAbout = this.$route.name === 'About';
         return ( isCase || isAbout );
       }
     }
@@ -45,7 +48,13 @@
       justify-content: space-between;
       transition: padding-right 1s ease-in-out;
       &._half {
-        padding-right: (1180px / 2 + 64px );
+        padding-right: ( 1180px / 2 + 64px );
+      }
+      &._contrast * {
+        color: #fff;
+        color: var(--whited);
+        fill: #fff;
+        fill: var(--whited)
       }
     }
     &__title {
@@ -53,6 +62,7 @@
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       color: #4a4a4a;
       color: var(--charcoal-grey);
+      transition: color .3s ease-in-out;
       span {
         font-family: 'Panton-Regular', Arial, Helvetica, sans-serif;
       }
@@ -62,6 +72,7 @@
       line-height: 1.11;
       color: #4a4a4a;
       color: var(--charcoal-grey);
+      transition: color .3s ease-in-out;
     }
   }
 
@@ -77,12 +88,14 @@
       line-height: 48px;
       color: #4a4a4a;
       color: var(--charcoal-grey);
+      transition: color .3s ease-in-out;
     }
     &__icon {
       width: 50px;
       margin: 0 0 0 15px;
       fill: #4a4a4a;
       fill: var(--charcoal-grey);
+      transition: fill .3s ease-in-out;
     }
   }
 
