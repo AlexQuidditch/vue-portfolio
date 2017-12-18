@@ -23,7 +23,7 @@
     name: 'Bottom-Navigation',
     components: { IconScrollTop , IconStepBack },
     methods: {
-      scrollTop() {
+      scrollTop () {
         window.scroll({ top: 0, behavior: 'smooth' })
       }
     }
@@ -33,12 +33,15 @@
 
 <style lang="scss">
 
-  @import "../../../stylesheets/partials/_mixins.scss";
+  @import "../../../stylesheets/partials/_layout.scss";
 
   .bottom-nav {
     position: absolute;
     bottom: 90px; left: 0;
     width: 100%;
+    @include MQ(Pp) {
+      bottom: 25px;
+    }
     .container {
       display: flex;
       justify-content: space-between;
@@ -59,6 +62,9 @@
         font-weight: bold;
         color: #202020;
         color: var(--black);
+        @include MQ(Pp) {
+          display: none;
+        }
       }
     }
   }
