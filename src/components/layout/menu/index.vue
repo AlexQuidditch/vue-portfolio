@@ -66,6 +66,7 @@
 <style lang="scss">
 
   @import "../../../stylesheets/partials/_mixins.scss";
+  @import "../../../stylesheets/partials/_layout.scss";
   
   .pg-menu {
     z-index: 999;
@@ -83,6 +84,9 @@
       &__item {
         margin: 3rem 0;
         text-align: center;
+        @include MQ(Pp) {
+          margin: 1.25rem 0;
+        }
       }
       &__item-link {
         font-size: 3rem;
@@ -98,6 +102,9 @@
             0 2px 2px rgba(#ff144b, 0.14),
             0 1px 5px rgba(#ff144b, 0.12),
             0 3px 1px rgba(#ff144b, 0.2);
+        }
+        @include MQ(Pp) {
+          font-size: 1.75rem;
         }
       }
       &__item-button {
