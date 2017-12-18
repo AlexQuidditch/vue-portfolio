@@ -37,12 +37,20 @@
 
 <style lang="scss">
 
+  @import "../../../stylesheets/partials/_layout.scss";
+
   .header {
     z-index: 999;
     position: absolute;
     top: 0; left: 0;
     width: 100%;
     padding-top: 50px;
+    @include MQ(Pp) {
+      padding-top: 25px;
+    }
+    @include MQ(Tp) {
+      padding-top: 25px;
+    }
     .container {
       display: flex;
       justify-content: space-between;
@@ -56,6 +64,17 @@
         fill: #fff;
         fill: var(--whited)
       }
+      @include MQ(Pp) {
+        &._half {
+          padding-right: 25px;
+        }
+      }
+      @include MQ(Tp) {
+        padding: 0 25px;
+        &._half {
+          padding-right: 25px;
+        } 
+      }
     }
     &__title {
       font-size: 30px;
@@ -65,14 +84,22 @@
       transition: color .3s ease-in-out;
       span {
         font-family: 'Panton-Regular', Arial, Helvetica, sans-serif;
+        font-weight: 400;
+      }
+      @include MQ(Pp) {
+        font-size: 24px;
       }
     }
     &__sub-title {
       font-size: 18px;
+      font-weight: 300;
       line-height: 1.11;
       color: #4a4a4a;
       color: var(--charcoal-grey);
       transition: color .3s ease-in-out;
+      @include MQ(Pp) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -80,19 +107,24 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    margin: 0;
+    padding: 0;
     background-color: transparent;
     border: none;
     &__text {
+      margin: 0 15px 0 0;
       font-size: 18px;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       line-height: 48px;
       color: #4a4a4a;
       color: var(--charcoal-grey);
       transition: color .3s ease-in-out;
+      @include MQ(Pp) {
+        display: none;
+      }
     }
     &__icon {
       width: 50px;
-      margin: 0 0 0 15px;
       fill: #4a4a4a;
       fill: var(--charcoal-grey);
       transition: fill .3s ease-in-out;
