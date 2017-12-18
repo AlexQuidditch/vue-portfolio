@@ -18,8 +18,19 @@
     name: 'Vue-Portfolio',
     components: { PageHeader , PageMain , PageMenu },
     data: () => ({ menuIsOpen: false }),
+    mounted () {
+      this.$nextTick( () => {
+        document.addEventListener( 'keyup' , event => {
+          event.preventDefault;
+          if ( event.keyCode === 27 && this.menuIsOpen === true ) {
+            this.menuIsOpen =! this.menuIsOpen;
+            document.body.style.overflow = 'auto'
+          }
+        })
+      })
+    },
     methods: {
-      toggleMenu() {
+      toggleMenu () {
         this.menuIsOpen =! this.menuIsOpen;
         if ( this.menuIsOpen ) {
           document.body.style.overflow = 'hidden'
