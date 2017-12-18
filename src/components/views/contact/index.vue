@@ -2,6 +2,7 @@
   <main id="main" class="main">
     <section class="contact">
       <div class="contact-circle"></div>
+
       <div class="container">
         <div class="contact-column">
           <h1 class="contact__title">Напишите мне</h1>
@@ -13,6 +14,7 @@
           </h4>
           <a href="mailto:siivanov@yandex.ru" class="contact__mail">siivanov@yandex.ru</a>
         </div>
+
         <div class="contact-column">
           <form @submit.prevent="submit" class="contact-form">
             <h3 class="contact-form__title">Не стесняйтесь!</h3>
@@ -38,6 +40,7 @@
             <button class="contact-form__submit">Отправить</button>
           </form>
         </div>
+
       </div>
     </section>
   </main>
@@ -84,12 +87,17 @@
       padding-top: 200px;
       @include MQ(Pp) {
         flex-flow: column;
+        padding-top: 150px;
       }
     }
     .contact-column {
       flex: 1 1 50%;
       min-width: 45%;
       max-width: 50%;
+      @include MQ(Pp) {
+        flex-basis: 100%;
+        max-width: initial;
+      }
     }
     &__title {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
@@ -98,6 +106,9 @@
       letter-spacing: 1px;
       color: #404552;
       text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      @include MQ(Pp) {
+        font-size: 12vw;
+      }
     }
     &__sub-title {
       font-family: 'Panton-light', Arial, Helvetica, sans-serif;
@@ -111,6 +122,10 @@
       font-size: 24px;
       line-height: 1.67;
       color: #404552;
+      @include MQ(Pp) {
+        margin-top: 30px;
+        font-size: 6vw;
+      }
     }
     &__mail {
       font-family: 'Panton-light', Arial, Helvetica, sans-serif;
@@ -142,6 +157,10 @@
     background-color: #fff;
     background-color: var(--whited);
     box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.3);
+    @include MQ(Pp) {
+      padding: 20px;
+      margin-top: 30px;
+    }
     &__title {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 36px;
@@ -149,12 +168,19 @@
       line-height: 1;
       text-align: center;
       color: #404552;
+      @include MQ(Pp) {
+        font-size: 8vw;
+      }
     }
     &__label {
       position: relative;
       display: block;
       margin-top: 2.25rem;
       margin-bottom: 2.25rem;
+      @include MQ(Pp) {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
     }
     &__input {
       display: block;
@@ -170,6 +196,9 @@
       border-color: transparent;
       box-shadow: none;
       resize: none;
+      @include MQ(Pp) {
+        font-size: 0.8rem;
+      }
       &::placeholder {
         opacity: 0;
       }
@@ -181,6 +210,9 @@
           color: gray;
           top: -1rem;
           left: 0;
+          @include MQ(Pp) {
+            font-size: 0.75rem;
+          }
         }
       }
       &:focus {
@@ -193,7 +225,6 @@
           left: 0;
         }
       }
-      
     }
     &__placeholder {
       position: absolute;
@@ -206,6 +237,9 @@
       font-size: 1rem;
       font-weight: normal;
       transition: all 0.28s ease;
+      @include MQ(Pp) {
+        font-size: 0.9rem;
+      }
     }
     &__bar {
       position: relative;
@@ -235,6 +269,10 @@
       background-color: #ff144b;
       background-color: var(--neon-red);
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+      @include MQ(Pp) {
+        width: 100%;
+        margin-top: 0;
+      }
     }
   }
 
