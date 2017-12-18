@@ -38,12 +38,12 @@ export default new Router({
       component: VseProsto
     },
     {
-      path: '/about',
+      path: '/about/me',
       name: 'About',
       component: About
     },
     {
-      path: '/contact',
+      path: '/contact/me',
       name: 'Contact',
       component: Contact
     },
