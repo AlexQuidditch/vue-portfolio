@@ -1,4 +1,5 @@
 @import "../../../stylesheets/partials/_mixins.scss";
+@import "../../../stylesheets/partials/_layout.scss";
 
 .main.travel {
   display: block;
@@ -14,19 +15,12 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-  	&__video {
-      position: absolute;
-      top: 180px;
-      @include center(x);
-      size: 80% 90%;
-    	object-fit: contain;
-      background-color: #fff;
-      background-color: var(--white);
-    	box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.3);
-    }
   }
   .description {
     padding: 260px 0 30px 0;
+    @include MQ(Pp) {
+      padding-top: 60px;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -40,18 +34,28 @@
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 64px;
       font-weight: 300;
+      @include MQ(Pp) {
+        font-size: 12vw;
+      }
     }
     &__text {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
     	font-size: 24px;
       font-weight: bold;
     	line-height: 1.5;
+    	@include MQ(Pp) {
+    	  font-size: 5.5vw;
+    	}
     }
     &__task {
       margin-top: 12px;
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 48px;
     	font-weight: 300;
+    	@include MQ(Pp) {
+    	  margin-top: 0;
+    	  font-size: 12vw;
+    	}
     }
     &__task-detail {
       margin-top: 30px;
@@ -59,33 +63,54 @@
     	font-size: 24px;
     	font-weight: 300;
   	  line-height: 1.5;
+  	  @include MQ(Pp) {
+  	    margin-top: 15px;
+  	    font-size: 5.5vw;
+  	  }
     }
   }
   .first-step {
     padding-bottom: 280px;
+    @include MQ(Pp) {
+      padding-bottom: 30px;
+    }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 48px;
     	font-weight: 300;
+    	@include MQ(Pp) {
+    	  font-size: 12vw;
+    	}
     }
     &__text {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
       font-size: 24px;
       font-weight: 300;
       line-height: 1.5;
+      @include MQ(Pp) {
+        margin-top: 15px;
+        font-size: 5.5vw;
+      }
     }
   }
   .travel-image {
     height: 540px;
+    padding: 90px 0;
     background-image: url('/static/travel/bg0.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    @include MQ(Pp) {
+      height: auto;
+    }
     &__picture {
       position: absolute;
       width: 100%;
       top: -110px;
       @include MDShadow-5;
+      @include MQ(Pp) {
+        position: static;
+      }
     }
   }
   .adaptivity {
@@ -95,40 +120,43 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    @include MQ(Pp) {
+      height: auto;
+      padding: 50px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-content: flex-start;
       align-items: flex-start;
-    }
-    .adaptivity-column {
-      width: 422px;
-    }
-    &__title {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 48px;
-    	font-weight: 300;
-      line-height: 1;
-    }
-    &__text {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-      font-size: 24px;
-      font-weight: 300;
-      line-height: 1.5;
+      @include MQ(Pp) {
+        justify-content: center;
+      }
     }
     &__picture {
       position: absolute;
       top: -200px; right: 0;
       height: 655px;
+      @include MQ(Pp) {
+        position: static;
+        height: 400px;
+        object-fit: contain
+      }
     }
   }
   .workflow {
     padding: 120px 0;
+    @include MQ(Pp) {
+      padding: 30px 0;
+    }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
       font-size: 48px;
       font-weight: 300;
+      @include MQ(Pp) {
+        font-size: 11vw;
+      }
     }
     &__text {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -139,15 +167,27 @@
         font-family: 'Panton-Regular', Arial, Helvetica, sans-serif;
       	font-weight: normal;
       }
+      @include MQ(Pp) {
+        font-size: 5.5vw;
+      }
     }
     .workflow-list {
       display: flex;
       flex-wrap: wrap;
+      @include MQ(Pp) {
+        justify-content: space-around;
+      }
     }
     .workflow-item {
       margin-right: 25px;
+      @include MQ(Pp) {
+        margin: 0;
+      }
       &__icon {
         width: 50px;
+        @include MQ(Pp) {
+          width: 20vw;
+        }
       }
     }
     &__picture {
@@ -156,6 +196,9 @@
   }
   .concept {
     padding: 120px 0;
+    @include MQ(Pp) {
+      padding: 30px 0;
+    }
     &__title {
       margin-bottom: 20px;
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -164,6 +207,9 @@
       text-align: center;
       color: #202020;
       color: var(--black);
+      @include MQ(Pp) {
+        font-size: 11vw;
+      }
     }
     &__text {
       width: 80%;
@@ -175,6 +221,10 @@
       text-align: center;
       color: #202020;
       color: var(--black);
+      @include MQ(Pp) {
+        width: 100%;
+        font-size: 5.5vw;
+      }
     }
   }
   .travel-preview {
@@ -182,24 +232,40 @@
     padding: 140px 0;
     background-image: linear-gradient(to bottom, #202020, #303030);
     background-image: linear-gradient(to bottom, var(--black), var(--black-two));
+    @include MQ(Pp) {
+      padding: 60px 0;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
       &._right {
         justify-content: flex-end;
+        @include MQ(Pp) {
+          justify-content: initial;
+        }
       }
       &._left {
         margin-top: 260px;
+        @include MQ(Pp) {
+          margin-top: 60px;
+        }
       }
     }
     .preview-column {
       max-width: 500px;
+      @include MQ(Pp) {
+        max-width: initial
+      }
       &__title {
         font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
         font-size: 48px;
         font-weight: 300;
         text-align: left;
         color: #fff;
+        @include MQ(Pp) {
+          margin-top: 0;
+          font-size: 12vw;
+        }
       }
       &__content {
         font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -208,16 +274,28 @@
         line-height: 1.5;
         text-align: left;
         color: #fff;
+        @include MQ(Pp) {
+          font-size: 5.5vw;
+        }
       }
       &__picture {
         position: absolute;
         top: 0;
+        @include MQ(Pp) {
+          position: static;
+        }
         &._right {
           width: 680px;
           right: -150px;
+          @include MQ(Pp) {
+            width: 100%;
+          }
         }
         &._left {
           left: -400px;
+          @include MQ(Pp) {
+            width: 100%;
+          }
         }
       }
     }
@@ -226,6 +304,11 @@
     position: relative;
     height: 810px;
     padding-top: 150px;
+    @include MQ(Pp) {
+      height: auto;
+      padding-top: 30px;
+      padding-bottom: 100px;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -245,27 +328,44 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      @include MQ(Pp) {
+        font-size: 25vw
+      }
     }
     .review-column {
       flex: 1 1 50%;
       max-width: 520px;
+      @include MQ(Pp) {
+        max-width: initial;
+        flex-basis: 100%
+      }
     }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
       font-size: 48px;
       font-weight: 300;
       line-height: 1;
+      @include MQ(Pp) {
+        font-size: 12vw;
+      }
     }
     &__text {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
       font-size: 24px;
       font-weight: 300;
       line-height: 1.5;
+      @include MQ(Pp) {
+        margin-top: 24px;
+        font-size: 5.5vw;
+      }
     }
     .review-list {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
+      @include MQ(Pp) {
+        margin-top: 30px;
+      }
     }
     .review-list-item {
       width: 240px;
@@ -275,6 +375,10 @@
       background-color: #fff;
       background-color: var(--whited);
       box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+      @include MQ(Pp) {
+        width: 100%;
+        margin-bottom: 20px;
+      }
       &._big {
         position: relative;
         height: 160px;
@@ -282,6 +386,9 @@
         text-align: initial;
         line-height: initial;
         margin-bottom: 90px;
+        @include MQ(Pp) {
+          margin-bottom: 60px;
+        }
         .review-list-item__description {
           position: absolute;
           bottom: -40px; left: 0;
@@ -297,6 +404,11 @@
       &._small {
         width: 147px;
         margin-top: 50px;
+        @include MQ(Pp) {
+          width: auto;
+          margin-top: 0;
+          flex: 1 1 50%;
+        }
       }
       &__title {
         margin: 0;
