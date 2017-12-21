@@ -79,6 +79,7 @@
     --bright-light-blue: #31c5f0;
     --eggplant: #0c0824;
     --whited: #fff;
+    --charcoal-grey-two: #404552;
   }
 
 	html , body {
