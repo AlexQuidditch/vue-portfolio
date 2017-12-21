@@ -53,6 +53,8 @@
       border: none;
       &__icon {
         width: 45px;
+        fill: #404552;
+        fill: var(--charcoal-grey-two);
       }
       &__text {
         margin-left: 18px;
@@ -60,8 +62,8 @@
         font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
         font-size: 18px;
         font-weight: bold;
-        color: #202020;
-        color: var(--black);
+        color: #404552;
+        color: var(--charcoal-grey-two);
         @include MQ(Pp) {
           display: none;
         }

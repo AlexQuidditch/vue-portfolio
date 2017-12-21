@@ -1,9 +1,21 @@
 <template lang="html">
   <main id="main" class="main v-dele">
+    
     <section class="intro">
-
-      <div class="intro__video"></div>
-
+      <div class="container">
+        <div class="intro-column">
+          <h1 class="intro__title">
+            Разработка интерфейса 
+            студенческой фриланс-биржи
+            "Время Пришло"
+          </h1>
+          <h2 class="intro__sub-title">
+            UX/UI, разработка структуры, взаимодействия
+            между пользователями, прототипирование, анимация.
+          </h2>
+        </div>
+        <div class="intro__video"></div>
+      </div>
     </section>
 
     <section class="description">
