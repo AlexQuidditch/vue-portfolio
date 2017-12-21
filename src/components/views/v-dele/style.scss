@@ -9,16 +9,36 @@
   color: #202020;
   color: var(--black);
   .intro {
-    position: relative;
-    size: 100% 85vh;
+    size: 100% 90vh;
+    padding-top: 25vh;
   	opacity: 0.9;
   	background-image: linear-gradient(241deg, #50e3c2, #24a7ef 99%, #1c9bf7);
-  	background-image: linear-gradient(241deg, var(--aqua-marine), #24a7ef 99%, var(--azure));
+    background-image: linear-gradient(241deg, var(--aqua-marine), #24a7ef 99%, var(--azure));
+    .container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+    .intro-column {
+      flex: 1 1 48%;
+      max-width: 48%
+    }
+    &__title {
+      margin-top: 50px;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.39;
+      color: #404552;
+    }
+    &__sub-title {
+      margin-top: 20px;
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.56;
+      color: #404552;
+    }
     &__video {
-      position: absolute;
-      top: 180px;
-      @include center(x);
-      size: 80% 90%;
+      size: 48% 400px;
     	object-fit: contain;
       background-color: #fff;
       background-color: var(--white);
@@ -33,7 +53,7 @@
     }
   }
   .description {
-    padding: 260px 0 30px 0;
+    padding: 130px 0 30px 0;
     @include MQ(Pp) {
       padding-top: 60px;
     }
@@ -47,9 +67,9 @@
       max-width: 520px;
     }
     &__title {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 64px;
-      font-weight: 300;
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 800;
       @include MQ(Pp) {
         font-size: 12vw;
       }
@@ -64,9 +84,8 @@
     	}
     }
     &__task {
-      margin-top: 12px;
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 48px;
+    	font-size: 36px;
     	font-weight: 300;
     	@include MQ(Pp) {
         margin-top: 0;
@@ -74,7 +93,6 @@
     	}
     }
     &__task-detail {
-      margin-top: 30px;
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 24px;
     	font-weight: 300;
@@ -89,7 +107,7 @@
     padding-bottom: 240px;
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 48px;
+    	font-size: 36px;
     	font-weight: 300;
     	@include MQ(Pp) {
     	  font-size: 12vw;
@@ -107,10 +125,11 @@
     }
   }
   .adaptivity {
-    size: 100% auto;
+    size: 100% 1000px;
     padding: 90px 0;
     background-image: linear-gradient(235deg, #ffffff, #969696);
     @include MQ(Pp) {
+      height: auto;
       padding: 30px 0;
     }
     .container {
