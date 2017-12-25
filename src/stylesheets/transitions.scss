@@ -1,3 +1,5 @@
+@import "../stylesheets/partials/_layout.scss";
+
 .fade {
   &-enter,
   &-leave-to {
@@ -11,6 +13,30 @@
     transition:
       opacity .3s ease-in-out,
       transform .3s ease-in-out
+  }
+}
+
+.slide {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  @include MQ(Pp) {
+    &-enter {
+      transform: translateX(-10%)
+    }
+    &-leave-to {
+      transform: translateX(10%)
+    }
+  }
+  &-move {
+    transition: transform 1s ease-in-out;
+  }
+  &-enter-active,
+  &-leave-active {
+    transition:
+      opacity .5s ease-in-out,
+      transform .5s ease-in-out
   }
 }
 
