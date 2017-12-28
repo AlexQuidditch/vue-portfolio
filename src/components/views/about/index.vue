@@ -4,15 +4,14 @@
       <div class="about-circle"></div>
       <div class="container">
         <div class="about-column">
-          
-        </div>
-        <div class="about-column">
-          <h1 class="about__title">Напишите мне</h1>
-          <h3 class="about__sub-title">и мы детально обсудим Ваше предложение</h3>
+          <h3 class="about__pre-title">Вкратце обо мне:</h3>
           <h4 class="about__message">
             Привет! Я занимаюсь дизайном сайтов, веб-сервисов и приложений, делая их привлекательнее для Ваших клиентов. Популизирую положительный имидж компании, увеличиваю прибыль.
           </h4>
-          <a href="mailto:siivanov@yandex.ru" class="about__mail">siivanov@yandex.ru</a>
+        </div>
+        <div class="about-column">
+          <h1 class="about__title">UX/UI</h1>
+          <h2 class="about__sub-title">DESIGN</h2>
         </div>
       </div>
     </section>
@@ -54,6 +53,43 @@
                  class="workflow-item__icon" />
           </li>
         </ul>
+        <h4 class="apps__title _add">Дополнительное ПО</h4>
+        <ul class="workflow-list">
+          <li v-for="appItem in addApps" :key="appItem.name"
+              class="workflow-item">
+            <img :src=" '/static/apps/' + appItem.icon " :alt="appItem.name"
+                 class="workflow-item__icon" />
+          </li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="contacts">
+      <div class="container">
+        <h3 class="contacts__title">Напишите мне</h3>
+        <form @submit.prevent="submit" class="about-form">
+          <h4 class="about-form__title">Мы детально обсудим Ваше предложение, либо просто дружелюбно пообщаемся.</h4>
+          <label class="about-form__label">
+            <input v-model="Form.name"
+                    type="text" required class="about-form__input" placeholder="Ваше имя*" />
+            <span class="about-form__placeholder">Ваше имя*</span>
+            <i class="about-form__bar"></i>
+          </label>
+          <label class="about-form__label">
+            <input v-model="Form.mail" type="email"
+                    required class="about-form__input" placeholder="Ваш E-mail*" />
+            <span class="about-form__placeholder">Ваш E-mail*</span>
+            <i class="about-form__bar"></i>
+          </label>
+          <label class="about-form__label">
+            <textarea v-model="Form.message"
+                      type="text" required class="about-form__input" rows="2"
+                      placeholder="Расскажите немного о Вашем предложении"></textarea>
+            <span class="about-form__placeholder">Расскажите немного о Вашем предложении</span>
+            <i class="about-form__bar"></i>
+          </label>
+          <button class="about-form__submit">Отправить</button>
+        </form>
       </div>
     </section>
 
@@ -65,14 +101,23 @@
   export default {
     name: "About",
     data: () => ({
+      Form: {
+        name: '',
+        mail: '',
+        message: '',
+      },
       mainApps: [
         {
-          name: 'MindMeister',
-          icon: 'mindmeister.png'
+          name: 'muse',
+          icon: 'muse.png'
         },
         {
           name: 'Axure RP',
           icon: 'axure-rp.png'
+        },
+        {
+          name: 'Photoshop CC',
+          icon: 'photoshop-cc.png'
         },
         {
           name: 'Sketch',
@@ -83,17 +128,38 @@
           icon: 'after-effects-cc.png'
         },
         {
-          name: 'Zeplin',
-          icon: 'zeplin.png'
+          name: 'illustrator-cc',
+          icon: 'illustrator-cc.png'
         }
       ],
       addApps: [
         {
+          name: 'C4D',
+          icon: 'C4D.png'
+        },
+        {
+          name: 'marvel',
+          icon: 'marvel.png'
+        },
+        {
+          name: 'final_cut',
+          icon: 'final_cut.png'
+        },
+        {
           name: 'MindMeister',
           icon: 'mindmeister.png'
+        },
+        {
+          name: 'zeplin',
+          icon: 'zeplin.png'
         }
       ]
-    })
+    }),
+    methods: {
+      submit (event) {
+        console.log(event);
+      }
+    }
   };
 
 </script>
@@ -106,10 +172,14 @@
   .about {
     width: 100%;
     height: 100vh;
+    @include MQ(Pp) {
+      height: auto;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
+      width: 60%;
       padding-top: 200px;
       @include MQ(Pp) {
         flex-flow: column;
@@ -119,27 +189,63 @@
       flex: 1 1 50%;
       min-width: 45%;
       max-width: 50%;
+      @include MQ(Pp) {
+        flex-basis: 100%;
+        max-width: initial;
+      }
     }
     &__title {
+      text-align: right;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 72px;
       font-weight: 800;
+      line-height: 1;
       letter-spacing: 1px;
       color: #404552;
       text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      @include MQ(Pp) {
+        display: none;
+        font-size: 12vw;
+      }
+    }
+    &__pre-title {
+      margin-top: 120px;
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: #404552;
+      @include MQ(Pp) {
+        display: none;
+        font-size: 12vw;
+      }
     }
     &__sub-title {
-      font-family: 'Panton-light', Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      text-align: left;
+      text-align: right;
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 42px;
+      line-height: 1;
       color: #404552;
+      color: var(--charcoal-grey-two);
+      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+      @include MQ(Pp) {
+        display: none;
+      }
     }
     &__message {
-      margin-top: 120px;
+      max-width: 395px;
+      margin-top: 20px;
       font-family: 'Panton-light', Arial, Helvetica, sans-serif;
-      font-size: 24px;
-      line-height: 1.67;
+      font-size: 18px;
+      line-height: 1.56;
       color: #404552;
+      color: var(--charcoal-grey-two);
+      @include MQ(Pp) {
+        // margin-top: 30px;
+        margin-top: 0;
+        font-size: 6vw;
+      }
     }
     &__mail {
       font-family: 'Panton-light', Arial, Helvetica, sans-serif;
@@ -159,25 +265,135 @@
     height: 700px;
     background-image: linear-gradient(125deg, #7bcbfb, #1c9bf7);
     background-image: linear-gradient(125deg, #7bcbfb, var(--azure));
-    transform: translateX( -50% );
+    transform: translateX(-50%);
     border-radius: 50%
   }
 
-  .about-form {
-    position: relative;
-    width: 100%;
-    margin-top: 115px;
-    padding: 60px 80px;
-    background-color: #fff;
-    background-color: var(--whited);
-    box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.3);
+  .contacts {
+    padding: 150px 0;
+    background-color: #f5f5f5;
+    @include MQ(Pp) {
+      padding: 30px 0;
+    }
+    &__title {
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: 0.9px;
+      text-align: center;
+      color: #404552;
+      color: var(--charcoal-grey-two);
+      @include MQ(Pp) {
+        font-size: 12vw;
+      }
+    }
+  }
+
+  .skills {
+    @include MQ(Pp) {
+      margin-top: 50px;
+    }
+    &__title {
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      color: #404552;
+      @include MQ(Pp) {
+        font-size: 9vw;
+      }
+    }
+    &__description {
+      width: 65%;
+      margin: 100px auto 0 auto;
+      font-family: 'Panton-light', Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.67;
+      text-align: center;
+      color: #202020;
+      color: var(--black);
+    	@include MQ(Pp) {
+        width: 100%;
+        margin: 25px auto 0 auto;
+        font-size: 5.5vw;
+        text-align: left;
+    	}
+    }
+  }
+
+  .apps {
+    padding: 100px 0;
+    @include MQ(Pp) {
+      padding: 30px 0;
+    }
     &__title {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 36px;
       font-weight: 800;
-      line-height: 1;
+      letter-spacing: 1px;
       text-align: center;
       color: #404552;
+      color: var(--charcoal-grey-two);
+      &._add {
+        margin-top: 50px;
+        @include MQ(Pp) {
+          margin-top: 25px;
+        }
+      }
+    	@include MQ(Pp) {
+    	  font-size: 8vw;
+    	}
+    }
+
+    .workflow-list {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      width: 60%;
+      margin: 50px auto 0 auto;
+      @include MQ(Pp) {
+        width: 100%;
+        margin-top: 25px;
+      }
+    }
+    .workflow-item {
+      margin: 50px;
+      @include MQ(Pp) {
+        margin: 10px;
+      }
+      &__icon {
+        size: 100px;
+        object-fit: contain;
+        object-position: center;
+        @include MQ(Pp) {
+          size: 50px;
+        }
+      }
+    }
+  }
+
+  .about-form {
+    position: relative;
+    display: block;
+    width: 435px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    @include MQ(Pp) {
+      width: 100%;
+    }
+    &__title {
+      font-family: 'Panton-light', Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.44;
+      text-align: center;
+      color: #404552;
+      color: var(--charcoal-grey-two);
+    	@include MQ(Pp) {
+    	  font-size: 5.5vw;
+    	}
     }
     &__label {
       position: relative;
@@ -253,9 +469,12 @@
       }
     }
     &__submit {
+      display: block;
       width: 200px;
       height: 50px;
       margin-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 18px;
       text-align: center;
@@ -264,30 +483,10 @@
       background-color: #ff144b;
       background-color: var(--neon-red);
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    	@include MQ(Pp) {
+        width: 100%;
+    	}
     }
-  }
-
-  .skills {
-    &__title {
-      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
-      font-size: 64px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-align: center;
-      color: #404552;
-    }
-    &__description {
-      width: 65%;
-      margin: 100px auto 0 auto;
-      font-family: 'Panton-light', Arial, Helvetica, sans-serif;
-      font-size: 24px;
-      font-weight: 300;
-      line-height: 1.67;
-      text-align: center;
-      color: #202020;
-      color: var(--black);
-    }
-    
   }
 
 </style>
