@@ -46,9 +46,17 @@
     }
     @include MQ(Pp) {
       size: 100% 45vh;
+      &__title {
+        display: none;
+      }
+      &__sub-title {
+        display: none;
+      }
       &__video {
-        top: 45%;
+        position: absolute;
+        top: -25%; left: 50%;
         size: 85% 30vh;
+        transform: translateX(-50%)
       }
     }
   }
@@ -105,6 +113,9 @@
   }
   .first-step {
     padding-bottom: 240px;
+    @include MQ(Pp) {
+      padding-bottom: 30px;
+    }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 36px;

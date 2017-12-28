@@ -242,23 +242,33 @@
   }
 }
 
+.action-block {
+  display: none;
+  @include MQ(Pp) {
+    display: block;
+  }
+}
+
 .bottom-load {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  line-height: 30px;
-  &__icon {
-    position: absolute;
-    left: 50%;
-    size: 30px;
-    transform-origin: 0;
-    transform: rotate(90deg) translateX(-50%);
-    transition: transform .25s ease;
-    &._loading {
-      transform: rotate(0deg) translateX(-50%);
-    }
-    &._done {
-      transform: rotate(-90deg) translateX(-50%);
+  display: none;
+  @include MQ(Pp) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    line-height: 30px;
+    &__icon {
+      position: absolute;
+      left: 50%;
+      size: 30px;
+      transform-origin: 0;
+      transform: rotate(90deg) translateX(-50%);
+      transition: transform .25s ease;
+      &._loading {
+        transform: rotate(0deg) translateX(-50%);
+      }
+      &._done {
+        transform: rotate(-90deg) translateX(-50%);
+      }
     }
   }
 }
