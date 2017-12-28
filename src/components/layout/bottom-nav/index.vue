@@ -61,7 +61,6 @@
         margin-bottom: 10px;
         font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
         font-size: 18px;
-        font-weight: bold;
         color: #404552;
         color: var(--charcoal-grey-two);
         @include MQ(Pp) {
