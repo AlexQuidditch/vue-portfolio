@@ -21,7 +21,7 @@
     mounted () {
       this.$nextTick( () => {
         document.addEventListener( 'keyup' , event => {
-          event.preventDefault;
+          event.preventDefault();
           if ( event.keyCode === 27 && this.menuIsOpen === true ) {
             this.menuIsOpen =! this.menuIsOpen;
             document.body.style.overflow = 'auto'
@@ -90,6 +90,7 @@
 	}
 
 	.wrapper {
+    overflow-x: hidden;
 		position: relative;
 		width: 100%;
 		min-height: 100vh;
@@ -107,7 +108,7 @@
       padding: 0 25px;
     }
   }
-  
+
   .main._column {
     flex-flow: column
   }
