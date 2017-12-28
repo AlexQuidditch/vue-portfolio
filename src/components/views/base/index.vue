@@ -31,8 +31,8 @@
           <li v-for="caseRoute in Cases" :key="caseRoute.route"
               class="navigation-item">
             <router-link :to="{ name: 'Base', params: { Case : caseRoute.route } }"
-                          :active-class=" '_' + caseRoute.route + '-active' "
-                          class="navigation-item__link">
+                         :active-class=" '_' + caseRoute.route + '-active' "
+                         class="navigation-item__link">
             </router-link>
           </li>
         </ul>
@@ -44,7 +44,7 @@
         <div :key="Displayed.background" class="preview">
           <img :src=" '/static/' + Displayed.background" class="preview__background" />
           <img :src=" '/static/' + Displayed.picture " :alt="Displayed.title"
-              class="preview__picture" />
+               class="preview__picture" />
         </div>
       </transition>
     </main>
