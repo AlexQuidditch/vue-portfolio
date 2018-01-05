@@ -7,12 +7,6 @@
           Главная
         </router-link>
       </li>
-      <li v-for="caseItem in Cases" class="pg-menu-list__item">
-        <router-link :to="{ name: caseItem.route }"
-                     class="pg-menu-list__item-link">
-          {{ caseItem.title }}
-        </router-link>
-      </li>
       <li class="pg-menu-list__item">
         <router-link :to="{ name: 'Contact' }"
                      class="pg-menu-list__item-link">
@@ -36,27 +30,9 @@
 
   export default {
     name: 'Page-Menu',
-    data: () => ({
-      Cases: [
-        {
-          title: 'В Деле',
-          route: 'VDele'
-        },
-        {
-          title: 'Travel App',
-          route: 'TravelApp'
-        },
-        {
-          title: 'Всё Просто',
-          route: 'VseProsto'
-        }
-      ]
-    }),
     watch: {
       '$route' ( to , from ) {
-        setTimeout(() => {
-          this.$emit('toggleMenu')
-        }, 500);
+        setTimeout(() => this.$emit('toggleMenu') , 500);
       }
     }
   };
