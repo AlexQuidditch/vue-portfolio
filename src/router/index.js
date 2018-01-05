@@ -4,11 +4,11 @@ import Base from '../components/views/base/index.vue';
 
 import VDele from '../components/views/v-dele/index.vue';
 import TravelApp from '../components/views/travel-app/index.vue';
-import VseProsto from '../components/views/vse-prosto/index.vue';
+import MPU from '../components/views/mpu/index.vue';
 import About from '../components/views/about/index.vue';
 import Contact from '../components/views/contact/index.vue';
 
-Vue.use( Router );
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -33,9 +33,9 @@ export default new Router({
       component: TravelApp
     },
     {
-      path: '/case/vse-prosto',
-      name: 'VseProsto',
-      component: VseProsto
+      path: '/case/mpu',
+      name: 'MPU',
+      component: MPU
     },
     {
       path: '/about/me',
