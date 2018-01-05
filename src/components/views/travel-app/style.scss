@@ -17,7 +17,7 @@
     background-size: cover;
   }
   .description {
-    padding: 260px 0 30px 0;
+    padding: 150px 0 30px 0;
     @include MQ(Pp) {
       padding-top: 60px;
     }
@@ -106,7 +106,7 @@
     &__picture {
       position: absolute;
       width: 100%;
-      top: -110px;
+      top: -220px;
       @include MDShadow-5;
       @include MQ(Pp) {
         position: static;
@@ -421,14 +421,7 @@
       }
       &__content {
         display: block;
-        margin: 10px 0 0;
-        text-align: center;
-        font-family: 'UniSansCaps', Arial, Helvetica, sans-serif;
-        font-size: 72px;
-        font-weight: 700;
-        line-height: 1;
-        color: #202020;
-        color: var(--black);
+        margin: 20px auto 0 auto;
       }
       &__description {
         margin: 0;
