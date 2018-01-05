@@ -1,0 +1,458 @@
+@import "../../../stylesheets/partials/_mixins.scss";
+@import "../../../stylesheets/partials/_layout.scss";
+
+.main.mpu {
+  display: block;
+}
+
+.mpu {
+  color: #202020;
+  color: var(--black);
+  .intro {
+    size: 100% 90vh;
+    background-image: url('/static/mpu/bg2(black).jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .intro-column {
+      flex: 1 1 48%;
+      max-width: 48%
+    }
+    &__title {
+      font-family: 'Panton-Bold: ;', Arial, Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.39;
+      color: #fff;
+    }
+    &__sub-title {
+      margin-top: 20px;
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.56;
+      color: #fff;
+    }
+    &__video {
+      width: 520px;
+      box-shadow: 10px 20px 30px 0 rgba(0, 0, 0, 0.4);
+    }
+    @include MQ(Pp) {
+      size: 100% 60vh;
+      &__title {
+        display: none;
+      }
+      &__sub-title {
+        display: none;
+      }
+      &__video {
+        position: absolute;
+        left: 50%;
+        size: 85% auto;
+        transform: translateX(-50%)
+      }
+    }
+  }
+  .description {
+    padding: 150px 0 30px 0;
+    @include MQ(Pp) {
+      padding-top: 60px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .description-column {
+      flex: 1 1 50%;
+      max-width: 520px;
+    }
+    &__title {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+    	font-size: 64px;
+      font-weight: 300;
+      @include MQ(Pp) {
+        font-size: 12vw;
+      }
+    }
+    &__text {
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+    	font-size: 24px;
+      font-weight: bold;
+    	line-height: 1.5;
+    	@include MQ(Pp) {
+    	  font-size: 5.5vw;
+    	}
+    }
+    &__task {
+      margin-top: 12px;
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+    	font-size: 48px;
+    	font-weight: 300;
+    	@include MQ(Pp) {
+    	  margin-top: 0;
+    	  font-size: 12vw;
+    	}
+    }
+    &__task-detail {
+      margin-top: 30px;
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+    	font-size: 24px;
+    	font-weight: 300;
+  	  line-height: 1.5;
+  	  @include MQ(Pp) {
+  	    margin-top: 15px;
+  	    font-size: 5.5vw;
+  	  }
+    }
+  }
+  .first-step {
+    padding-bottom: 280px;
+    @include MQ(Pp) {
+      padding-bottom: 30px;
+    }
+    &__title {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+    	font-size: 48px;
+    	font-weight: 300;
+    	@include MQ(Pp) {
+    	  font-size: 12vw;
+    	}
+    }
+    &__text {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.5;
+      @include MQ(Pp) {
+        margin-top: 15px;
+        font-size: 5.5vw;
+      }
+    }
+  }
+  .mpu-image {
+    height: 540px;
+    padding: 90px 0;
+    background-image: url('/static/mpu/bg3(black).jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @include MQ(Pp) {
+      height: auto !important;
+    }
+    &__picture {
+      position: absolute;
+      width: 100%;
+      top: -130px;
+      @include MDShadow-5;
+      @include MQ(Pp) {
+        position: static;
+      }
+    }
+    &._about {
+      height: 700px;
+      background-image: url('/static/mpu/bg2(white).jpg');
+      &__picture {}
+    }
+  }
+  .adaptivity {
+    size: 100% 600px;
+    padding: 90px 0;
+    color: #fff;
+    color: var(--whited);
+    background-color: #202020;
+    background-color: var(--black);
+    @include MQ(Pp) {
+      height: auto;
+      padding: 50px 0;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: flex-start;
+      align-items: flex-start;
+      @include MQ(Pp) {
+        justify-content: center;
+      }
+    }
+    .adaptivity-column {
+      width: 422px;
+      @include MQ(Pp) {
+        width: 100%;
+      }
+    }
+    &__title {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+    	font-size: 48px;
+    	font-weight: 300;
+      line-height: 1;
+      @include MQ(Pp) {
+        margin-top: 30px;
+        font-size: 12vw;
+      }
+    }
+    &__text {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.5;
+      @include MQ(Pp) {
+        font-size: 5.5vw;
+      }
+    }
+    &__picture {
+      &._first {
+        position: absolute;
+        top: -150px; right: -23px;
+        width: 500px;
+        @include MQ(Pp) {
+          position: static;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .workflow {
+    padding: 120px 0;
+    @include MQ(Pp) {
+      padding: 30px 0;
+    }
+    &__title {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      font-weight: 300;
+      @include MQ(Pp) {
+        font-size: 11vw;
+      }
+    }
+    &__text {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+    	font-size: 24px;
+    	font-weight: 300;
+    	line-height: 1.67;
+      strong {
+        font-family: 'Panton-Regular', Arial, Helvetica, sans-serif;
+      	font-weight: normal;
+      }
+      @include MQ(Pp) {
+        font-size: 5.5vw;
+      }
+    }
+    .workflow-list {
+      display: flex;
+      flex-wrap: wrap;
+      @include MQ(Pp) {
+        justify-content: space-around;
+      }
+    }
+    .workflow-item {
+      margin-right: 25px;
+      @include MQ(Pp) {
+        margin: 0;
+      }
+      &__icon {
+        width: 50px;
+        @include MQ(Pp) {
+          width: 20vw;
+        }
+      }
+    }
+    &__picture {
+      width: 100%;
+    }
+  }
+  .parallax {
+    height: 75vh;
+    background-image: url('/static/mpu/app-mockup-full.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .concept {
+    padding: 120px 0;
+    @include MQ(Pp) {
+      padding: 30px 0;
+    }
+    &__title {
+      margin-bottom: 20px;
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      font-weight: 300;
+      text-align: center;
+      color: #202020;
+      color: var(--black);
+      @include MQ(Pp) {
+        text-align: left;
+        font-size: 10.5vw;
+      }
+    }
+    &__text {
+      width: 80%;
+      margin: 0 auto;
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.5;
+      text-align: center;
+      color: #202020;
+      color: var(--black);
+      @include MQ(Pp) {
+        width: 100%;
+        text-align: left;
+        font-size: 5.5vw;
+      }
+    }
+  }
+  .review {
+    position: relative;
+    height: 810px;
+    padding-top: 150px;
+    @include MQ(Pp) {
+      height: auto;
+      padding-top: 30px;
+      padding-bottom: 100px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &__back {
+      position: absolute;
+      top: 65px; left: 0;
+      width: 100%;
+      opacity: 0.05;
+      background-image: -webkit-linear-gradient(left, #123752, #349eeb 50%, #eb681a);
+      background-image: -o-linear-gradient(left, #123752, #349eeb 50%, #eb681a);
+      background-image: linear-gradient(to right, #123752, #349eeb 50%, #eb681a);
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 200px;
+      font-weight: bold;
+      text-align: center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      @include MQ(Pp) {
+        font-size: 25vw
+      }
+    }
+    .review-column {
+      flex: 1 1 50%;
+      max-width: 520px;
+      @include MQ(Pp) {
+        max-width: initial;
+        flex-basis: 100%
+      }
+    }
+    &__title {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1;
+      @include MQ(Pp) {
+        font-size: 12vw;
+      }
+    }
+    &__text {
+      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.5;
+      @include MQ(Pp) {
+        margin-top: 24px;
+        font-size: 5.5vw;
+      }
+    }
+    .review-list {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      @include MQ(Pp) {
+        margin-top: 30px;
+      }
+    }
+    .review-list-item {
+      width: 240px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      background-color: #fff;
+      background-color: var(--whited);
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+      @include MQ(Pp) {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      &._big {
+        position: relative;
+        height: 160px;
+        padding: 20px;
+        text-align: initial;
+        line-height: initial;
+        margin-bottom: 90px;
+        @include MQ(Pp) {
+          margin-bottom: 60px;
+        }
+        .review-list-item__description {
+          position: absolute;
+          bottom: -40px; left: 0;
+          width: 100%;
+          text-align: center;
+        }
+        .review-list-item__content ,
+        .review-list-item__description {
+          color: #4a4a4a;
+          color: var(--charcoal-grey);
+        }
+      }
+      &._small {
+        width: 147px;
+        margin-top: 50px;
+        color: #fff;
+        color: var(--whited);
+        @include MQ(Pp) {
+          width: auto;
+          margin-top: 0;
+          flex: 1 1 50%;
+        }
+      }
+      &__title {
+        margin: 0;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1;
+        color: #ff144b;
+        color: var(--neon-red);
+      }
+      &__content {
+        display: block;
+        margin: 20px auto 0 auto;
+      }
+      &__description {
+        margin: 0;
+        font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+        font-size: 18px;
+      }
+      &._EB681A {
+        background-image: linear-gradient(to right, rgba(235, 104, 26, 0.8), #eb681a);
+        box-shadow: 0 10px 20px 0 rgba(235, 104, 26, 0.6)
+      }
+      &._349EEB {
+        background-image: linear-gradient(to right, rgba(52, 158, 235, 0.8), #349eeb);
+        box-shadow: 0 10px 20px 0 rgba(52, 158, 235, 0.6);
+      }
+      &._123752 {
+        background-image: linear-gradient(to right, rgba(18, 55, 82, 0.8), #123752);
+        box-shadow: 0 10px 20px 0 rgba(18, 55, 82, 0.6);
+      }
+    }
+  }
+}
