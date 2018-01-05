@@ -115,7 +115,12 @@
 
 	button {
 		cursor: pointer;
-		border-radius: 0
+    border: none;
+		border-radius: 0;
+    outline: none;
 	}
+  a {
+    outline: none !important;
+  }
 
 </style>
