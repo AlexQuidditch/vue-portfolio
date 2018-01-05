@@ -7,17 +7,19 @@ import router from './router';
 import store from './store';
 
 import Resource from 'vue-resource';
+import VueSweetalert from 'vue-sweetalert';
 
 Vue.use(Resource);
+Vue.use(VueSweetalert);
 
 Vue.config.productionTip = false;
 Vue.config.performance = true;
 
-import smoothscroll from 'smoothscroll-polyfill';
-smoothscroll.polyfill();
+import SmoothScroll from 'smoothscroll-polyfill';
+SmoothScroll.polyfill();
 
 const app = new Vue({
 	router , store,
   template: '<App/>',
   components: { App }
-}).$mount('#wrapper')
+}).$mount('#wrapper');
