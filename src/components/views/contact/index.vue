@@ -31,9 +31,9 @@
               <i class="contact-form__bar"></i>
             </label>
             <label class="contact-form__label">
-              <textarea v-model="Form.message"
-                        type="text" required class="contact-form__input" rows="2"
-                        placeholder="Расскажите немного о Вашем предложении"></textarea>
+              <input v-model="Form.message"
+                     type="text" required class="contact-form__input"
+                     placeholder="Расскажите немного о Вашем предложении" />
               <span class="contact-form__placeholder">Расскажите немного о Вашем предложении</span>
               <i class="contact-form__bar"></i>
             </label>
@@ -48,6 +48,8 @@
 
 <script>
 
+  import { token , chat_id } from '../../../data.js';
+
   export default {
     name: "contact",
     data: () => ({
@@ -59,14 +61,21 @@
     }),
     methods: {
       submit (event) {
-        // this.$http.post(``)
-        //   .then( response => {
-        //     console.log(response);
-        //   })
-        //   .catch( error => {
-        //     console.error(error)
-        //   })
-      }
+				let message =
+`
+Сообщение с ${ document.title }:
+
+Имя: ${ this.Form.name }
+E-mail: ${ this.Form.mail }
+Комментарий: ${ this.Form.message }
+`;
+				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
+					.then( response => this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' ) )
+					.catch( error => {
+						console.error(error);
+						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
+					})
+			}
     }
   };
 
@@ -108,6 +117,7 @@
       text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
       @include MQ(Pp) {
         font-size: 12vw;
+        text-shadow: none
       }
     }
     &__sub-title {
@@ -115,6 +125,9 @@
       font-size: 18px;
       text-align: left;
       color: #404552;
+      @include MQ(Pp) {
+        font-size: 4.5vw;
+      }
     }
     &__message {
       margin-top: 120px;
@@ -200,8 +213,7 @@
         &::placeholder {
           opacity: 0;
         }
-        &:focus,
-        &:valid {
+        &:focus {
           color: #333;
           & ~ .contact-form__placeholder {
             font-size: 0.8rem;
@@ -236,7 +248,7 @@
         font-weight: normal;
         transition: all 0.28s ease;
         @include MQ(Pp) {
-          font-size: 0.9rem;
+          font-size: 0.85rem;
         }
       }
       &__bar {
