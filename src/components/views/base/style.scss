@@ -1,7 +1,7 @@
 @import "../../../stylesheets/partials/_mixins.scss";
 @import "../../../stylesheets/partials/_layout.scss";
 
-@import "../../../../node_modules/spinthatshit/src/loaders.scss";
+@import "~spinthatshit/src/loaders.scss";
 
 .main {
   display: flex;
@@ -11,6 +11,7 @@
   background-position: 50vw top;
   background-repeat: no-repeat;
   @include MQ(Pp) {
+    overflow-x: hidden;
     position: relative;
   }
 }
@@ -28,10 +29,9 @@
   z-index: 100;
   position: relative;
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-content: flex-end;
-  align-items: flex-end;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
   padding: 0 70px;
   background-color: #fff;
   background-color: var(--whited);
@@ -59,6 +59,7 @@
     }
   }
   &__current {
+    z-index: 101;
     position: absolute auto auto 70px 9.5%;
     opacity: 0.1;
     font-size: 144px;
@@ -67,7 +68,7 @@
     color: #4a4a4a;
     color: var(--charcoal-grey);
     @include MQ(Pp) {
-      position: absolute 35px -80px auto auto;
+      position: absolute 135px -80px auto auto;
       transform: rotate(-90deg)
     }
   }
@@ -91,9 +92,8 @@
       background-image: linear-gradient(45deg, #8cc34b, rgba(140, 195, 75, 0.8));
       background-image: linear-gradient(45deg, var(--booger), var(--booger--80));
     }
-    &._prosto {
-      background-image: linear-gradient(225deg, #fbda61, #f76b1c);
-      background-image: linear-gradient(225deg, var(--sand-yellow), var(--orange));
+    &._mpu {
+      background-color: #eb681a;
     }
   }
   &__link-icon {
@@ -116,7 +116,7 @@
       font-weight: bold;
       text-align: center;
       color: #fff;
-      color: var(--whited)  
+      color: var(--whited)
     }
   }
 }
@@ -159,13 +159,17 @@
   z-index: 100;
   position: absolute;
   top: 50%;
-  left: 7.5%;
+  left: 100px;
   transform: translate( -50%, -50%);
   @include MQ(Pp) {
-    bottom: 0;
-    left: 50%;
-    top: initial;
     width: 100%;
+    top: initial;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  };
+  @include MQ(Tl) {
+    left: 4vw;
   }
 }
 
@@ -189,7 +193,7 @@
       background-color .2s ease-in-out;
     &._vdele-active,
     &._travel-active,
-    &._prosto-active {
+    &._mpu-active {
       @include MDShadow-1;
     }
     &._vdele-active {
@@ -200,9 +204,8 @@
       background-color: rgba(140, 195, 75, 0.99);
       background-color: var(--booger-99);
     }
-    &._prosto-active {
-      background-color: #f6a623;
-      background-color: var(--squash);
+    &._mpu-active {
+      background-color: #eb681a;
     }
   }
 }
@@ -227,7 +230,7 @@
     background-image: linear-gradient(41deg, #202020, rgba(255, 255, 255, 0.75));
     background-image: linear-gradient(41deg, var(--black), rgba(255, 255, 255, 0.75));
   }
-  &._prosto {}
+  &._mpu {}
   &__background {
     z-index: -10;
     position: absolute;
@@ -236,7 +239,10 @@
     max-height: 100vh
   }
   &__picture {
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     object-fit: contain;
     object-position: center;
   }

@@ -1,25 +1,33 @@
 <template lang="html">
   <pull-to :bottom-load-method="nextRoute"
            @bottom-state-change="stateChange"
+           :top-load-method="prevRoute"
+           @top-state-change="stateChange"
            :topBlockHeight="25"
            :bottomBlockHeight="25">
+     <template slot="top-block" slot-scope="props">
+       <span></span>
+     </template>
     <main id="main" class="main">
+      <transition name="fade" mode="out-in">
+        <h4 :key="Displayed.route" class="case__current">{{ DisplayedIndex }}</h4>
+      </transition>
       <div class="case">
         <transition name="slide" mode="out-in">
           <div class="case-container" :key="Displayed.route">
-            <h1 class="case-title">
+            <router-link :to="{ path: '/case/' + Displayed.link }" tag="h1"
+                         class="case-title">
               <span class="case-title__task">{{ Displayed.task }}</span>
               <br />
               <span :class=" '_' + Case"
                     class="case-title__title">
                 {{ Displayed.title }}
               </span>
-            </h1>
+            </router-link>
             <p class="case__description">{{ Displayed.description }}</p>
-            <h4 class="case__current">{{ DisplayedIndex }}</h4>
             <router-link :to="{ path: '/case/' + Displayed.link }"
-                        :class=" '_' + Case"
-                        class="case__link">
+                         :class=" '_' + Case"
+                         class="case__link">
               <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
               <span class="case__link-text">Смотреть проект</span>
             </router-link>
@@ -101,30 +109,48 @@
           link: 'travel-app'
         },
         {
-          route: 'prosto',
-          task: 'Разработка сайта рекламной компании',
-          title: '"ВсёПросто"',
-          description: 'Разработка сайта для студии рекламы под ключ. UI, анимация, Fluent Design.',
-          picture: 'vseprosto/preview.png',
-          background: 'vseprosto/preview-bg.jpg',
-          link: 'vse-prosto'
+          route: 'mpu',
+          task: 'Разработка сайта',
+          title: '"MPU Leicht"',
+          description: 'Разработка дизайна сайта и веб-приложения для компании, специализирующейся на подготовке к MPU тесту (медицинская психологическая экспертиза).',
+          picture: 'mpu/preview.png',
+          background: 'mpu/bg2(black).jpg',
+          link: 'mpu'
         }
       ]
     }),
-    created() {
+    created () {
       this.Displayed = this.Cases.find( item => item.route == this.Case );
+    },
+    mounted () {
+      this.$nextTick( () => {
+        document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
+      })
+    },
+    beforeDestroy () {
+      document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
     },
     computed: {
       DisplayedIndex () {
         return '0' + ( this.Cases.indexOf( this.Displayed ) + 1 )
+      },
+      mouseWheelEvent () {
+        return (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel";
       }
     },
-    watch: {
-      '$route' ( to , from ) {
-        this.Displayed = this.Cases.find( item => item.route == this.Case );
-      }
+    beforeRouteUpdate ( to , from , next ) {
+      document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
+      this.Displayed = this.Cases.find( item => item.route == to.params.Case );
+      next();
+      setTimeout( () => {
+        document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
+      }, 500 );
     },
     methods: {
+      mouseWheelDetect (event) {
+        let delta = event.detail ? event.detail * ( -480 ) : event.wheelDelta;
+        ( delta <= -150 ) ? this.nextRoute() : this.prevRoute();
+      },
       nextRoute (loaded) {
         const currentCase = this.$route.params.Case;
         for ( const i in this.Cases ) {
@@ -136,8 +162,22 @@
               this.$router.push({ name: 'Base', params: { Case : this.Cases[next].route } })
             }
           }
-        }
-        loaded('done');
+        };
+        if (loaded) loaded('done');
+      },
+      prevRoute (loaded) {
+        const currentCase = this.$route.params.Case;
+        for ( const i in this.Cases ) {
+          if ( this.Cases[i].route == currentCase ) {
+            const prev = new Number(i) - 1;
+            if ( prev < 0 ) {
+              this.$router.push({ name: 'Base', params: { Case : 'mpu' } })
+            } else {
+              this.$router.push({ name: 'Base', params: { Case : this.Cases[prev].route } })
+            }
+          }
+        };
+        if (loaded) loaded('done');
       },
       stateChange (state) {
         if ( state === 'trigger' ) {
