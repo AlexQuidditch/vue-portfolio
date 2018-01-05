@@ -3,7 +3,10 @@
     <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp }"
          class="container">
       <div class="header-container">
-        <h3 class="header__title">Сергей <span>Иванов</span></h3>
+        <router-link to="/vdele" tag="h3"
+                     class="header__title">
+          Сергей <span>Иванов</span>
+        </router-link>
         <h4 class="header__sub-title">WEB / APP / UI DESIGN</h4>
       </div>
       <button @click="$emit('toggleMenu')" class="header-menu">
@@ -23,12 +26,13 @@
     components: { IconMenu },
     computed: {
       isTravelApp () {
-        return this.$route.name === 'TravelApp';
+        return ( this.$route.name === 'TravelApp' || this.$route.name === 'MPU' ) ;
       },
       isPortfolio () {
-        const isCase = this.$route.fullPath.includes( '/case/' );
+        const isCase = this.$route.fullPath.includes('/case/');
         const isAbout = this.$route.name === 'About';
-        return ( isCase || isAbout );
+        const isContact = this.$route.name === 'Contact';
+        return ( isCase || isAbout || isContact );
       }
     }
   };
@@ -56,7 +60,7 @@
       justify-content: space-between;
       transition: padding-right 1s ease-in-out;
       &._half {
-        padding-right: ( 1180px / 2 + 64px );
+        padding-right: ( 1180px / 2 + 30px );
       }
       &._contrast * {
         color: #fff;
@@ -73,7 +77,7 @@
         padding: 0 25px;
         &._half {
           padding-right: 25px;
-        } 
+        }
       }
     }
     &__title {
@@ -81,6 +85,7 @@
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       color: #4a4a4a;
       color: var(--charcoal-grey);
+      cursor: pointer;
       transition: color .3s ease-in-out;
       span {
         font-family: 'Panton-Regular', Arial, Helvetica, sans-serif;
