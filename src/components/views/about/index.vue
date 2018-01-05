@@ -17,26 +17,32 @@
     </section>
     <section class="skills">
       <div class="container">
+        <article class="skills__description _mobile">
+          <h3 class="skills__title">Обо мне:</h3>
+          <p>
+            Привет! Я занимаюсь дизайном сайтов, веб-сервисов и приложений, делая их привлекательнее для Ваших клиентов. Популизирую положительный имидж компании, увеличиваю прибыль.
+          </p>
+        </article>
         <h3 class="skills__title">Профиль и умения</h3>
         <ul class="skills-list">
           <li class="skills-list__item">
-            <i class="skills-list__item-icon"></i>
+            <icon-play class="skills-list__item-icon"></icon-play>
           </li>
           <li class="skills-list__item">
-            <i class="skills-list__item-icon"></i>
+            <icon-cube class="skills-list__item-icon"></icon-cube>
           </li>
           <li class="skills-list__item">
-            <i class="skills-list__item-icon"></i>
+            <icon-layers class="skills-list__item-icon"></icon-layers>
           </li>
         </ul>
         <article class="skills__description">
-          Меня зовут Сергей и я занимаюсь веб-дизайном более трех лет. 
-          Имею опыт работы над проектами как в команде, 
-          так и напрямую с заказчиком. 
+          Меня зовут Сергей и я занимаюсь веб-дизайном более трех лет.
+          Имею опыт работы над проектами как в команде,
+          так и напрямую с заказчиком.
           <br><br>
           В работе с фронтенд-разработчиками использую современные инструменты и с заботой думаю о разработчиках, которые все это будут верстать. Умею брать на себя ответственность, вести проекты и привлекать необходимых исполнителей.
           <br><br>
-          Делаю дизайн с учетом принципов пользовательского опыта (UX), люблю адаптивность, внимателен к деталям. Знаю HTML и CSS на уровне, чтобы понимать ограничения по дизайну, предметно поговорить с разработчиками-фронтендерами 
+          Делаю дизайн с учетом принципов пользовательского опыта (UX), люблю адаптивность, внимателен к деталям. Знаю HTML и CSS на уровне, чтобы понимать ограничения по дизайну, предметно поговорить с разработчиками-фронтендерами
           и предложить идеи.
           <br><br>
           Делаю анимацию — как для презентаций, так и для показа разработчикам для лучшего понимания того, как и что должно выглядеть в проекте. Умею простую 3D-визуализацию.
@@ -63,7 +69,6 @@
         </ul>
       </div>
     </section>
-    
     <section class="contacts">
       <div class="container">
         <h3 class="contacts__title">Напишите мне</h3>
@@ -82,9 +87,9 @@
             <i class="about-form__bar"></i>
           </label>
           <label class="about-form__label">
-            <textarea v-model="Form.message"
-                      type="text" required class="about-form__input" rows="2"
-                      placeholder="Расскажите немного о Вашем предложении"></textarea>
+            <input v-model="Form.message"
+                      type="text" required class="about-form__input"
+                      placeholder="Расскажите немного о Вашем предложении" />
             <span class="about-form__placeholder">Расскажите немного о Вашем предложении</span>
             <i class="about-form__bar"></i>
           </label>
@@ -92,14 +97,20 @@
         </form>
       </div>
     </section>
-
   </main>
 </template>
 
 <script>
 
+  import IconPlay from '../../icons/play.js';
+  import IconCube from '../../icons/cube.js';
+  import IconLayers from '../../icons/layers.js';
+
+  import { token , chat_id } from '../../../data.js';
+
   export default {
     name: "About",
+    components: { IconPlay , IconCube , IconLayers },
     data: () => ({
       Form: {
         name: '',
@@ -157,8 +168,28 @@
     }),
     methods: {
       submit (event) {
-        console.log(event);
-      }
+				let message =
+`
+Сообщение с ${ document.title }:
+
+Имя: ${ this.Form.name }
+E-mail: ${ this.Form.mail }
+Комментарий: ${ this.Form.message }
+`;
+				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
+					.then( response => {
+            this.Form = {
+              name: '',
+              mail: '',
+              message: '',
+            };
+            return this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' )
+          })
+					.catch( error => {
+						console.error(error);
+						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
+					})
+			}
     }
   };
 
@@ -169,7 +200,14 @@
   @import "../../../stylesheets/partials/_mixins.scss";
   @import "../../../stylesheets/partials/_layout.scss";
 
+  .skills, .apps, .contacts {
+    background-color: #fff
+  }
+
   .about {
+    z-index: -1;
+    position: fixed;
+    top: 0; left: 0;
     width: 100%;
     height: 100vh;
     @include MQ(Pp) {
@@ -242,9 +280,7 @@
       color: #404552;
       color: var(--charcoal-grey-two);
       @include MQ(Pp) {
-        // margin-top: 30px;
-        margin-top: 0;
-        font-size: 6vw;
+        display: none;
       }
     }
     &__mail {
@@ -284,15 +320,18 @@
       color: #404552;
       color: var(--charcoal-grey-two);
       @include MQ(Pp) {
+        text-align: left;
         font-size: 12vw;
       }
     }
   }
 
   .skills {
+    margin-top: 95vh;
+    padding-top: 140px;
     @include MQ(Pp) {
-      margin-top: 50px;
-    }
+      padding-top: 40px;
+    };
     &__title {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 64px;
@@ -301,12 +340,13 @@
       text-align: center;
       color: #404552;
       @include MQ(Pp) {
+        text-align: left;
         font-size: 9vw;
       }
     }
     &__description {
       width: 65%;
-      margin: 100px auto 0 auto;
+      margin: 70px auto 0 auto;
       font-family: 'Panton-light', Arial, Helvetica, sans-serif;
       font-size: 24px;
       font-weight: 300;
@@ -320,6 +360,39 @@
         font-size: 5.5vw;
         text-align: left;
     	}
+      &._mobile {
+        display: none;
+        @include MQ(Pp) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .skills-list {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 70px;
+    @include MQ(Pp) {
+      width: 100%;
+      justify-content: flex-start;
+      margin: 0;
+      margin-top: 40px;
+    };
+    &__item {
+      @include MQ(Pp) {
+        margin-right: 58px;
+      };
+    }
+    &__item-icon {
+      width: 40px;
+      fill: #1c9bf7;
+      fill: var(--azure);
+      @include MQ(Pp) {
+        width: 26.5px;
+      };
     }
   }
 
@@ -392,6 +465,7 @@
       color: #404552;
       color: var(--charcoal-grey-two);
     	@include MQ(Pp) {
+        text-align: left;
     	  font-size: 5.5vw;
     	}
     }
@@ -438,7 +512,7 @@
           left: 0;
         }
       }
-      
+
     }
     &__placeholder {
       position: absolute;
