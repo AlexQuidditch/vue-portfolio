@@ -1,6 +1,6 @@
 <template lang="html">
   <header class="header">
-    <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp }"
+    <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp , '_mobile' : mobileContrast }"
          class="container">
       <div class="header-container">
         <router-link to="/vdele" tag="h3"
@@ -26,7 +26,10 @@
     components: { IconMenu },
     computed: {
       isTravelApp () {
-        return ( this.$route.name === 'TravelApp' || this.$route.name === 'MPU' ) ;
+        return ( this.$route.name === 'TravelApp' || this.$route.name === 'MPU' );
+      },
+      mobileContrast () {
+        return ( this.$route.params.Case === 'mpu' || this.$route.params.Case === 'travel' );
       },
       isPortfolio () {
         const isCase = this.$route.fullPath.includes('/case/');
@@ -68,6 +71,20 @@
         fill: #fff;
         fill: var(--whited)
       }
+      &._mobile * {
+        @include MQ(Pp) {
+          color: #fff;
+          color: var(--whited);
+          fill: #fff;
+          fill: var(--whited)
+        }
+        @include MQ(Tp) {
+          color: #fff;
+          color: var(--whited);
+          fill: #fff;
+          fill: var(--whited)
+        }
+      }
       @include MQ(Pp) {
         &._half {
           padding-right: 25px;
@@ -90,6 +107,7 @@
       span {
         font-family: 'Panton-Regular', Arial, Helvetica, sans-serif;
         font-weight: 400;
+        transition: color .3s ease-in-out;
       }
       @include MQ(Pp) {
         font-size: 24px;
@@ -125,6 +143,9 @@
       color: var(--charcoal-grey);
       transition: color .3s ease-in-out;
       @include MQ(Pp) {
+        display: none;
+      }
+      @include MQ(Tp) {
         display: none;
       }
     }
