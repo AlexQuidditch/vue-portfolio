@@ -1,6 +1,6 @@
 <template lang="html">
   <header class="header">
-    <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp , '_mobile' : mobileContrast }"
+    <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp , '_mobile' : isNeedMobileContrast }"
          class="container">
       <div class="header-container">
         <router-link to="/vdele" tag="h3"
@@ -28,7 +28,7 @@
       isTravelApp () {
         return ( this.$route.name === 'TravelApp' || this.$route.name === 'MPU' );
       },
-      mobileContrast () {
+      isNeedMobileContrast () {
         return ( this.$route.params.Case === 'mpu' || this.$route.params.Case === 'travel' );
       },
       isPortfolio () {
