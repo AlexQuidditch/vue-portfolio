@@ -14,6 +14,10 @@
     overflow-x: hidden;
     position: relative;
   }
+  @include MQ(Tp) {
+    flex-flow: column wrap;
+    justify-content: initial;
+  };
 }
 
 .case,
@@ -23,6 +27,9 @@
   @include MQ(Pp) {
     width: 100%;
   }
+  @include MQ(Tp) {
+    width: 100%;
+  };
 }
 
 .case {
@@ -42,8 +49,20 @@
     align-content: initial;
     align-items: initial;
   }
+  @include MQ(Tp) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    justify-content: initial;
+    width: 100%;
+    min-height: initial;
+    padding: 48px 70px 75px 70px;
+  };
   .case-container {
     max-width: 470px;
+    @include MQ(Tp) {
+      max-width: 100%;
+    }
   }
   &__description {
     width: 470px;
@@ -56,6 +75,9 @@
       width: 100%;
       font-size: 5vw;
       line-height: 1.75
+    }
+    @include MQ(Tp) {
+      width: 100%;
     }
   }
   &__current {
@@ -71,19 +93,27 @@
       position: absolute 135px -80px auto auto;
       transform: rotate(-90deg)
     }
+    @include MQ(Tp) {
+      top: auto;
+      bottom: 30px;
+      right: 50px;
+      left: auto;
+    };
   }
   &__link {
     position: relative;
     display: block;
     size: 50px;
-    border-radius: 50%;
+    border-radius: 100px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     transition: .3s ease-in-out;
     @include MQ(Pp) {
       width: 100%;
       margin-top: 40px;
-      border-radius: 100px;
     }
+    @include MQ(Tp) {
+      width: 270px;
+    };
     &._vdele {
       background-image: linear-gradient(225deg, #50e3c2, #1c9bf7);
       background-image: linear-gradient(225deg, var(--aqua-marine), var(--azure));
@@ -103,10 +133,25 @@
     @include MQ(Pp) {
       left: 25px;
     }
+    @include MQ(Tp) {
+      left: 25px;
+    }
   }
   &__link-text {
     display: none;
     @include MQ(Pp) {
+      position: absolute;
+      @include center(xy);
+      display: block;
+      width: 100%;
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      color: var(--whited)
+    }
+    @include MQ(Tp) {
       position: absolute;
       @include center(xy);
       display: block;
@@ -132,7 +177,9 @@
     margin-top: 40px;
     font-size: 10vw
   }
-  &__task {}
+  @include MQ(Tp) {
+    width: 100%;
+  }
   &__title {
     @include MQ(Pp) {
       font-size: 10vw
@@ -148,7 +195,7 @@
       color: rgba(140, 195, 75, 0.99);
       color: var(--booger-99);
     }
-    &._prosto {
+    &._mpu {
       color: #f6a623;
       color: var(--squash);
     }
@@ -167,6 +214,9 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+  };
+  @include MQ(Tp) {
+    display: none;
   };
   @include MQ(Tl) {
     left: 4vw;
@@ -220,6 +270,10 @@
     width: 100%;
     padding: 0 25px;
   }
+  @include MQ(Tp) {
+    height: 70vh;
+    min-height: initial;
+  }
   &._vdele {
     opacity: 0.9;
     background-image: linear-gradient(240deg, #50e3c2, #1c9bf7);
@@ -253,28 +307,49 @@
   @include MQ(Pp) {
     display: block;
   }
+  @include MQ(Tp) {
+    display: block;
+  }
 }
 
 .bottom-load {
   display: none;
-  @include MQ(Pp) {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    line-height: 30px;
-    &__icon {
-      position: absolute;
-      left: 50%;
-      size: 30px;
-      transform-origin: 0;
-      transform: rotate(90deg) translateX(-50%);
-      transition: transform .25s ease;
-      &._loading {
-        transform: rotate(0deg) translateX(-50%);
-      }
-      &._done {
-        transform: rotate(-90deg) translateX(-50%);
-      }
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  line-height: 30px;
+  &__icon {
+    position: absolute;
+    left: 50%;
+    size: 30px;
+    transform-origin: 0;
+    transform: rotate(90deg) translateX(-50%);
+    transition: transform .25s ease;
+    &._loading {
+      transform: rotate(0deg) translateX(-50%);
     }
+    &._done {
+      transform: rotate(-90deg) translateX(-50%);
+    }
+  }
+  &__arrow {
+    opacity: 0.3;
+    width: 25px;
+    height: 30px;
+    margin-right: 5px;
+    transform: rotate(90deg);
+  }
+  &__text {
+    opacity: 0.3;
+    font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #404552;
+    color: var(--charcoal-grey-two);
+  }
+  @include MQ(Pp) {
+    display: flex;
+  }
+  @include MQ(Tp) {
+    display: flex;
   }
 }

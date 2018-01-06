@@ -45,7 +45,8 @@
           </li>
         </ul>
         <div class="bottom-load">
-          <span class="bottom-load__text">Перейти к следующему</span>
+          <icon-arrow-right :Fill="'#404552'" class="bottom-load__arrow"></icon-arrow-right>
+          <span class="bottom-load__text">Следующий проект</span>
         </div>
       </nav>
       <transition name="fade" mode="out-in">
