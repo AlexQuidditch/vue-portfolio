@@ -96,6 +96,9 @@
 		min-height: 100vh;
 		color: #4a4a4a;
     color: var(--charcoal-grey);
+    @include MQ(Tp) {
+      overflow: hidden;
+    }
 	}
 
 	.container {

@@ -14,15 +14,27 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    @include MQ(Tp) {
+      height: auto;
+      padding: 120px 0 80px 0;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       align-items: center;
+      @include MQ(Tp) {
+        flex-flow: column wrap;
+        align-items: center;
+        width: 90%;
+      }
     }
     .intro-column {
       flex: 1 1 48%;
-      max-width: 48%
+      max-width: 48%;
+      @include MQ(Tp) {
+        max-width: initial;
+      }
     }
     &__title {
       font-family: 'Panton-Bold: ;', Arial, Helvetica, sans-serif;
@@ -41,6 +53,10 @@
     &__video {
       width: 520px;
       box-shadow: 10px 20px 30px 0 rgba(0, 0, 0, 0.4);
+      @include MQ(Tp) {
+        width: 100%;
+        margin-top: 50px;
+      }
     }
     @include MQ(Pp) {
       size: 100% 60vh;
@@ -63,14 +79,24 @@
     @include MQ(Pp) {
       padding-top: 60px;
     }
+    @include MQ(Tp) {
+      padding: 40px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include MQ(Tp) {
+        flex-flow: column wrap;
+        width: 90%;
+      }
     }
     .description-column {
       flex: 1 1 50%;
       max-width: 520px;
+      @include MQ(Tp) {
+        max-width: initial;
+      }
     }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -116,6 +142,15 @@
     @include MQ(Pp) {
       padding-bottom: 30px;
     }
+    @include MQ(Tp) {
+      padding: 60px 0;
+    }
+    .container {
+      @include MQ(Tp) {
+        flex-flow: column wrap;
+        width: 90%;
+      }
+    }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 48px;
@@ -145,6 +180,14 @@
     @include MQ(Pp) {
       height: auto !important;
     }
+    @include MQ(Tp) {
+      height: auto !important;
+    }
+    .container {
+      @include MQ(Tp) {
+        width: 90%;
+      }
+    }
     &__picture {
       position: absolute;
       width: 100%;
@@ -152,6 +195,10 @@
       @include MDShadow-5;
       @include MQ(Pp) {
         position: static;
+      }
+      @include MQ(Tp) {
+        position: initial;
+        top: initial;
       }
     }
     &._about {
@@ -171,6 +218,10 @@
       height: auto;
       padding: 50px 0;
     }
+    @include MQ(Tp) {
+      height: auto;
+      padding: 60px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -180,11 +231,17 @@
       @include MQ(Pp) {
         justify-content: center;
       }
+      @include MQ(Tp) {
+        width: 90%;
+      }
     }
     .adaptivity-column {
       width: 422px;
       @include MQ(Pp) {
         width: 100%;
+      }
+      @include MQ(Tp) {
+        width: 45%;
       }
     }
     &__title {
@@ -215,6 +272,12 @@
           position: static;
           width: 100%;
         }
+        @include MQ(Tp) {
+          position: initial;
+          top: auto;
+          width: 50%;
+          order: 1
+        }
       }
     }
   }
@@ -222,6 +285,12 @@
     padding: 120px 0;
     @include MQ(Pp) {
       padding: 30px 0;
+    }
+    @include MQ(Tp) {
+      padding: 60px 0;
+      .container {
+        width: 90%;
+      }
     }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -274,11 +343,17 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    @include MQ(Tp) {
+      height: 50vh;
+    }
   }
   .concept {
     padding: 120px 0;
     @include MQ(Pp) {
       padding: 30px 0;
+    }
+    @include MQ(Tp) {
+      padding: 60px 0;
     }
     &__title {
       margin-bottom: 20px;
@@ -319,10 +394,18 @@
       padding-top: 30px;
       padding-bottom: 100px;
     }
+    @include MQ(Tp) {
+      height: initial;
+      padding: 60px 0 160px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include MQ(Tp) {
+        flex-direction: column;
+        width: 90%;
+      }
     }
     &__back {
       position: absolute;
@@ -349,6 +432,9 @@
       @include MQ(Pp) {
         max-width: initial;
         flex-basis: 100%
+      }
+      @include MQ(Tp) {
+        max-width: initial;
       }
     }
     &__title {
@@ -390,6 +476,10 @@
         width: 100%;
         margin-bottom: 20px;
       }
+      @include MQ(Tp) {
+        flex: 1 1 25%;
+        max-width: 30%;
+      }
       &._big {
         position: relative;
         height: 160px;
@@ -399,6 +489,10 @@
         margin-bottom: 90px;
         @include MQ(Pp) {
           margin-bottom: 60px;
+        }
+        @include MQ(Tp) {
+          flex: 1 1 45%;
+          max-width: 45%;
         }
         .review-list-item__description {
           position: absolute;
@@ -421,6 +515,10 @@
           width: auto;
           margin-top: 0;
           flex: 1 1 50%;
+        }
+        @include MQ(Tp) {
+          width: initial;
+          margin-top: initial;
         }
       }
       &__title {

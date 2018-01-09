@@ -42,9 +42,15 @@
     @include MQ(Pp) {
       bottom: 25px;
     }
+    @include MQ(Tp) {
+      bottom: 60px;
+    }
     .container {
       display: flex;
       justify-content: space-between;
+      @include MQ(Tp) {
+        width: 90%;
+      }
     }
     .bottom-nav-link {
       display: flex;

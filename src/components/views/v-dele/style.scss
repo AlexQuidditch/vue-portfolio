@@ -14,14 +14,26 @@
   	opacity: 0.9;
   	background-image: linear-gradient(241deg, #50e3c2, #24a7ef 99%, #1c9bf7);
     background-image: linear-gradient(241deg, var(--aqua-marine), #24a7ef 99%, var(--azure));
+    @include MQ(Tp) {
+      height: auto;
+      padding: 120px 0 80px 0;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
+      @include MQ(Tp) {
+        flex-flow: column wrap;
+        align-items: center;
+        width: 90%;
+      }
     }
     .intro-column {
       flex: 1 1 48%;
-      max-width: 48%
+      max-width: 48%;
+      @include MQ(Tp) {
+        max-width: initial;
+      }
     }
     &__title {
       margin-top: 50px;
@@ -29,6 +41,9 @@
       font-weight: 800;
       line-height: 1.39;
       color: #404552;
+      @include MQ(Tp) {
+        margin-top: initial;
+      }
     }
     &__sub-title {
       margin-top: 20px;
@@ -43,6 +58,10 @@
       background-color: #fff;
       background-color: var(--white);
       box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.3);
+      @include MQ(Tp) {
+        width: 100%;
+        margin-top: 50px;
+      }
     }
     @include MQ(Pp) {
       size: 100% 45vh;
@@ -65,14 +84,24 @@
     @include MQ(Pp) {
       padding-top: 60px;
     }
+    @include MQ(Tp) {
+      padding: 40px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include MQ(Tp) {
+        flex-flow: column wrap;
+        width: 90%;
+      }
     }
     .description-column {
       flex: 1 1 50%;
       max-width: 520px;
+      @include MQ(Tp) {
+        max-width: initial;
+      }
     }
     &__title {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
@@ -116,6 +145,12 @@
     @include MQ(Pp) {
       padding-bottom: 30px;
     }
+    .container {
+      @include MQ(Tp) {
+        flex-flow: column wrap;
+        width: 90%;
+      }
+    }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 36px;
@@ -143,17 +178,27 @@
       height: auto;
       padding: 30px 0;
     }
+    @include MQ(Tp) {
+      height: auto;
+      padding: 60px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-content: flex-start;
       align-items: flex-start;
+      @include MQ(Tp) {
+        width: 90%;
+      }
     }
     .adaptivity-column {
       width: 422px;
       @include MQ(Pp) {
         width: 100%;
+      }
+      @include MQ(Tp) {
+        width: 45%;
       }
     }
     &__title {
@@ -164,6 +209,9 @@
       @include MQ(Pp) {
         margin-top: 30px;
         font-size: 12vw;
+      }
+      @include MQ(Tp) {
+        margin-top: 40px;
       }
     }
     &__text {
@@ -184,6 +232,10 @@
           position: static;
           width: 100%;
         }
+        @include MQ(Tp) {
+          top: auto;
+          width: 50%;
+        }
       }
       &._second {
         width: 100%;
@@ -192,6 +244,9 @@
         @include MQ(Pp) {
           margin-top: 30px;
         }
+        @include MQ(Tp) {
+          margin-top: 100px;
+        }
       }
     }
   }
@@ -199,6 +254,12 @@
     padding-top: 560px;
     @include MQ(Pp) {
       padding-top: 30px;
+    }
+    @include MQ(Tp) {
+      padding: 60px 0;
+      .container {
+        width: 90%;
+      }
     }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -255,10 +316,18 @@
       padding-top: 30px;
       padding-bottom: 100px;
     }
+    @include MQ(Tp) {
+      height: initial;
+      padding: 60px 0 160px 0;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include MQ(Tp) {
+        flex-direction: column;
+        width: 90%;
+      }
     }
     &__back {
       position: absolute;
@@ -283,6 +352,9 @@
       @include MQ(Pp) {
         max-width: initial;
         flex-basis: 100%
+      }
+      @include MQ(Tp) {
+        max-width: initial;
       }
     }
     &__title {
@@ -324,6 +396,14 @@
         width: 100%;
         margin-bottom: 20px;
       }
+      @include MQ(Tp) {
+        flex: 1 1 25%;
+        max-width: 22.5%;
+        &:last-child {
+          max-width: 100%;
+          margin-top: 20px !important;
+        }
+      }
       &._big {
         position: relative;
         height: 160px;
@@ -333,6 +413,10 @@
         margin-bottom: 90px;
         @include MQ(Pp) {
           margin-bottom: 60px;
+        }
+        @include MQ(Tp) {
+          flex: 1 1 45%;
+          max-width: 45%;
         }
         .review-list-item__description {
           position: absolute;
@@ -353,6 +437,10 @@
           width: auto;
           margin-top: 0;
           flex: 1 1 50%;
+        }
+        @include MQ(Tp) {
+          width: initial;
+          margin-top: initial;
         }
       }
       &__title {
