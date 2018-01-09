@@ -106,7 +106,7 @@
   import IconCube from '../../icons/cube.js';
   import IconLayers from '../../icons/layers.js';
 
-  import { token , chat_id } from '../../../data.js';
+  // import { token , chat_id } from '../../../data.js';
 
   export default {
     name: "About",
@@ -168,27 +168,27 @@
     }),
     methods: {
       submit (event) {
-				let message =
-`
-Сообщение с ${ document.title }:
+// 				let message =
+// `
+// Сообщение с ${ document.title }:
 
-Имя: ${ this.Form.name }
-E-mail: ${ this.Form.mail }
-Комментарий: ${ this.Form.message }
-`;
-				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
-					.then( response => {
-            this.Form = {
-              name: '',
-              mail: '',
-              message: '',
-            };
-            return this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' )
-          })
-					.catch( error => {
-						console.error(error);
-						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
-					})
+// Имя: ${ this.Form.name }
+// E-mail: ${ this.Form.mail }
+// Комментарий: ${ this.Form.message }
+// `;
+// 				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
+// 					.then( response => {
+//             this.Form = {
+//               name: '',
+//               mail: '',
+//               message: '',
+//             };
+//             return this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' )
+//           })
+// 					.catch( error => {
+// 						console.error(error);
+// 						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
+// 					})
 			}
     }
   };

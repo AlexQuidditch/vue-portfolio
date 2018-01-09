@@ -48,7 +48,7 @@
 
 <script>
 
-  import { token , chat_id } from '../../../data.js';
+  // import { token , chat_id } from '../../../data.js';
 
   export default {
     name: "contact",
@@ -61,20 +61,20 @@
     }),
     methods: {
       submit (event) {
-				let message =
-`
-Сообщение с ${ document.title }:
+// 				let message =
+// `
+// Сообщение с ${ document.title }:
 
-Имя: ${ this.Form.name }
-E-mail: ${ this.Form.mail }
-Комментарий: ${ this.Form.message }
-`;
-				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
-					.then( response => this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' ) )
-					.catch( error => {
-						console.error(error);
-						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
-					})
+// Имя: ${ this.Form.name }
+// E-mail: ${ this.Form.mail }
+// Комментарий: ${ this.Form.message }
+// `;
+// 				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
+// 					.then( response => this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' ) )
+// 					.catch( error => {
+// 						console.error(error);
+// 						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
+// 					})
 			}
     }
   };
@@ -89,6 +89,9 @@ E-mail: ${ this.Form.mail }
   .contact {
     width: 100%;
     height: 100vh;
+    @include MQ(Tp) {
+      height: initial;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
@@ -98,12 +101,21 @@ E-mail: ${ this.Form.mail }
         flex-flow: column;
         padding-top: 150px;
       }
+      @include MQ(Tp) {
+        flex-direction: column;
+        width: 90%;
+        padding-top: 100px;
+      }
     }
     .contact-column {
       flex: 1 1 50%;
       min-width: 45%;
       max-width: 50%;
       @include MQ(Pp) {
+        flex-basis: 100%;
+        max-width: initial;
+      }
+      @include MQ(Tp) {
         flex-basis: 100%;
         max-width: initial;
       }
@@ -139,6 +151,9 @@ E-mail: ${ this.Form.mail }
         margin-top: 30px;
         font-size: 6vw;
       }
+      @include MQ(Tp) {
+        margin-top: 40px;
+      }
     }
     &__mail {
       font-family: 'Panton-light', Arial, Helvetica, sans-serif;
@@ -171,6 +186,9 @@ E-mail: ${ this.Form.mail }
       @include MQ(Pp) {
         padding: 20px;
         margin-top: 30px;
+      }
+      @include MQ(Tp) {
+        margin: 50px auto;
       }
       &__title {
         font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
