@@ -126,7 +126,7 @@
     mounted () {
       this.$nextTick( () => {
         document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
-      })
+      });
     },
     beforeDestroy () {
       document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
@@ -145,12 +145,12 @@
       next();
       setTimeout( () => {
         document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
-      }, 500 );
+      }, 1500 );
     },
     methods: {
       mouseWheelDetect (event) {
-        let delta = event.detail ? event.detail * ( -480 ) : event.wheelDelta;
-        ( delta <= -150 ) ? this.nextRoute() : this.prevRoute();
+        let direction = ( (event.wheelDelta) ? event.wheelDelta / 120 : event.detail / -3 ) || false;
+        direction < 0 ? this.nextRoute() : this.prevRoute();
       },
       nextRoute (loaded) {
         const currentCase = this.$route.params.Case;
