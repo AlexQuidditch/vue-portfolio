@@ -8,19 +8,22 @@
         </router-link>
       </li>
       <li class="pg-menu-list__item">
-        <router-link :to="{ name: 'Contact' }"
-                     class="pg-menu-list__item-link">
-          Связаться со мной
-        </router-link>
-      </li>
-      <li class="pg-menu-list__item">
         <router-link :to="{ name: 'About' }"
                      class="pg-menu-list__item-link">
           Обо мне
         </router-link>
       </li>
       <li class="pg-menu-list__item">
-        <button @click="$emit('toggleMenu')" class="pg-menu-list__item-button">Закрыть</button>
+        <router-link :to="{ name: 'Contact' }"
+                     class="pg-menu-list__item-link">
+          Связаться
+        </router-link>
+      </li>
+      <li class="pg-menu-list__item _close">
+        <button @click="$emit('toggleMenu')" class="pg-menu-list__item-button">
+          <span>Закрыть</span>
+          <icon-close class="pg-menu-list__item-icon"></icon-close>
+        </button>
       </li>
     </ul>
   </nav>
@@ -28,8 +31,11 @@
 
 <script>
 
+  import IconClose from '../../icons/close.js';
+
   export default {
     name: 'Page-Menu',
+    components: { IconClose },
     watch: {
       '$route' ( to , from ) {
         setTimeout(() => this.$emit('toggleMenu') , 500);
@@ -53,38 +59,67 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(241deg, #50e3c2, #24a7ef 99%, #1c9bf7);
-    background-image: linear-gradient(241deg, var(--aqua-marine), #24a7ef 99%, var(--azure));
+    background-color: rgba( #404552 , .95 );
     .pg-menu-list {
-      width: 80%;
+      width: 20%;
+      @include MQ(Pp) {
+        width: 80%;
+      }
       &__item {
-        margin: 3rem 0;
-        text-align: center;
+        margin: 30px 0;
+        text-align: left;
         @include MQ(Pp) {
           margin: 1.25rem 0;
         }
+        &._close {
+          position: absolute 40px 40px auto auto;
+          margin: 0;
+          @include MQ(Pp) {
+            top: initial;
+            right: initial;
+            bottom: 50px;
+            .pg-menu-list__item-button {
+              display: flex;
+              justify-content: flex-end;
+              width: 75vw;
+              height: 50px;
+              font-size: 24px;
+              line-height: 50px;
+              color: rgba( #fff , .5 );
+            }
+            .pg-menu-list__item-icon {
+              fill: rgba( #fff , .5 );
+            }
+          }
+        }
       }
       &__item-link {
-        font-size: 3rem;
-        color: #424242;
-        color: var(--charcoal-grey);
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1;
+        color: rgba( #fff , .5 );
         outline: none;
         transition: all .2s ease-in-out;
         &:hover,
         &._exact-active {
-          color: #ff144b;
-          color: var(--neon-red);
-          text-shadow:
-            0 2px 2px rgba(#ff144b, 0.14),
-            0 1px 5px rgba(#ff144b, 0.12),
-            0 3px 1px rgba(#ff144b, 0.2);
+          color: #1c9bf7;
+          color: var(--azure);
         }
         @include MQ(Pp) {
-          font-size: 1.75rem;
+          font-size: 3rem;
+          line-height: 1.5;
         }
       }
+      &__item-icon {
+        size: 40px;
+        margin-left: 10px;
+      }
       &__item-button {
-        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        font-size: 18px;
+        line-height: 40px;
         background-color: transparent;
         border: none
       }
