@@ -89,8 +89,8 @@
           <label class="about-form__label">
             <input v-model="Form.message"
                       type="text" required class="about-form__input"
-                      placeholder="Расскажите немного о Вашем предложении" />
-            <span class="about-form__placeholder">Расскажите немного о Вашем предложении</span>
+                      placeholder="Расскажите о Вашем предложении" />
+            <span class="about-form__placeholder">Расскажите о Вашем предложении</span>
             <i class="about-form__bar"></i>
           </label>
           <button class="about-form__submit">Отправить</button>

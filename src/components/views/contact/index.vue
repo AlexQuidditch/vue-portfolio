@@ -33,8 +33,8 @@
             <label class="contact-form__label">
               <input v-model="Form.message"
                      type="text" required class="contact-form__input"
-                     placeholder="Расскажите немного о Вашем предложении" />
-              <span class="contact-form__placeholder">Расскажите немного о Вашем предложении</span>
+                     placeholder="Расскажите о Вашем предложении" />
+              <span class="contact-form__placeholder">Расскажите о Вашем предложении</span>
               <i class="contact-form__bar"></i>
             </label>
             <button class="contact-form__submit">Отправить</button>
