@@ -2,7 +2,7 @@
   <div id="wrapper" class="wrapper">
     <page-header @toggleMenu="toggleMenu"></page-header>
     <page-main></page-main>
-    <transition name="fade" mode="out-in">
+    <transition name="slide-left" mode="out-in">
       <page-menu v-if="menuIsOpen" @toggleMenu="toggleMenu"></page-menu>
     </transition>
   </div>
@@ -23,8 +23,7 @@
         document.addEventListener( 'keyup' , event => {
           event.preventDefault();
           if ( event.keyCode === 27 && this.menuIsOpen === true ) {
-            this.menuIsOpen =! this.menuIsOpen;
-            document.body.style.overflow = 'auto'
+            this.toggleMenu();
           }
         })
       })
@@ -96,6 +95,9 @@
 		min-height: 100vh;
 		color: #4a4a4a;
     color: var(--charcoal-grey);
+    @include MQ(Pp) {
+      overflow: hidden;
+    }
     @include MQ(Tp) {
       overflow: hidden;
     }
@@ -114,6 +116,14 @@
 
   .main._column {
     flex-flow: column
+  }
+
+  .vue-pull-to-wrapper {
+    height: auto !important;
+  }
+  .scroll-container {
+    overflow-y: auto;
+    max-height: 100vh;
   }
 
 	button {
