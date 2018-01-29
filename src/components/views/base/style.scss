@@ -83,7 +83,7 @@
   }
   &__current {
     z-index: 101;
-    position: absolute auto auto 70px 9.5%;
+    position: absolute auto auto 70px 11.5%;
     opacity: 0.1;
     font-size: 144px;
     font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
@@ -168,11 +168,37 @@
 }
 
 .case-title {
+  position: relative;
   width: 470px;
   font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: bold;
   line-height: 1.4;
+  cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: .3s ease-out;
+  }
+  &:hover::after {
+    width: 65%;
+  }
+  &._vdele::after {
+    background-image: linear-gradient(259deg, #50e3c2, #1c9bf7);
+    background-image: linear-gradient(259deg, var(--aqua-marine), var(--azure));
+  }
+  &._travel::after {
+    background-color: rgba(140, 195, 75, 0.99);
+    background-color: var(--booger-99);
+  }
+  &._mpu::after {
+    background-color: #f6a623;
+    background-color: var(--squash);
+  }
   @include MQ(Pp) {
     width: 100%;
     margin-top: 40px;
@@ -267,6 +293,7 @@
   top: 0; right: 0;
   display: flex;
   align-items: center;
+  cursor: pointer;
   @include MQ(Pp) {
     position: fixed;
     width: 100%;
@@ -303,6 +330,10 @@
     width: 80%;
     object-fit: contain;
     object-position: center;
+    transition: transform .3s ease-in-out;
+    .preview &:hover {
+      transform: scale3d( 1.025 , 1.025 , 1.025 )
+    }
     @include MQ(Pp) {
       width: 100%;
     }

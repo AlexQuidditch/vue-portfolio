@@ -7,7 +7,10 @@
                      class="header__title">
           Сергей <span>Иванов</span>
         </router-link>
-        <h4 class="header__sub-title">WEB / APP / UI DESIGN</h4>
+        <router-link to="/vdele" tag="h4"
+                     class="header__sub-title">
+          WEB / APP / UI DESIGN
+        </router-link>
       </div>
       <button @click="$emit('toggleMenu')" class="header-menu">
         <span class="header-menu__text">Меню</span>
@@ -114,11 +117,13 @@
       }
     }
     &__sub-title {
+      position: relative;
       font-size: 18px;
       font-weight: 300;
       line-height: 1.11;
       color: #4a4a4a;
       color: var(--charcoal-grey);
+      cursor: pointer;
       transition: color .3s ease-in-out;
       @include MQ(Pp) {
         font-size: 12px;

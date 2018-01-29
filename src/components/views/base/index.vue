@@ -15,7 +15,7 @@
       <div class="case">
         <transition name="slide" mode="out-in">
           <div class="case-container" :key="Displayed.route">
-            <router-link :to="{ path: '/case/' + Displayed.link }" tag="h1"
+            <router-link :to="{ path: '/case/' + Displayed.link }" tag="h1" :class=" '_' + Case"
                          class="case-title">
               <span class="case-title__task">{{ Displayed.task }}</span>
               <br />
@@ -50,11 +50,13 @@
         </div>
       </nav>
       <transition name="fade" mode="out-in">
-        <div :key="Displayed.background" class="preview">
+        <router-link :to="{ path: '/case/' + Displayed.link }" tag="div"
+                     :key="Displayed.background"
+                     class="preview">
           <img :src=" '/static/' + Displayed.background" class="preview__background" />
           <img :src=" '/static/' + Displayed.picture " :alt="Displayed.title"
                class="preview__picture" />
-        </div>
+        </router-link>
       </transition>
     </main>
     <template slot="bottom-block" slot-scope="props">
@@ -104,7 +106,7 @@
           route: 'travel',
           task: 'Концепция и интерфейс',
           title: '"Travel.App"',
-          description: 'Проработка концепции, UI, 3D-моделирование и еще много всего интересного',
+          description: 'Проработка концепции, UI, 3D-моделирование и еще много всего интересного...',
           picture: 'travel/preview.png',
           background: 'travel/bg0.jpg',
           link: 'travel-app'
@@ -124,9 +126,9 @@
       this.Displayed = this.Cases.find( item => item.route == this.Case );
     },
     mounted () {
-      this.$nextTick( () => {
-        document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
-      });
+      this.$nextTick( () => 
+        document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false )
+      );
     },
     beforeDestroy () {
       document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
@@ -145,7 +147,7 @@
       next();
       setTimeout( () => {
         document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
-      }, 1500 );
+      }, 1250 );
     },
     methods: {
       mouseWheelDetect (event) {

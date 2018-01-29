@@ -2,11 +2,12 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Base from '../components/views/base/index.vue';
 
-import VDele from '../components/views/v-dele/index.vue';
-import TravelApp from '../components/views/travel-app/index.vue';
-import MPU from '../components/views/mpu/index.vue';
-import About from '../components/views/about/index.vue';
-import Contact from '../components/views/contact/index.vue';
+const MPU = () => import('../components/views/mpu/index.vue');
+const VDele = () => import('../components/views/v-dele/index.vue');
+const TravelApp = () => import('../components/views/travel-app/index.vue');
+
+const About = () => import('../components/views/about/index.vue');
+const Contact = () => import('../components/views/contact/index.vue')
 
 Vue.use(Router);
 
@@ -122,9 +123,7 @@ router.beforeEach( ( to , from , next ) => {
 
   nearestWithMeta.meta.metaTags.map( tagDef => {
     const tag = document.createElement('meta');
-    Object.keys(tagDef).forEach(key => {
-      tag.setAttribute(key, tagDef[key]);
-    });
+    Object.keys(tagDef).forEach( key => tag.setAttribute(key, tagDef[key]) );
     tag.setAttribute('data-vue-router-controlled', '');
     return tag;
   })

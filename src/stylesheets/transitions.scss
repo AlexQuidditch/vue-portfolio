@@ -66,6 +66,18 @@
   }
 }
 
+.fade-menu {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active,
+  &-leave-active {
+    transition:
+      opacity .75s ease-in-out .3s
+  }
+}
+
 .list {
   &-move {
     transition: all 600ms ease-in-out 50ms
@@ -93,7 +105,7 @@
   &-enter,
   &-leave-to {
     opacity: 0;
-    transform: translateX(-100%) translate3d( 0 , 0 , 0 );
+    transform: translate3d( -100% , 0 , 0 );
   }
   &-enter-active,
   &-leave-active {
