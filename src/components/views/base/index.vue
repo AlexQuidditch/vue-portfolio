@@ -99,7 +99,7 @@
           title: '"Время Пришло"',
           description: 'UX/UI, разработка структуры, взаимодействия между пользователями, прототипирование, анимация.',
           picture: 'time/preview.png',
-          background: 'time/time.jpg',
+          background: 'time/previewbg-time.jpg',
           link: 'v-dele'
         },
         {
@@ -116,7 +116,7 @@
           task: 'Разработка сайта',
           title: '"MPU Leicht"',
           description: 'Разработка дизайна сайта и веб-приложения для компании, специализирующейся на подготовке к MPU тесту (медицинская психологическая экспертиза).',
-          picture: 'mpu/preview.png',
+          picture: 'mpu/preview-screens.png',
           background: 'mpu/bg2(black).jpg',
           link: 'mpu'
         }
