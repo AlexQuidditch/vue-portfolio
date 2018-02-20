@@ -1,12 +1,13 @@
 <template lang="html">
-  <pull-to :bottom-load-method="nextRoute"
+  <pull-to v-if="isIOS"
+           :bottom-load-method="nextRoute"
            @bottom-state-change="stateChange"
            :top-load-method="prevRoute"
            @top-state-change="stateChange"
            :topBlockHeight="25"
            :bottomBlockHeight="25">
      <template slot="top-block" slot-scope="props">
-       <span></span>
+      <mat-icon-arrow-right :class="{ '_loading' : isLoading, '_done' : isDone }" class="bottom-load__icon"></mat-icon-arrow-right>
      </template>
     <main id="main" class="main">
       <transition name="fade" mode="out-in">
@@ -63,6 +64,11 @@
       <mat-icon-arrow-right :class="{ '_loading' : isLoading, '_done' : isDone }" class="bottom-load__icon"></mat-icon-arrow-right>
     </template>
   </pull-to>
+  <div v-else>
+    <main id="main" class="main" style="display:flex;justify-content:center;align-items:center;font-size:8rem">
+      Хуй-Пизда_джигурда!
+    </main>
+  </div>
 </template>
 
 <script>
@@ -126,9 +132,13 @@
       this.Displayed = this.Cases.find( item => item.route == this.Case );
     },
     mounted () {
-      this.$nextTick( () => 
-        document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false )
-      );
+      this.$nextTick( () => {
+        if (!this.isIOS) {
+          return false;
+        } else {
+          document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
+        }
+      });
     },
     beforeDestroy () {
       document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
@@ -139,20 +149,27 @@
       },
       mouseWheelEvent () {
         return (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel";
+      },
+      isIOS () {
+        return window.device.ios()
       }
     },
     beforeRouteUpdate ( to , from , next ) {
-      document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
-      this.Displayed = this.Cases.find( item => item.route == to.params.Case );
-      next();
-      setTimeout( () => {
-        document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
-      }, 1250 );
+      if (!this.isIOS) {
+        return next();
+      } else {
+        document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
+        this.Displayed = this.Cases.find( item => item.route == to.params.Case );
+        next();
+        setTimeout( () => {
+          document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
+        }, 1250 );
+      }
     },
     methods: {
       mouseWheelDetect (event) {
-        let direction = ( (event.wheelDelta) ? event.wheelDelta / 120 : event.detail / -3 ) || false;
-        direction < 0 ? this.nextRoute() : this.prevRoute();
+        const direction = ( (event.wheelDelta) ? event.wheelDelta / 120 : event.detail / -3 ) || false;
+        return direction < 0 ? this.nextRoute() : this.prevRoute();
       },
       nextRoute (loaded) {
         const currentCase = this.$route.params.Case;
