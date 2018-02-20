@@ -4,19 +4,19 @@
       <ul class="pg-menu-list">
         <li class="pg-menu-list__item">
           <router-link to="/vdele"
-                      class="pg-menu-list__item-link">
+                       class="pg-menu-list__item-link">
             Главная
           </router-link>
         </li>
         <li class="pg-menu-list__item">
           <router-link :to="{ name: 'About' }"
-                      class="pg-menu-list__item-link">
+                       class="pg-menu-list__item-link">
             Обо мне
           </router-link>
         </li>
         <li class="pg-menu-list__item">
           <router-link :to="{ name: 'Contact' }"
-                      class="pg-menu-list__item-link">
+                       class="pg-menu-list__item-link">
             Связаться
           </router-link>
         </li>
@@ -28,11 +28,6 @@
         </li>
       </ul>
     </transition>
-    <div class="ball">
-      <div class="halo"></div>
-      <div class="halo"></div>
-      <div class="halo"></div>
-    </div>
   </nav>
 </template>
 
@@ -57,14 +52,6 @@
   @import "../../../stylesheets/partials/_mixins.scss";
   @import "../../../stylesheets/partials/_layout.scss";
   
-  :root {
-    --mouse-x: 0;
-    --mouse-y: 0;
-    --scale: 0;
-    --radius: 40px;
-    --factor: 1;
-  }
-
   .pg-menu {
     z-index: 999;
     position: fixed;
@@ -146,40 +133,6 @@
         }
       }
     }
-  }
-
-  .ball {
-    width: var(--radius);
-    height: var(--radius);
-    background: #D92659;
-    border-radius: 50%;
-    position:absolute;
-  /* use calc() and the CSS variables created above to center the ball around the mouse position.  */
-    transform: translate(calc(var(--mouse-x) * 1px - var(--radius)/2),calc(var(--mouse-y) * 1px - var(--radius)/2));
-  }
-
-  .halo {
-    width: var(--radius);
-    height: var(--radius);
-    background: rgb(114, 61, 83);
-    border-radius: 50%;
-    position:absolute;
-    opacity: .15;
-  /*   filter: blur(var(--factor)); */
-    transform: scale(calc(var(--scale) * var(--factor)));
-  
-  }
-
-  .halo:nth-of-type(1) {
-    --factor: .3;
-  }
-
-  .halo:nth-of-type(2) {
-    --factor: 0.5;
-  }
-
-  .halo:nth-of-type(3) {
-    --factor: .9;
   }
 
 </style>
