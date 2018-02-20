@@ -24,12 +24,10 @@ const router = new Router({
       props: true,
       meta: {
         title: 'Сергей Иванов WEB | / APP / UI DESIGN',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Сергей Иванов WEB | WEB / APP / UI DESIGN'
-          }
-        ]
+        metaTags: [{
+          name: 'description',
+          content: 'Сергей Иванов WEB | WEB / APP / UI DESIGN'
+        }]
       }
     },
     {
@@ -38,12 +36,10 @@ const router = new Router({
       component: VDele,
       meta: {
         title: 'Кейс - Время Пришло',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Разработка интерфейса студенческой фриланс - биржи "Время Пришло"'
-          }
-        ]
+        metaTags: [{
+          name: 'description',
+          content: 'Разработка интерфейса студенческой фриланс - биржи "Время Пришло"'
+        }]
       }
     },
     {
@@ -52,12 +48,10 @@ const router = new Router({
       component: TravelApp,
       meta: {
         title: 'Кейс - Travel.App',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Веб-сервис и приложение геолокации, отличительной особенностью которого являются 3D - карты реального времени.'
-          }
-        ]
+        metaTags: [{
+          name: 'description',
+          content: 'Веб-сервис и приложение геолокации, отличительной особенностью которого являются 3D - карты реального времени.'
+        }]
       }
     },
     {
@@ -66,12 +60,10 @@ const router = new Router({
       component: MPU,
       meta: {
         title: 'Кейс - MPU Leicht',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Разработка дизайна сайта и веб - приложения MPU Leicht'
-          }
-        ]
+        metaTags: [{
+          name: 'description',
+          content: 'Разработка дизайна сайта и веб - приложения MPU Leicht'
+        }]
       }
     },
     {
@@ -80,12 +72,10 @@ const router = new Router({
       component: About,
       meta: {
         title: 'Обо мне || Портфолио',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Привет! Я занимаюсь дизайном сайтов, веб-сервисов и приложений, делая их привлекательнее для Ваших клиентов. Популизирую положительный имидж компании, увеличиваю прибыль.'
-          }
-        ]
+        metaTags: [{
+          name: 'description',
+          content: 'Привет! Я занимаюсь дизайном сайтов, веб-сервисов и приложений, делая их привлекательнее для Ваших клиентов. Популизирую положительный имидж компании, увеличиваю прибыль.'
+        }]
       }
     },
     {
@@ -94,16 +84,14 @@ const router = new Router({
       component: Contact,
       meta: {
         title: 'Напишите мне || Портфолио',
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Напишите мне и мы детально обсудим Ваше предложение'
-          }
-        ]
+        metaTags: [{
+          name: 'description',
+          content: 'Напишите мне и мы детально обсудим Ваше предложение'
+        }]
       }
     },
     {
-      path: '*',
+      path: '/*',
       redirect: '/vdele'
     }
   ]
