@@ -14,6 +14,8 @@
           <h2 class="about__sub-title">DESIGN</h2>
         </div>
       </div>
+      <img src="/static/IS(final).png" alt="Сергей Иванов"
+           class="about__photo" />
     </section>
     <section class="skills">
       <div class="container">
@@ -146,11 +148,11 @@
       addApps: [
         {
           name: 'C4D',
-          icon: 'C4D.png'
+          icon: 'C4D_Logo.png'
         },
         {
           name: 'marvel',
-          icon: 'marvel.png'
+          icon: 'logo_marvel.png'
         },
         {
           name: 'final_cut',
@@ -291,6 +293,12 @@
       text-align: left;
       color: #ff144b;
       color: var(--neon-red);
+    }
+    &__photo {
+      position: absolute;
+      top: 20%; left: 55%;
+      width: 40%;
+      transform: translateX(-50%)
     }
   }
 
