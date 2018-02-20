@@ -61,7 +61,7 @@
     }),
     methods: {
       submit (event) {
-// 				let message =
+// 				const message =
 // `
 // Сообщение с ${ document.title }:
 
