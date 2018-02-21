@@ -145,6 +145,12 @@
     padding: 0;
     background-color: transparent;
     border: none;
+    &:hover * {
+      color: #1c9bf7;
+      color: var(--azure);
+      fill: #1c9bf7;
+      fill: var(--azure);
+    }
     &__text {
       margin: 0 15px 0 0;
       font-size: 18px;
@@ -164,7 +170,7 @@
       width: 50px;
       fill: #4a4a4a;
       fill: var(--charcoal-grey);
-      transition: fill .3s ease-in-out;
+      transition: all .3s ease-in-out;
     }
   }
 
