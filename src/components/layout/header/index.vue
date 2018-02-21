@@ -1,5 +1,5 @@
 <template lang="html">
-  <header class="header">
+  <header :class="{ '_fallback': !isIOS && !isPortfolio }" class="header">
     <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp , '_mobile' : isNeedMobileContrast }"
          class="container">
       <div class="header-container">
@@ -39,6 +39,9 @@
         const isAbout = this.$route.name === 'About';
         const isContact = this.$route.name === 'Contact';
         return ( isCase || isAbout || isContact );
+      },
+      isIOS () {
+        return window.device.ios()
       }
     }
   };
@@ -60,6 +63,9 @@
     }
     @include MQ(Tp) {
       padding-top: 25px;
+    }
+    &._fallback {
+      position: fixed
     }
     .container {
       display: flex;

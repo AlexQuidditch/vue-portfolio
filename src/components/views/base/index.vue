@@ -65,8 +65,33 @@
     </template>
   </pull-to>
   <div v-else>
-    <main id="main" class="main" style="display:flex;justify-content:center;align-items:center;font-size:8rem">
-      Хуй-Пизда_джигурда!
+    <main id="main" class="main _fallback">
+      <section v-for="caseItem in Cases" :key="caseItem.route"
+               class="case-section">
+        <div class="case-container">
+          <div><router-link :to="{ path: '/case/' + caseItem.link }" tag="h1" :class=" '_' + caseItem.route"
+                         class="case-title">
+              <span class="case-title__task">{{ caseItem.task }}</span>
+              <br />
+              <span :class=" '_' + caseItem.route"
+                    class="case-title__title">
+                {{ caseItem.title }}
+              </span>
+            </router-link>
+            <p class="case__description">{{ caseItem.description }}</p>
+            <router-link :to="{ path: '/case/' + caseItem.link }"
+                         :class=" '_' + caseItem.route"
+                         class="case__link">
+              <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
+              <span class="case__link-text">Смотреть проект</span>
+            </router-link></div>
+        </div>
+        <div class="preview _fallback">
+          <img :src=" '/static/' + caseItem.background" class="preview__background" />
+          <img :src=" '/static/' + caseItem.picture " :alt="caseItem.title"
+               class="preview__picture" />
+        </div>
+      </section>
     </main>
   </div>
 </template>
