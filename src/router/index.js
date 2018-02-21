@@ -1,5 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
+Vue.use(Router);
+
+import SmoothScroll from 'smoothscroll-polyfill';
+SmoothScroll.polyfill();
+
 import Base from '../components/views/base/index.vue';
 
 const MPU = () => import('../components/views/mpu/index.vue');
@@ -7,15 +13,16 @@ const VDele = () => import('../components/views/v-dele/index.vue');
 const TravelApp = () => import('../components/views/travel-app/index.vue');
 
 const About = () => import('../components/views/about/index.vue');
-const Contact = () => import('../components/views/contact/index.vue')
-
-Vue.use(Router);
+const Contact = () => import('../components/views/contact/index.vue');
 
 const router = new Router({
   mode: 'history',
   base: __dirname,
   linkExactActiveClass: '_exact-active',
   linkActiveClass: '_active',
+  scrollBehavior (to, from, savedPosition) {
+    return window.scroll({ top: 0, behavior: 'smooth' })
+  },
   routes: [
     {
       path: '/:Case',

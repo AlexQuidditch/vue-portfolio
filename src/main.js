@@ -11,9 +11,6 @@ Vue.use(VueSweetalert);
 
 Vue.config.productionTip = false;
 
-import SmoothScroll from 'smoothscroll-polyfill';
-SmoothScroll.polyfill();
-
 const app = new Vue({
 	router ,
   template: '<App/>',
