@@ -1,5 +1,5 @@
 <template lang="html">
-  <pull-to v-if="isIOS"
+  <pull-to v-if="!isIOS"
            :bottom-load-method="nextRoute"
            @bottom-state-change="stateChange"
            :top-load-method="prevRoute"
@@ -69,7 +69,8 @@
       <section v-for="caseItem in Cases" :key="caseItem.route"
                class="case-section">
         <div class="case-container">
-          <div><router-link :to="{ path: '/case/' + caseItem.link }" tag="h1" :class=" '_' + caseItem.route"
+          <div>
+            <router-link :to="{ path: '/case/' + caseItem.link }" tag="h1" :class=" '_' + caseItem.route"
                          class="case-title">
               <span class="case-title__task">{{ caseItem.task }}</span>
               <br />
@@ -84,13 +85,15 @@
                          class="case__link">
               <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
               <span class="case__link-text">Смотреть проект</span>
-            </router-link></div>
+            </router-link>
+          </div>
         </div>
-        <div class="preview _fallback">
+        <router-link :to="{ path: '/case/' + caseItem.link }" tag="div"
+                     class="preview _fallback">
           <img :src=" '/static/' + caseItem.background" class="preview__background" />
           <img :src=" '/static/' + caseItem.picture " :alt="caseItem.title"
                class="preview__picture" />
-        </div>
+        </router-link>
       </section>
     </main>
   </div>
@@ -158,7 +161,7 @@
     },
     mounted () {
       this.$nextTick( () => {
-        if (!this.isIOS) {
+        if (this.isIOS) {
           return false;
         } else {
           document.addEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
@@ -180,7 +183,7 @@
       }
     },
     beforeRouteUpdate ( to , from , next ) {
-      if (!this.isIOS) {
+      if (this.isIOS) {
         return next();
       } else {
         document.removeEventListener( this.mouseWheelEvent , this.mouseWheelDetect , false );
