@@ -20,6 +20,23 @@
   }
   &._fallback {
     display: block;
+    .case-section {
+      min-height: auto;
+      padding-top: 500px;
+      .case-container {
+        padding: 0 40px;
+        > div {
+          padding: 40px 0;
+        }
+      }
+      .preview {
+        @include MQ(Pp) {
+          position: absolute;
+          width: 100%;
+          padding: 0 10px;
+        }
+      }
+    }
   }
 }
 
@@ -382,6 +399,45 @@
   }
   @include MQ(Tp) {
     display: block;
+  }
+}
+
+.upper-load {
+  &__icon {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    size: 30px;
+    margin-bottom: 20px;
+    transform-origin: 0;
+    transform: rotate(90deg) translateX(-50%);
+    transition: transform .25s ease;
+    &._loading {
+      transform: rotate(180deg) translateX(-50%);
+    }
+    &._done {
+      transform: rotate(270deg) translateX(-50%);
+    }
+  }
+  &__arrow {
+    opacity: 0.3;
+    width: 25px;
+    height: 30px;
+    margin-right: 5px;
+    transform: rotate(90deg);
+  }
+  &__text {
+    opacity: 0.3;
+    font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #404552;
+    color: var(--charcoal-grey-two);
+  }
+  @include MQ(Pp) {
+    display: flex;
+  }
+  @include MQ(Tp) {
+    display: flex;
   }
 }
 
