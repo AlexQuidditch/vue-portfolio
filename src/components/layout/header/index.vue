@@ -1,5 +1,5 @@
 <template lang="html">
-  <header :class="{ '_fallback': !isIOS && !isPortfolio }" class="header">
+  <header :class="{ '_fallback': isIOS && !isPortfolio }" class="header">
     <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp , '_mobile' : isNeedMobileContrast }"
          class="container">
       <div class="header-container">
@@ -65,7 +65,10 @@
       padding-top: 25px;
     }
     &._fallback {
-      position: fixed
+      position: fixed;
+      padding-bottom: 20px;
+      background-color: #fff;
+      background-color: var(--whited);
     }
     .container {
       display: flex;
