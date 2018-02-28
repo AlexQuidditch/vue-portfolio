@@ -7,7 +7,10 @@
            :topBlockHeight="25"
            :bottomBlockHeight="25">
      <template slot="top-block" slot-scope="props">
-      <mat-icon-arrow-right :class="{ '_loading' : isLoading, '_done' : isDone }" class="bottom-load__icon"></mat-icon-arrow-right>
+      <mat-icon-arrow-right
+        :class="{ '_loading' : isLoading, '_done' : isDone }"
+        class="upper-load__icon">
+      </mat-icon-arrow-right>
      </template>
     <main id="main" class="main">
       <transition name="fade" mode="out-in">
@@ -128,6 +131,15 @@
       },
       Cases: [
         {
+          route: 'mpu',
+          task: 'Разработка сайта',
+          title: '"MPU Leicht"',
+          description: 'Разработка дизайна сайта и веб-приложения для компании, специализирующейся на подготовке к MPU тесту (медицинская психологическая экспертиза).',
+          picture: 'mpu/preview-screens.png',
+          background: 'mpu/bg2(black).jpg',
+          link: 'mpu'
+        },
+        {
           route: 'vdele',
           task: 'Разработка интерфейса',
           title: '"Время Пришло"',
@@ -144,20 +156,12 @@
           picture: 'travel/preview.png',
           background: 'travel/bg0.jpg',
           link: 'travel-app'
-        },
-        {
-          route: 'mpu',
-          task: 'Разработка сайта',
-          title: '"MPU Leicht"',
-          description: 'Разработка дизайна сайта и веб-приложения для компании, специализирующейся на подготовке к MPU тесту (медицинская психологическая экспертиза).',
-          picture: 'mpu/preview-screens.png',
-          background: 'mpu/bg2(black).jpg',
-          link: 'mpu'
         }
       ]
     }),
     created () {
       this.Displayed = this.Cases.find( item => item.route == this.Case );
+      console.log(this.isIOS);
     },
     mounted () {
       this.$nextTick( () => {
