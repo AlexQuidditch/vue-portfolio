@@ -13,6 +13,7 @@
           <h1 class="about__title">UX/UI</h1>
           <h2 class="about__sub-title">DESIGN</h2>
         </div>
+        <h5 class="about__free-title">ABOUT</h5>
       </div>
       <img src="/static/IS(final).png" alt="Сергей Иванов"
            class="about__photo" />
@@ -59,6 +60,11 @@
               class="workflow-item">
             <img :src=" '/static/apps/' + appItem.icon " :alt="appItem.name"
                  class="workflow-item__icon" />
+            <div class="workflow-item__tooltip"
+                 role="tooltip" 
+                 tabindex="-1">
+              <p class="workflow-item__tooltip-text">{{ appItem.description }}</p>
+            </div>
           </li>
         </ul>
         <h4 class="apps__title _add">Дополнительное ПО</h4>
@@ -67,6 +73,11 @@
               class="workflow-item">
             <img :src=" '/static/apps/' + appItem.icon " :alt="appItem.name"
                  class="workflow-item__icon" />
+            <div class="workflow-item__tooltip"
+                 role="tooltip" 
+                 tabindex="-1">
+              <p class="workflow-item__tooltip-text">{{ appItem.description }}</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -122,49 +133,60 @@
       mainApps: [
         {
           name: 'muse',
-          icon: 'muse.png'
+          icon: 'muse.png',
+          description: 'Графический редактор, ориентированный на создание сайтов, небольших интернет-магазинов и лендинг пейдж без необходимости написания кода.'
         },
         {
           name: 'Axure RP',
-          icon: 'axure-rp.png'
+          icon: 'axure-rp.png',
+          description: 'Программа для создания прототипов и спецификаций веб-сайтов и приложений.'
         },
         {
           name: 'Photoshop CC',
-          icon: 'photoshop-cc.png'
+          icon: 'photoshop-cc.png',
+          description: 'Многофункциональный графический редактор, разработанный и распространяемый фирмой Adobe Systems.'
         },
         {
           name: 'Sketch',
-          icon: 'sketch.png'
+          icon: 'sketch.png',
+          description: 'Профессиональный векторный инструмент для Mac OS. Мощный, простой, быстрый, гибкий редактор для дизайна интерфейсов.'
         },
         {
           name: 'After Effects',
-          icon: 'after-effects-cc.png'
+          icon: 'after-effects-cc.png',
+          description: 'Программа для редактирования видео и динамических изображений, разработки композиций (композитинг), анимации и создания различных эффектов.'
         },
         {
           name: 'illustrator-cc',
-          icon: 'illustrator-cc.png'
+          icon: 'illustrator-cc.png',
+          description: 'Векторный графический редактор, разработанный и распространяемый фирмой Adobe Systems.'
         }
       ],
       addApps: [
         {
           name: 'C4D',
-          icon: 'C4D_Logo.png'
+          icon: 'C4D_Logo.png',
+          description: 'Программный пакет для создания трёхмерной графики и анимации. Универсальная комплексная программа для создания и редактирования трехмерных эффектов и объектов.'
         },
         {
           name: 'marvel',
-          icon: 'logo_marvel.png'
+          icon: 'logo_marvel.png',
+          description: 'Программа для прототипирования и анимации мобильных и веб-предложений.'
         },
         {
           name: 'final_cut',
-          icon: 'final_cut.png'
+          icon: 'final_cut.png',
+          description: 'Профессиональный видеоредактор для обработки видео и монтажа.'
         },
         {
           name: 'MindMeister',
-          icon: 'mindmeister.png'
+          icon: 'mindmeister.png',
+          description: 'Инструмент для майндмэппинга, который позволяет визуально запечатлеть идеи, развивать их и делиться ими. Используется для брейнсторминга, создания заметок, планирования проектов и многих других креативных задач.'
         },
         {
           name: 'zeplin',
-          icon: 'zeplin.png'
+          icon: 'zeplin.png',
+          description: 'Программа, направленная на то, чтобы подружить дизайнеров и разработчиков. Позволяет передавать макеты из графических программ в удобный и понятный разработчикам формат.'
         }
       ]
     }),
@@ -212,9 +234,7 @@
     top: 0; left: 0;
     width: 100%;
     height: 100vh;
-    @include MQ(Pp) {
-      height: auto;
-    }
+    background-color: #f5f5f5;
     .container {
       display: flex;
       flex-flow: row wrap;
@@ -223,6 +243,7 @@
       padding-top: 200px;
       @include MQ(Pp) {
         flex-flow: column;
+        width: 90%;
       }
     }
     .about-column {
@@ -273,6 +294,22 @@
         display: none;
       }
     }
+    &__free-title {
+      position: absolute;
+      left: -25%;
+      bottom: 90px;
+      opacity: 0.1;
+      font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+      font-size: 144px;
+      line-height: 1;
+      letter-spacing: 10px;
+      text-align: left;
+      color: #404552;
+      color: var(--charcoal-grey-two);
+      @include MQ(Pp) {
+        display: none;
+      }
+    }
     &__message {
       max-width: 395px;
       margin-top: 20px;
@@ -296,9 +333,16 @@
     }
     &__photo {
       position: absolute;
-      top: 20%; left: 55%;
-      width: 40%;
-      transform: translateX(-50%)
+      bottom: 0; left: 57.5%;
+      width: 587px;
+      height: 777px;
+      object-fit: contain;
+      transform: translateX(-50%);
+      @include MQ(Pp) {
+        left: 55%;
+        width: 80%;
+        height: auto;
+      }
     }
   }
 
@@ -440,9 +484,16 @@
       }
     }
     .workflow-item {
+      position: relative;
       margin: 50px;
       @include MQ(Pp) {
         margin: 10px;
+      }
+      &:hover {
+        .workflow-item__tooltip {
+          opacity: 1;
+          visibility: visible;
+        }
       }
       &__icon {
         size: 100px;
@@ -451,6 +502,49 @@
         @include MQ(Pp) {
           size: 50px;
         }
+      }
+      &__tooltip {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        z-index: 1060;
+        width: 225px;
+        padding: 10px;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: .875rem;
+        word-wrap: break-word;
+        background-color: #f5f5f5;
+        border: 1px solid rgba( 0 , 0 , 0 , .2 );
+        border-radius: .3rem;
+        transform: translateX(-50%);
+        transition:
+          opacity .2s ease-in-out,
+          visibility .2s ease-in-out;
+        &::before {
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          content: "";
+          display: block;
+          width: 10px;
+          height: 10px;
+          border-style: solid;
+          border-width: 0 10px 10px 10px;
+          border-color: transparent transparent rgba( 0 , 0 , 0 , .2 ) transparent;
+          transform: translateX(-50%)
+        }
+        @include MQ(Pp) {
+          top: 65px;
+        }
+      }
+      &__tooltip-text {
+        padding: 0;
+        margin: 0;
       }
     }
   }
