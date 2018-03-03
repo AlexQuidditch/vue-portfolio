@@ -3,9 +3,7 @@ export default {
   props: {
     'Fill': {
       type: String,
-      default() {
-        return '#4a4a4a'
-      }
+      default: '#4a4a4a'
     }
   },
   template:
