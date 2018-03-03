@@ -206,10 +206,6 @@
         display: block;
         margin-top: 2.25rem;
         margin-bottom: 2.25rem;
-        @include MQ(Pp) {
-          margin-top: 1.25rem;
-          margin-bottom: 1.25rem;
-        }
       }
       &__input {
         display: block;
@@ -231,7 +227,8 @@
         &::placeholder {
           opacity: 0;
         }
-        &:focus {
+        &:focus,
+        &:valid {
           color: #333;
           & ~ .contact-form__placeholder {
             font-size: 0.8rem;
@@ -241,6 +238,15 @@
             @include MQ(Pp) {
               font-size: 0.75rem;
             }
+          }
+        }
+        &:invalid {
+          color: red;
+          & ~ .contact-form__placeholder {
+            font-size: 0.8rem;
+            color: gray;
+            top: -1rem;
+            left: 0;
           }
         }
         &:focus {
