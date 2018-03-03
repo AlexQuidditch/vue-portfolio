@@ -60,11 +60,7 @@
               class="workflow-item">
             <img :src=" '/static/apps/' + appItem.icon " :alt="appItem.name"
                  class="workflow-item__icon" />
-            <div class="workflow-item__tooltip"
-                 role="tooltip" 
-                 tabindex="-1">
-              <p class="workflow-item__tooltip-text">{{ appItem.description }}</p>
-            </div>
+            <workflow-tooltip :Description="appItem.description" />
           </li>
         </ul>
         <h4 class="apps__title _add">Дополнительное ПО</h4>
@@ -73,11 +69,7 @@
               class="workflow-item">
             <img :src=" '/static/apps/' + appItem.icon " :alt="appItem.name"
                  class="workflow-item__icon" />
-            <div class="workflow-item__tooltip"
-                 role="tooltip" 
-                 tabindex="-1">
-              <p class="workflow-item__tooltip-text">{{ appItem.description }}</p>
-            </div>
+            <workflow-tooltip :Description="appItem.description" />
           </li>
         </ul>
       </div>
@@ -89,20 +81,20 @@
           <h4 class="about-form__title">Мы детально обсудим Ваше предложение, либо просто дружелюбно пообщаемся.</h4>
           <label class="about-form__label">
             <input v-model="Form.name"
-                    type="text" required class="about-form__input" placeholder="Ваше имя*" />
+                   type="text" required class="about-form__input" placeholder="Ваше имя*" />
             <span class="about-form__placeholder">Ваше имя*</span>
             <i class="about-form__bar"></i>
           </label>
           <label class="about-form__label">
             <input v-model="Form.mail" type="email"
-                    required class="about-form__input" placeholder="Ваш E-mail*" />
+                   required class="about-form__input" placeholder="Ваш E-mail*" />
             <span class="about-form__placeholder">Ваш E-mail*</span>
             <i class="about-form__bar"></i>
           </label>
           <label class="about-form__label">
             <input v-model="Form.message"
-                      type="text" required class="about-form__input"
-                      placeholder="Расскажите о Вашем предложении" />
+                   type="text" required class="about-form__input"
+                   placeholder="Расскажите о Вашем предложении" />
             <span class="about-form__placeholder">Расскажите о Вашем предложении</span>
             <i class="about-form__bar"></i>
           </label>
@@ -119,11 +111,13 @@
   import IconCube from '../../icons/cube.js';
   import IconLayers from '../../icons/layers.js';
 
+  import WorkflowTooltip from './WorkflowTooltip.vue';
+
   // import { token , chat_id } from '../../../data.js';
 
   export default {
     name: "About",
-    components: { IconPlay , IconCube , IconLayers },
+    components: { IconPlay , IconCube , IconLayers , WorkflowTooltip },
     data: () => ({
       Form: {
         name: '',
@@ -490,7 +484,7 @@
         margin: 10px;
       }
       &:hover {
-        .workflow-item__tooltip {
+        .workflow-tooltip {
           opacity: 1;
           visibility: visible;
         }
@@ -503,49 +497,7 @@
           size: 50px;
         }
       }
-      &__tooltip {
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        top: 120px;
-        left: 50%;
-        z-index: 1060;
-        width: 225px;
-        padding: 10px;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.5;
-        font-size: .875rem;
-        word-wrap: break-word;
-        background-color: #f5f5f5;
-        border: 1px solid rgba( 0 , 0 , 0 , .2 );
-        border-radius: .3rem;
-        transform: translateX(-50%);
-        transition:
-          opacity .2s ease-in-out,
-          visibility .2s ease-in-out;
-        &::before {
-          position: absolute;
-          top: -10px;
-          left: 50%;
-          content: "";
-          display: block;
-          width: 10px;
-          height: 10px;
-          border-style: solid;
-          border-width: 0 10px 10px 10px;
-          border-color: transparent transparent rgba( 0 , 0 , 0 , .2 ) transparent;
-          transform: translateX(-50%)
-        }
-        @include MQ(Pp) {
-          top: 65px;
-        }
-      }
-      &__tooltip-text {
-        padding: 0;
-        margin: 0;
-      }
+      
     }
   }
 
@@ -604,6 +556,15 @@
           left: 0;
         }
       }
+      &:invalid {
+        color: red;
+        & ~ .about-form__placeholder {
+          font-size: 0.8rem;
+          color: gray;
+          top: -1rem;
+          left: 0;
+        }
+      }
       &:focus {
         outline: none;
         & ~ .about-form__placeholder {
@@ -614,7 +575,6 @@
           left: 0;
         }
       }
-
     }
     &__placeholder {
       position: absolute;
