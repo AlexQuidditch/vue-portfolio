@@ -161,7 +161,6 @@
       line-height: 48px;
       color: #4a4a4a;
       color: var(--charcoal-grey);
-      transition: color .3s ease-in-out;
       @include MQ(Pp) {
         display: none;
       }
@@ -171,9 +170,6 @@
     }
     &__icon {
       width: 50px;
-      fill: #4a4a4a;
-      fill: var(--charcoal-grey);
-      transition: all .3s ease-in-out;
     }
   }
 
