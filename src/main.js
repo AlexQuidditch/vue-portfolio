@@ -11,7 +11,10 @@ Vue.use(VueSweetalert);
 
 Vue.config.productionTip = false;
 
-const app = new Vue({
+import SmoothScroll from 'smoothscroll-polyfill';
+SmoothScroll.polyfill();
+
+const Portfolio = new Vue({
 	router ,
   template: '<App/>',
   components: { App }

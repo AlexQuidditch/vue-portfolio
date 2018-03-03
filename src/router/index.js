@@ -3,9 +3,6 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-import SmoothScroll from 'smoothscroll-polyfill';
-SmoothScroll.polyfill();
-
 import Base from '../components/views/base/index.vue';
 
 const MPU = () => import('../components/views/mpu/index.vue');
@@ -99,7 +96,7 @@ const router = new Router({
     },
     {
       path: '/*',
-      redirect: '/vdele'
+      redirect: '/mpu'
     }
   ]
 });
