@@ -22,7 +22,17 @@
     display: block;
     .case-section {
       min-height: auto;
-      padding-top: 500px;
+      @include MQ(Pp) {
+        padding-top: 500px;
+      }
+      @include MQ(Tp) {
+        padding-top: 70vh;
+      }
+      &:first-child {
+        .preview {
+          padding-top: 100px;
+        }
+      }
       .case-container {
         padding: 0 40px;
         > div {
@@ -84,6 +94,9 @@
     @include MQ(Tp) {
       max-width: 100%;
     }
+    @include MQ(Tl) {
+      width: 100%;
+    }
   }
   &__description {
     width: 470px;
@@ -98,6 +111,9 @@
       line-height: 1.75
     }
     @include MQ(Tp) {
+      width: 100%;
+    }
+    @include MQ(Tl) {
       width: 100%;
     }
   }
@@ -254,6 +270,9 @@
     font-size: 10vw
   }
   @include MQ(Tp) {
+    width: 100%;
+  }
+  @include MQ(Tl) {
     width: 100%;
   }
   &__title {

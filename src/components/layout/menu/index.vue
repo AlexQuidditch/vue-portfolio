@@ -3,7 +3,7 @@
     <transition name="fade-menu" appear>
       <ul class="pg-menu-list">
         <li class="pg-menu-list__item">
-          <router-link to="/vdele"
+          <router-link to="/mpu"
                        class="pg-menu-list__item-link">
             Главная
           </router-link>
@@ -74,12 +74,12 @@
           margin: 1.25rem 0;
         }
         &._close {
-          position: absolute 40px 40px auto auto;
+          position: absolute 40px 30px auto auto;
           margin: 0;
           @include MQ(Pp) {
             top: initial;
             right: initial;
-            bottom: 75px;
+            top: 40px;
             .pg-menu-list__item-button {
               display: flex;
               justify-content: flex-end;

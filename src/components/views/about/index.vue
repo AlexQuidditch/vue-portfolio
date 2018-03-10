@@ -234,6 +234,8 @@
       flex-flow: row wrap;
       justify-content: space-between;
       width: 60%;
+      max-width: initial;
+      min-width: 1080px;
       padding-top: 200px;
       @include MQ(Pp) {
         flex-flow: column;
@@ -250,6 +252,7 @@
       }
     }
     &__title {
+      margin-right: 150px;
       text-align: right;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 72px;
@@ -277,6 +280,7 @@
       }
     }
     &__sub-title {
+      margin-right: 150px;
       text-align: right;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
       font-size: 42px;
@@ -290,7 +294,7 @@
     }
     &__free-title {
       position: absolute;
-      left: -25%;
+      left: -7.5%;
       bottom: 90px;
       opacity: 0.1;
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
@@ -327,7 +331,7 @@
     }
     &__photo {
       position: absolute;
-      bottom: 0; left: 57.5%;
+      bottom: 0; left: 51.5%;
       width: 587px;
       height: 777px;
       object-fit: contain;

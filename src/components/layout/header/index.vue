@@ -36,9 +36,7 @@
       },
       isPortfolio () {
         const isCase = this.$route.fullPath.includes('/case/');
-        const isAbout = this.$route.name === 'About';
-        const isContact = this.$route.name === 'Contact';
-        return ( isCase || isAbout || isContact );
+        return isCase;
       },
       isIOS () {
         return window.device.ios()
@@ -69,10 +67,21 @@
       padding-bottom: 20px;
       background-color: #fff;
       background-color: var(--whited);
+      .container {
+        &._mobile * {
+          color: #202020;
+          color: var(--black) !important;
+          fill: #202020;
+          fill: var(--black)
+        }
+      }
     }
     .container {
       display: flex;
       justify-content: space-between;
+      width: 60%;
+      max-width: initial;
+      min-width: 1080px;
       transition: padding-right 1s ease-in-out;
       &._half {
         padding-right: ( 1180px / 2 + 30px );
@@ -98,6 +107,7 @@
         }
       }
       @include MQ(Pp) {
+        min-width: 100%;
         &._half {
           padding-right: 25px;
         }
@@ -106,6 +116,12 @@
         padding: 0 25px;
         &._half {
           padding-right: 25px;
+        }
+      }
+      @include MQ(Tl) {
+        min-width: 90%;
+        &._half {
+          padding-right: ( 968px / 2 + 30px );
         }
       }
     }
