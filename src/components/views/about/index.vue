@@ -116,7 +116,7 @@
   // import { token , chat_id } from '../../../data.js';
 
   export default {
-    name: "About",
+    name: 'About',
     components: { IconPlay , IconCube , IconLayers , WorkflowTooltip },
     data: () => ({
       Form: {
@@ -229,6 +229,12 @@
     width: 100%;
     height: 100vh;
     background-color: #f5f5f5;
+    @include MQ(Tp) {
+      height: 75vh;
+    }
+    @include MQ(Tl) {
+      height: 100vh;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
@@ -239,6 +245,14 @@
       padding-top: 200px;
       @include MQ(Pp) {
         flex-flow: column;
+        width: 90%;
+      }
+      @include MQ(Tp) {
+        min-width: initial;
+        width: 90%;
+      }
+      @include MQ(Tl) {
+        min-width: initial;
         width: 90%;
       }
     }
@@ -265,6 +279,12 @@
         display: none;
         font-size: 12vw;
       }
+      @include MQ(Tp) {
+        margin-right: initial;
+      }
+      @include MQ(Tl) {
+        margin-right: initial;
+      }
     }
     &__pre-title {
       margin-top: 120px;
@@ -278,6 +298,12 @@
         display: none;
         font-size: 12vw;
       }
+      @include MQ(Tp) {
+        margin-top: 0;
+      }
+      @include MQ(Tl) {
+        margin-top: 0;
+      }
     }
     &__sub-title {
       margin-right: 150px;
@@ -290,6 +316,12 @@
       text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
       @include MQ(Pp) {
         display: none;
+      }
+      @include MQ(Tp) {
+        margin-right: initial;        
+      }
+      @include MQ(Tl) {
+        margin-right: initial;
       }
     }
     &__free-title {
@@ -307,6 +339,12 @@
       @include MQ(Pp) {
         display: none;
       }
+      @include MQ(Tp) {
+        left: 0;
+      }
+      @include MQ(Tl) {
+        left: 0;
+      }
     }
     &__message {
       max-width: 395px;
@@ -318,6 +356,9 @@
       color: var(--charcoal-grey-two);
       @include MQ(Pp) {
         display: none;
+      }
+      @include MQ(Tp) {
+        width: 75%;
       }
     }
     &__mail {
@@ -341,6 +382,16 @@
         width: 80%;
         height: auto;
       }
+      @include MQ(Tp) {
+        left: 55%;
+        width: 50%;
+        height: auto;
+      }
+      @include MQ(Tl) {
+        left: 55%;
+        width: 40%;
+        height: auto;
+      }
     }
   }
 
@@ -352,7 +403,11 @@
     background-image: linear-gradient(125deg, #7bcbfb, #1c9bf7);
     background-image: linear-gradient(125deg, #7bcbfb, var(--azure));
     transform: translateX(-50%);
-    border-radius: 50%
+    border-radius: 50%;
+    @include MQ(Tp) {
+      width: 500px;
+      height: 500px;
+    }
   }
 
   .contacts {
@@ -381,6 +436,9 @@
     padding-top: 140px;
     @include MQ(Pp) {
       padding-top: 40px;
+    };
+    @include MQ(Tp) {
+      margin-top: 75vh
     };
     &__title {
       font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
