@@ -209,7 +209,8 @@
           if ( this.Cases[i].route == currentCase ) {
             const next = new Number(i) + 1;
             if ( next >= this.Cases.length ) {
-              this.$router.push({ name: 'Base', params: { Case : 'vdele' } })
+              console.log(next);
+              this.$router.push({ name: 'Base', params: { Case : this.Cases[0].route } })
             } else {
               this.$router.push({ name: 'Base', params: { Case : this.Cases[next].route } })
             }
@@ -223,7 +224,7 @@
           if ( this.Cases[i].route == currentCase ) {
             const prev = new Number(i) - 1;
             if ( prev < 0 ) {
-              this.$router.push({ name: 'Base', params: { Case : 'mpu' } })
+              this.$router.push({ name: 'Base', params: { Case : this.Cases[this.Cases.length - 1].route } })
             } else {
               this.$router.push({ name: 'Base', params: { Case : this.Cases[prev].route } })
             }
