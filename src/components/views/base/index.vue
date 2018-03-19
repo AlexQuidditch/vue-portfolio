@@ -209,7 +209,6 @@
           if ( this.Cases[i].route == currentCase ) {
             const next = new Number(i) + 1;
             if ( next >= this.Cases.length ) {
-              console.log(next);
               this.$router.push({ name: 'Base', params: { Case : this.Cases[0].route } })
             } else {
               this.$router.push({ name: 'Base', params: { Case : this.Cases[next].route } })
