@@ -34,7 +34,7 @@
         }
       }
       .case-container {
-        padding: 0 40px;
+        padding: 0 30px;
         > div {
           padding: 40px 0;
         }
@@ -97,6 +97,9 @@
     @include MQ(Tl) {
       width: 100%;
     }
+    @media only screen and (min-width: 1441px) and (max-width: 2000px) {
+      max-width: 500px;
+    }
   }
   &__description {
     width: 470px;
@@ -135,7 +138,10 @@
       bottom: 30px;
       right: 50px;
       left: auto;
-    };
+    }
+    @media only screen and (min-width: 1441px) and (max-width: 2000px) {
+      left: 20%;
+    }
   }
   &__link {
     position: relative;
@@ -275,6 +281,9 @@
   @include MQ(Tl) {
     width: 100%;
   }
+  @media only screen and (min-width: 1441px) and (max-width: 2000px) {
+    width: 500px;
+  }
   &__title {
     @include MQ(Pp) {
       font-size: 10vw
@@ -315,6 +324,9 @@
   };
   @include MQ(Tl) {
     left: 4vw;
+  }
+  @media only screen and (min-width: 1441px) and (max-width: 2000px) {
+    left: 300px;
   }
 }
 
@@ -370,7 +382,7 @@
     min-height: 75vh;
   }
   @include MQ(Tp) {
-    height: 70vh;
+    height: 75vh;
     min-height: initial;
   }
   &._fallback {

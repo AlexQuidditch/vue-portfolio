@@ -35,7 +35,7 @@
         return ( this.$route.params.Case === 'mpu' || this.$route.params.Case === 'travel' );
       },
       isPortfolio () {
-        const isCase = this.$route.fullPath.includes('/case/');
+        const isCase = ( this.$route.fullPath.includes('/case/') || this.$route.name === 'About' );
         return isCase;
       },
       isIOS () {
@@ -113,16 +113,14 @@
         }
       }
       @include MQ(Tp) {
+        min-width: 100%;
         padding: 0 25px;
         &._half {
-          padding-right: 25px;
+          padding-right: 30px;
         }
       }
       @include MQ(Tl) {
         min-width: 90%;
-        &._half {
-          padding-right: ( 968px / 2 + 30px );
-        }
       }
     }
     &__title {
