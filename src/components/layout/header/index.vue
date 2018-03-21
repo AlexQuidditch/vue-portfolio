@@ -62,6 +62,9 @@
     @include MQ(Tp) {
       padding-top: 25px;
     }
+    @include MQ(Tl) {
+      padding-top: 25px;
+    }
     &._fallback {
       position: fixed;
       padding-bottom: 20px;
@@ -85,6 +88,9 @@
       transition: padding-right 1s ease-in-out;
       &._half {
         padding-right: ( 1180px / 2 + 30px );
+        @include MQ(Tl) {
+          padding-right: initial;
+        }
       }
       &._contrast * {
         color: #fff;

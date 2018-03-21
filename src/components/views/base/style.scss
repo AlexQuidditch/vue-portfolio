@@ -28,6 +28,9 @@
       @include MQ(Tp) {
         padding-top: 70vh;
       }
+      @include MQ(Tl) {
+        min-height: 100vh
+      }
       &:first-child {
         .preview {
           padding-top: 100px;
@@ -35,6 +38,9 @@
       }
       .case-container {
         padding: 0 30px;
+        @include MQ(Tl) {
+          padding: 0 50px;
+        }
         > div {
           padding: 40px 0;
         }

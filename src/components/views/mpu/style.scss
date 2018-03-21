@@ -18,6 +18,9 @@
       height: auto;
       padding: 120px 0 80px 0;
     }
+    @include MQ(Tl) {
+      padding: 120px 0 80px 0;
+    }
     .container {
       display: flex;
       flex-flow: row wrap;
@@ -26,6 +29,9 @@
       @include MQ(Tp) {
         flex-flow: column wrap;
         align-items: center;
+        width: 90%;
+      }
+      @include MQ(Tl) {
         width: 90%;
       }
     }
@@ -56,6 +62,9 @@
       @include MQ(Tp) {
         width: 100%;
         margin-top: 50px;
+      }
+      @include MQ(Tl) {
+        width: 450px;
       }
     }
     @include MQ(Pp) {
@@ -88,6 +97,9 @@
       justify-content: space-between;
       @include MQ(Tp) {
         flex-flow: column wrap;
+        width: 90%;
+      }
+      @include MQ(Tl) {
         width: 90%;
       }
     }
@@ -150,6 +162,9 @@
         flex-flow: column wrap;
         width: 90%;
       }
+      @include MQ(Tl) {
+        width: 90%;
+      }
     }
     &__title {
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
@@ -185,6 +200,9 @@
     }
     .container {
       @include MQ(Tp) {
+        width: 90%;
+      }
+      @include MQ(Tl) {
         width: 90%;
       }
     }
@@ -232,6 +250,9 @@
         justify-content: center;
       }
       @include MQ(Tp) {
+        width: 90%;
+      }
+      @include MQ(Tl) {
         width: 90%;
       }
     }
@@ -288,6 +309,11 @@
     }
     @include MQ(Tp) {
       padding: 60px 0;
+      .container {
+        width: 90%;
+      }
+    }
+    @include MQ(Tl) {
       .container {
         width: 90%;
       }
@@ -398,12 +424,18 @@
       height: initial;
       padding: 60px 0 160px 0;
     }
+    @include MQ(Tl) {
+      height: 630px;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       @include MQ(Tp) {
         flex-direction: column;
+        width: 90%;
+      }
+      @include MQ(Tl) {
         width: 90%;
       }
     }
@@ -434,6 +466,9 @@
         flex-basis: 100%
       }
       @include MQ(Tp) {
+        max-width: initial;
+      }
+      @include MQ(Tl) {
         max-width: initial;
       }
     }
@@ -480,6 +515,9 @@
         flex: 1 1 25%;
         max-width: 30%;
       }
+      @include MQ(Tl) {
+        width: 220px;
+      }
       &._big {
         position: relative;
         height: 160px;
@@ -518,6 +556,9 @@
         }
         @include MQ(Tp) {
           width: initial;
+          margin-top: initial;
+        }
+        @include MQ(Tl) {
           margin-top: initial;
         }
       }

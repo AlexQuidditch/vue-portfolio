@@ -45,10 +45,16 @@
     @include MQ(Tp) {
       bottom: 60px;
     }
+    @include MQ(Tl) {
+      bottom: 60px;
+    }
     .container {
       display: flex;
       justify-content: space-between;
       @include MQ(Tp) {
+        width: 90%;
+      }
+      @include MQ(Tl) {
         width: 90%;
       }
     }
