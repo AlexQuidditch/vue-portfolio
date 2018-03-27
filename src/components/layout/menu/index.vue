@@ -79,7 +79,7 @@
           @include MQ(Pp) {
             top: initial;
             right: initial;
-            top: 40px;
+            bottom: 50px;
             .pg-menu-list__item-button {
               display: flex;
               justify-content: flex-end;

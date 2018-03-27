@@ -3,7 +3,7 @@
     <div :class="{ '_half' : !isPortfolio, '_contrast' : isTravelApp , '_mobile' : isNeedMobileContrast }"
          class="container">
       <div class="header-container">
-        <router-link to="/vdele" tag="h3"
+        <router-link to="/mpu" tag="h3"
                      class="header__title">
           Сергей <span>Иванов</span>
         </router-link>
@@ -89,7 +89,7 @@
       &._half {
         padding-right: ( 1180px / 2 + 30px );
         @include MQ(Tl) {
-          padding-right: initial;
+          padding-right: 48%;
         }
       }
       &._contrast * {

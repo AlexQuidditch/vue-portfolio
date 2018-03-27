@@ -15,7 +15,7 @@
         </div>
         <h5 class="about__free-title">ABOUT</h5>
       </div>
-      <img src="/static/IS(final).png" alt="Сергей Иванов"
+      <img src="/static/IS_F2(final).png" alt="Сергей Иванов"
            class="about__photo" />
     </section>
     <section class="skills">
@@ -372,23 +372,23 @@
     }
     &__photo {
       position: absolute;
-      bottom: 0; left: 51.5%;
+      bottom: 0; left: 50%;
       width: 587px;
       height: 777px;
       object-fit: contain;
       transform: translateX(-50%);
       @include MQ(Pp) {
-        left: 55%;
-        width: 80%;
+        left: 50%;
+        width: 100%;
         height: auto;
       }
       @include MQ(Tp) {
-        left: 55%;
+        left: 50%;
         width: 50%;
         height: auto;
       }
       @include MQ(Tl) {
-        left: 55%;
+        left: 50%;
         width: 40%;
         height: auto;
       }

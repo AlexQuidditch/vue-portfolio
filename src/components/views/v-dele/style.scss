@@ -56,7 +56,7 @@
       color: #404552;
     }
     &__video {
-      size: 48% 400px;
+      size: 48% 350px;
     	object-fit: contain;
       background-color: #fff;
       background-color: var(--white);
@@ -250,7 +250,7 @@
           width: 50%;
         }
         @include MQ(Tl) {
-          top: auto;
+          top: -10%;
           width: 50%;
         }
       }
@@ -260,9 +260,6 @@
         @include MDShadow-5;
         @include MQ(Pp) {
           margin-top: 30px;
-        }
-        @include MQ(Tp) {
-          margin-top: 100px;
         }
       }
     }
@@ -279,7 +276,7 @@
       }
     }
     @include MQ(Tl) {
-      padding: 400px 0 60px 0;
+      padding: 500px 0 60px 0;
       .container {
         width: 90%;
       }
