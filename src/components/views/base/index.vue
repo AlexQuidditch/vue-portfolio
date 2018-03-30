@@ -161,7 +161,6 @@
     }),
     created () {
       this.Displayed = this.Cases.find( item => item.route == this.Case );
-      console.log(this.isIOS);
     },
     mounted () {
       this.$nextTick( () => {
