@@ -1,11 +1,13 @@
 <template lang="html">
-  <div id="wrapper" class="wrapper">
-    <page-header @toggleMenu="toggleMenu"></page-header>
-    <page-main></page-main>
-    <transition name="slide-left" mode="out-in">
-      <page-menu v-if="menuIsOpen" @toggleMenu="toggleMenu"></page-menu>
-    </transition>
-  </div>
+  <transition name="fade" appear>
+    <div id="wrapper" class="wrapper">
+      <page-header @toggleMenu="toggleMenu"></page-header>
+      <page-main />
+      <transition name="slide-left" mode="out-in" appear>
+        <page-menu v-if="menuIsOpen" @toggleMenu="toggleMenu"></page-menu>
+      </transition>
+    </div>
+  </transition>
 </template>
 
 <script>
