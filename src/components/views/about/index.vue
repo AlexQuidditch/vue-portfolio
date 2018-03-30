@@ -113,7 +113,7 @@
 
   import WorkflowTooltip from './WorkflowTooltip.vue';
 
-  // import { token , chat_id } from '../../../data.js';
+  import { token , chat_id } from '../../../data.js';
 
   export default {
     name: 'About',
@@ -122,7 +122,7 @@
       Form: {
         name: '',
         mail: '',
-        message: '',
+        message: ''
       },
       mainApps: [
         {
@@ -186,27 +186,27 @@
     }),
     methods: {
       submit (event) {
-// 				const message =
-// `
-// Сообщение с ${ document.title }:
+        const message =
+`
+Сообщение с ${ document.title }:
 
-// Имя: ${ this.Form.name }
-// E-mail: ${ this.Form.mail }
-// Комментарий: ${ this.Form.message }
-// `;
-// 				this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
-// 					.then( response => {
-//             this.Form = {
-//               name: '',
-//               mail: '',
-//               message: '',
-//             };
-//             return this.$swal( 'Ура!' , 'Заказ успешно отправлен.' , 'success' )
-//           })
-// 					.catch( error => {
-// 						console.error(error);
-// 						this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
-// 					})
+Имя: ${ this.Form.name }
+E-mail: ${ this.Form.mail }
+Сообщение: ${ this.Form.message }
+`;
+        this.$http.post(`https://api.telegram.org/bot${ token }/sendMessage?chat_id=${ chat_id }&text=${ message }`)
+          .then( response => {
+            this.Form = {
+              name: '',
+              mail: '',
+              message: '',
+            };
+            return this.$swal( 'Ура!' , 'Ваше сообщение успешно отправлено.' , 'success' )
+          })
+          .catch( error => {
+            console.error(error);
+            this.$swal( 'Ой!' , 'Что-то пошло не так. Попробуйте ещё раз, или как?' , 'error' );
+          })
 			}
     }
   };
