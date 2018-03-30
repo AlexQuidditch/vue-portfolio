@@ -31,7 +31,7 @@
             <p class="case__description">{{ Displayed.description }}</p>
             <router-link :to="{ path: '/case/' + Displayed.link }"
                          :class=" '_' + Case"
-                         class="case__link">
+                         class="case__link waves-effect waves-light">
               <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
               <span class="case__link-text">Смотреть проект</span>
             </router-link>
@@ -85,7 +85,7 @@
             <p class="case__description">{{ caseItem.description }}</p>
             <router-link :to="{ path: '/case/' + caseItem.link }"
                          :class=" '_' + caseItem.route"
-                         class="case__link">
+                         class="case__link waves-effect waves-light">
               <icon-arrow-right :Fill="'#fff'" class="case__link-icon"></icon-arrow-right>
               <span class="case__link-text">Смотреть проект</span>
             </router-link>
@@ -163,6 +163,9 @@
       this.Displayed = this.Cases.find( item => item.route == this.Case );
     },
     mounted () {
+			Waves.init();
+			Waves.attach('[ripple-dark]', ['waves-dark']);
+			Waves.attach('[ripple-light]', ['waves-light']);
       this.$nextTick( () => {
         if (this.isIOS) {
           return false;

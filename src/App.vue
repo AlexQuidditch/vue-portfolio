@@ -45,6 +45,7 @@
 </script>
 
 <style src="normalize-css/normalize.css" lang="css"></style>
+<style src="node-waves/dist/waves.css" lang="css"></style>
 
 <style lang="scss">
 
@@ -54,7 +55,7 @@
 
 	@import "./stylesheets/layout/resets";
 
-	@import "./stylesheets/transitions.scss";
+	@import "./stylesheets/transitions";
 
   :root {
     --black: #202020;
@@ -137,5 +138,7 @@
   a {
     outline: none !important;
   }
+
+  @include waves-light( #fff , 0.4 )
 
 </style>
