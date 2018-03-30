@@ -46,6 +46,7 @@
 
 <style src="normalize-css/normalize.css" lang="css"></style>
 <style src="node-waves/dist/waves.css" lang="css"></style>
+<style src="aos/src/sass/aos.scss" lang="scss"></style>
 
 <style lang="scss">
 

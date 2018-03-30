@@ -14,8 +14,8 @@ Vue.config.productionTip = false;
 import SmoothScroll from 'smoothscroll-polyfill';
 SmoothScroll.polyfill();
 
-import waves from 'node-waves';
-window.Waves = waves;
+window.AOS = require('aos');
+window.Waves = require('node-waves');
 
 const Portfolio = new Vue({
 	router ,
