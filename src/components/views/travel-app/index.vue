@@ -193,7 +193,10 @@
           icon: 'zeplin.png'
         }
       ]
-    })
+    }),
+    mounted () {
+      window.AOS.init();
+    }
   };
 
 </script>

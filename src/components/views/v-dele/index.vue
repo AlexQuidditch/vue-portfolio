@@ -211,6 +211,9 @@
       isMobile () {
         return window.device.mobile()
       }
+    },
+    mounted () {
+      window.AOS.init();
     }
   };
 

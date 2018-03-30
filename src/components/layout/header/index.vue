@@ -49,6 +49,7 @@
 <style lang="scss">
 
   @import "../../../stylesheets/partials/_layout.scss";
+  @import "../../../stylesheets/partials/_mixins.scss";
 
   .header {
     z-index: 999;
@@ -70,6 +71,7 @@
       padding-bottom: 20px;
       background-color: #fff;
       background-color: var(--whited);
+      @include MDShadow-3;
       .container {
         &._mobile * {
           color: #202020;

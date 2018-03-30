@@ -47,7 +47,7 @@
     </section>
 
     <section class="first-step">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <h3 class="first-step__title">Описание ТЗ:</h3>
         <p class="first-step__text">
           Компания специализируется на предоставлении полномочий на подготовку людей потерявших
@@ -225,6 +225,9 @@
       isIOS () {
         return window.device.ios()
       }
+    },
+    mounted () {
+      window.AOS.init();
     }
   };
 
