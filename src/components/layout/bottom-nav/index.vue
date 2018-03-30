@@ -1,7 +1,7 @@
 <template lang="html">
   <nav class="bottom-nav">
     <div class="container">
-      <router-link :to="{ name: 'Base' , params: { Case : 'vdele' } }"
+      <router-link :to="{ name: 'Base' , params: { Case : 'mpu' } }"
                    class="bottom-nav-link">
         <icon-step-back class="bottom-nav-link__icon"></icon-step-back>
         <span class="bottom-nav-link__text">Вернуться ко всем работам</span>
