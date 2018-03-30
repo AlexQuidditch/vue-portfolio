@@ -25,17 +25,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-// rem fallback - credits: http://zerosixthree.se/
-@function calculateRem($size) {
-    $remSize: $size / 16px;
-    @return $remSize * 1rem;
-}
-@mixin font-size($size) {
-    font-size: $size;
-    font-size: calculateRem($size);
-}
-
 // Material Design Waves
 // http://materializecss.com/waves.html
 @mixin waves-light($waves-light-color, $waves-opacity) {
@@ -49,24 +38,6 @@
       rgba($waves-light-color, 0) 70%;
     background: radial-gradient($gradient);
   }
-}
-
-// Material Design Buttons
-// http://materializecss.com/buttons.html
-@mixin MDButton($color, $backgroundColor) {
-	@content;
-	font-size: 1rem;
-	color: $color $backgroundColor;
-	border: none;
-	cursor: pointer;
-	@include MDShadow-1;
-	transition: .3s ease-in-out;
-	&:hover {
-		color: $color mix($color, $backgroundColor, 5%);
-	}
-	&:active {
-		@include MDShadow-2;
-	}
 }
 
 // Material Design Shadows
@@ -96,8 +67,8 @@
     0 5px 5px -3px rgba($color, 0.3);
 }
 @mixin MDShadow-5($color: $blacked) {
-    box-shadow:
-            0 16px 24px 2px rgba($color, 0.14),
-            0 6px 30px 5px rgba($color, 0.12),
-            0 8px 10px -5px rgba($color, 0.3);
+  box-shadow:
+    0 16px 24px 2px rgba($color, 0.14),
+    0 6px 30px 5px rgba($color, 0.12),
+    0 8px 10px -5px rgba($color, 0.3);
 }
