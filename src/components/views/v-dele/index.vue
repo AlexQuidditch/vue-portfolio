@@ -14,7 +14,7 @@
             между пользователями, прототипирование, анимация.
           </h2>
         </div>
-        <video class="intro__video" :controls="isMobile" loop autoplay>
+        <video class="intro__video" controls loop autoplay>
           <source src="/static/time/vdele.ogv" type='video/ogg'>
           <source src="/static/time/vdele.mp4" type='video/mp4'>
           <source src="/static/time/vdele.webm" type='video/webm'>

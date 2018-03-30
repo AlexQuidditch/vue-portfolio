@@ -13,10 +13,10 @@
             тесту (медицинская психологическая экспертиза).
           </h2>
         </div>
-        <video class="intro__video" :controls="isMobile" loop autoplay>
-          <source src="/static/mpu/Statistic.ogv" type='video/ogg; codecs="theora, vorbis"'>
-          <source src="/static/mpu/Statistic.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-          <source src="/static/mpu/Statistic.webm" type='video/webm; codecs="vp8, vorbis"'>
+        <video class="intro__video" controls loop autoplay>
+          <source src="/static/mpu/Statistic.ogv" type='video/ogg'>
+          <source src="/static/mpu/Statistic.mp4" type='video/mp4'>
+          <source src="/static/mpu/Statistic.webm" type='video/webm'>
           Элемент video не поддерживается вашим браузером.
           <a href="/static/mpu/Statistic.mp4">Скачайте видео</a>.
         </video>
