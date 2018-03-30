@@ -14,7 +14,8 @@
             между пользователями, прототипирование, анимация.
           </h2>
         </div>
-        <video class="intro__video" controls loop autoplay>
+        <video class="intro__video" :controls="isMobile" loop autoplay>
+          <source src="/static/time/vdele.ogv" type='video/ogg; codecs="theora, vorbis"'>
           <source src="/static/time/vdele.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
           <source src="/static/time/vdele.webm" type='video/webm; codecs="vp8, vorbis"'>
           Элемент video не поддерживается вашим браузером.
