@@ -126,7 +126,7 @@
       </div>
     </section>
 
-    <section class="parallax"></section>
+    <section :class="{ '_fallback': isIOS }" class="parallax"></section>
 
     <section class="review">
       <span class="review__back">TYPOGRAPHY</span>
@@ -190,8 +190,8 @@
       </div>
     </section>
 
-    <bottom-navigation></bottom-navigation>
-
+    <bottom-navigation />
+    
   </main>
 </template>
 
@@ -221,6 +221,9 @@
     computed: {
       isMobile () {
         return window.device.mobile()
+      },
+      isIOS () {
+        return window.device.ios()
       }
     }
   };
