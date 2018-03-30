@@ -1,10 +1,10 @@
 <template lang="html">
   <transition name="fade" appear>
     <div id="wrapper" class="wrapper">
-      <page-header @toggleMenu="toggleMenu"></page-header>
+      <page-header @toggleMenu="toggleMenu"/>
       <page-main />
       <transition name="slide-left" mode="out-in" appear>
-        <page-menu v-if="menuIsOpen" @toggleMenu="toggleMenu"></page-menu>
+        <page-menu v-if="menuIsOpen" @toggleMenu="toggleMenu" />
       </transition>
     </div>
   </transition>
