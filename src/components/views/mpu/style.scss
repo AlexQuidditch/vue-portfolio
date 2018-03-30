@@ -365,11 +365,13 @@
   .parallax {
     height: 75vh;
     background-image: url('/static/mpu/app-mockup-full.jpg');
-    background-attachment: scroll;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    &._fallback {
+      background-attachment: scroll;
+    }
     @include MQ(Tp) {
       height: 50vh;
     }
