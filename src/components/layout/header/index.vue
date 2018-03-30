@@ -35,7 +35,7 @@
         return ( this.$route.params.Case === 'mpu' || this.$route.params.Case === 'travel' );
       },
       isPortfolio () {
-        const isCase = ( this.$route.fullPath.includes('/case/') || this.$route.name === 'About' );
+        const isCase = ( this.$route.fullPath.includes('/case/') || this.$route.name === 'About' || this.$route.name === 'Contact' );
         return isCase;
       },
       isIOS () {
