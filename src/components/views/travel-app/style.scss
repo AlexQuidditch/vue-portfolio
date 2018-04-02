@@ -16,8 +16,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     @include MQ(Tp) {
-      height: 50vh;
+      height: 100vh;
       background-size: contain;
+    }
+      @include MQ(Pp) {
+      background-image: url('/static/travel/intro-mobile.jpg');
+      size: 100% 50vh;
     }
   }
   .description {
@@ -48,9 +52,9 @@
       }
     }
     &__title {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 64px;
-      font-weight: 300;
+      font-family: 'Panton-bold', Arial, Helvetica, sans-serif;
+    	font-size: 36px;
+      font-weight: 800;
       @include MQ(Pp) {
         font-size: 12vw;
       }
@@ -65,9 +69,8 @@
     	}
     }
     &__task {
-      margin-top: 12px;
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 48px;
+      font-family: 'Panton', Arial, Helvetica, sans-serif;
+    	font-size: 36px;
     	font-weight: 300;
     	@include MQ(Pp) {
     	  margin-top: 0;
@@ -75,13 +78,11 @@
     	}
     }
     &__task-detail {
-      margin-top: 30px;
       font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
     	font-size: 24px;
     	font-weight: 300;
   	  line-height: 1.5;
   	  @include MQ(Pp) {
-  	    margin-top: 15px;
   	    font-size: 5.5vw;
   	  }
     }
@@ -104,8 +105,8 @@
       }
     }
     &__title {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-    	font-size: 48px;
+      font-family: 'Panton', Arial, Helvetica, sans-serif;
+    	font-size: 36px;
     	font-weight: 300;
     	@include MQ(Pp) {
     	  font-size: 12vw;
@@ -221,8 +222,8 @@
       }
     }
     &__title {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
-      font-size: 48px;
+      font-family: 'Panton', Arial, Helvetica, sans-serif;
+      font-size: 36px;
       font-weight: 300;
       @include MQ(Pp) {
         font-size: 11vw;
@@ -381,7 +382,7 @@
           }
           @include MQ(Tp) {
             right: -250px;
-            width: 75%;
+            width: 5%;
           }
         }
         &._left {
@@ -462,7 +463,7 @@
       }
     }
     &__title {
-      font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+      font-family: 'Panton', Arial, Helvetica, sans-serif;
       font-size: 48px;
       font-weight: 300;
       line-height: 1;

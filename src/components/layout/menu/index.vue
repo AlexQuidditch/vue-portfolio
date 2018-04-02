@@ -20,6 +20,15 @@
             Связаться
           </router-link>
         </li>
+        <li class="pg-menu-list__other">
+          <router-link to="/"
+                       class="pg-menu-list__item _other">
+                       <button onclick="window.open('https://works.uidsgn.ru')" class="pg-menu-list__item-button">
+          <span><s>Другие работы</s></span>
+          <icon-close class="pg-menu-list__item-icon2"></icon-close>
+          </button>
+          </router-link>
+          
         <li class="pg-menu-list__item _close">
           <button @click="$emit('toggleMenu')" class="pg-menu-list__item-button">
             <span>Закрыть</span>
@@ -34,10 +43,11 @@
 <script>
 
   import IconClose from '../../icons/close.js';
+  import IconLink from '../../icons/link.js';
 
   export default {
     name: 'Page-Menu',
-    components: { IconClose },
+    components: { IconClose , IconLink } ,
     watch: {
       '$route' ( to , from ) {
         setTimeout(() => this.$emit('toggleMenu') , 500);
@@ -66,12 +76,13 @@
       width: 350px;
       @include MQ(Pp) {
         width: 80%;
+        margin-bottom: 100px;
       }
       &__item {
         margin: 30px 0;
         text-align: left;
         @include MQ(Pp) {
-          margin: 1.25rem 0;
+          margin: 1.20rem 0;
         }
         &._close {
           position: absolute 40px 30px auto auto;
@@ -79,7 +90,7 @@
           @include MQ(Pp) {
             top: initial;
             right: initial;
-            bottom: 50px;
+            bottom: 60px;
             .pg-menu-list__item-button {
               display: flex;
               justify-content: flex-end;
@@ -89,9 +100,32 @@
               line-height: 50px;
               color: rgba( #fff , .5 );
               fill: rgba( #fff , .5 );
+              &:hover {
+          color: var(--azure);
+          color: #1c9bf7;
+          fill: var(--azure);
+          fill: #1c9bf7;
+        }
             }
           }
         }
+        
+        &._other {
+          position: absolute auto 40px 30px auto;
+          margin: 0;
+          color: rgba( #fff , .5 ); 
+          fill: rgba( #fff , .5 ); 
+          font-size: 24px; 
+          position:absolute;
+          margin:0;
+          @include MQ(Pp) {
+          display: none;
+          top: initial;
+          right: initial;
+          bottom: 160px;
+            }
+        }
+        
       }
       &__item-link {
         font-size: 72px;
@@ -109,22 +143,34 @@
         }
         @include MQ(Pp) {
           font-size: 3rem;
-          line-height: 1.5;
+          line-height: 1.3;
         }
       }
       &__item-icon {
         size: 40px;
         margin-left: 10px;
       }
+      
+      &__item-icon2 {
+        size: 40px;
+        margin-left: 10px;
+        display: none;
+        @include MQ(Pp) {
+          size: 30px;
+        }
+      }
+      
       &__item-button {
         display: flex;
         align-items: center;
         padding: 0;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 40px;
         background-color: transparent;
+        color: rgba( #fff , .5 );
+        fill: rgba( #fff , .5 );
         border: none;
-        transition: .2s ease-out;
+     /* transition: .2s ease-out; */
         &:hover {
           color: var(--azure);
           color: #1c9bf7;

@@ -71,7 +71,8 @@
       &__text {
         margin-left: 18px;
         margin-bottom: 10px;
-        font-family: 'Panton-Light', Arial, Helvetica, sans-serif;
+        font-family: 'Panton', Arial, Helvetica, sans-serif;
+        font-weight: bold;
         font-size: 18px;
         color: #404552;
         color: var(--charcoal-grey-two);

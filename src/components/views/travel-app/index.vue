@@ -3,7 +3,7 @@
     <section class="intro"></section>
 
     <section class="description">
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
         <div class="description-column">
           <h1 class="description__title">Travel.app</h1>
           <p class="description__text">
@@ -23,30 +23,28 @@
       </div>
     </section>
 
-    <section class="first-step">
+    <section class="first-step" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <h3 class="first-step__title">Первый этап:</h3>
         <p class="first-step__text">
-          Как только мне пришла идея подобного сервиса я сразу решил сделать наброски того, как это
-          могло бы выглядеть. Для того, чтобы пользователь сразу при заходе на сайт понимал о чем
-          идет речь, я решил визуализировать основную фичу сервиса - а именно 3D карты.
+          Как только мне пришла идея подобного сервиса я сразу решил сделать наброски того, как это могло бы выглядеть. Для того, чтобы пользователь сразу при заходе на сайт понимал о чем идет речь, я решил визуализировать основную фичу сервиса — а именно 3D карты.
         </p>
       </div>
     </section>
 
     <section class="travel-image">
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
         <img src="/static/travel/travel-site1.jpg" alt="Страница новых задач" class="travel-image__picture" />
       </div>
     </section>
 
-    <section class="workflow">
+    <section class="workflow" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <h3 class="workflow__title">Процесс работы:</h3>
         <p class="workflow__text">
-          Для моделирования ландшафта я использовал скриншоты с Google Maps, карту высот создал из них же, переведя изображение в черно-белый режим. Светлые участки я принял за максимальную высоту, черные - за минимальную. Немного подкорректировав, у меня вышла карта высот, которую я использовал при моделировании ландшафта в Cinema 4D. <br /><br />
+          Для моделирования ландшафта я использовал скриншоты с Google Maps, карту высот создал из них же, переведя изображение в черно-белый режим. Светлые участки я принял за максимальную высоту, черные — за минимальную. Немного подкорректировав, у меня вышла карта высот, которую я использовал при моделировании ландшафта в Cinema 4D. <br /><br />
 
-          После моделирования и текстурирования выполнил пост-обработку в Photoshop, где в последствии и сделал макет веб-сайта. <br /><br />
+          После моделирования и текстурирования выполнил пост-обработку в Photoshop, где впоследствии и сделал макет веб-сайта. <br /><br />
 
           Проект в стадии доработки в свободное время.
         </p>
@@ -61,7 +59,7 @@
     </section>
 
     <section class="adaptivity">
-      <div class="container">
+      <div class="container" data-aos="fade-left" data-aos-duration="1000">
         <img src="/static/travel/iphoneX.png" alt="Страница новых задач"
              class="adaptivity__picture" />
       </div>
@@ -71,7 +69,7 @@
       <div class="container">
         <h3 class="concept__title">Концепция:</h3>
         <p class="concept__text">
-          Основная идея сервиса - 3D карты реального времени. Вы можете простроить маршрут с учетом растительности, ландшафта, погоды и освещенности. Идеально для походов, путешествий и открытия новых горизонтов. Сделает любое путешествие проще и безопаснее.
+          Основная идея сервиса — 3D карты реального времени. Вы можете простроить маршрут с учетом растительности, ландшафта, погоды и освещенности. Идеально для походов, путешествий и открытия новых горизонтов. Сделает любое путешествие проще и безопаснее.
         </p>
       </div>
     </section>
@@ -83,9 +81,9 @@
           <p class="preview-column__content">
             Сайт представлен промо-страницей, на которой рассказаны основные функции приложения. <br /><br />
 
-            Мощные заголовки с призывом, сочные картинки - все призванно заинтересовать потенциального путешественника.
+            Мощные заголовки с призывом, сочные картинки — все призвано заинтересовать потенциального путешественника.
           </p>
-          <img src="/static/travel/extra01.png" alt="" class="preview-column__picture _left" />
+          <img data-aos="fade-right" data-aos-duration="1000" src="/static/travel/extra01.png" alt="" class="preview-column__picture _left" />
         </div>
       </div>
       <div class="container _left">
@@ -94,10 +92,10 @@
           <p class="preview-column__content">
             Карты высот сделаны из реальных спутниковых снимков, а сама высота определяется светлыми и темными участками изображения. <br /><br />
 
-            И это не спроста. Вполне возможно, что такая система в тандеме с нейросетью сможет воплатить подобный сервис
+            И это не просто так: вполне возможно, что такая система в тандеме с нейросетью сможет воплотить подобный сервис
             в жизнь.
           </p>
-          <img src="/static/travel/extra02.png" alt="" class="preview-column__picture _right" />
+          <img data-aos="fade-left" data-aos-duration="1000" src="/static/travel/extra02.png" alt="" class="preview-column__picture _right" />
         </div>
       </div>
     </section>
@@ -181,7 +179,7 @@
     data: () => ({
       Apps: [
         {
-          name: 'Cinema 4D',
+          name: 'Cinema4D',
           icon: 'C4D_Logo.png'
         },
         {

@@ -40,8 +40,8 @@
     line-height: 1.5;
     font-size: .875rem;
     word-wrap: break-word;
-    background-color: #f5f5f5;
-    border: 1px solid rgba( 0 , 0 , 0 , .2 );
+    background-color: #ffffff;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     border-radius: .3rem;
     transform: translateX(-50%);
     transition:
@@ -57,9 +57,12 @@
       height: 10px;
       border-style: solid;
       border-width: 0 10px 10px 10px;
-      border-color: transparent transparent rgba( 0 , 0 , 0 , .2 ) transparent;
+      border-color: transparent transparent rgba( 123 , 203 , 251 , .9 ) transparent;
       transform: translateX(-50%)
     }
+    &:hover {
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+  }
     @include MQ(Pp) {
       position: fixed;
       top: 50%; left: 50%;
@@ -71,7 +74,7 @@
     }
     &__text {
       padding: 0;
-      margin: 0;
+      margin: 12px;
     }
   }
 
