@@ -4,17 +4,17 @@
     <section class="intro">
       <div class="container">
         <div class="intro-column">
-          <h1 class="intro__title">
+          <h1 class="intro__title" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
             Разработка интерфейса
             студенческой фриланс-биржи
             "Время Пришло"
           </h1>
-          <h2 class="intro__sub-title">
+          <h2 class="intro__sub-title" data-aos="fade-right" data-aos-delay="400" data-aos-duration="600">
             UX/UI, разработка структуры, взаимодействия
             между пользователями, прототипирование, анимация.
           </h2>
         </div>
-        <video class="intro__video" controls loop autoplay>
+        <video class="intro__video" controls loop autoplay poster="/static/time/poster.jpg">
           <source src="/static/time/vdele.ogv" type='video/ogg'>
           <source src="/static/time/vdele.mp4" type='video/mp4'>
           <source src="/static/time/vdele.webm" type='video/webm'>
@@ -24,7 +24,7 @@
       </div>
     </section>
 
-    <section class="description">
+    <section class="description" data-aos="fade-up" data-aos-duration="1000">
 
       <div class="container">
         <div class="description-column">
@@ -49,7 +49,7 @@
 
     </section>
 
-    <section class="first-step">
+    <section class="first-step" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 
       <div class="container">
         <h3 class="first-step__title">Первый этап:</h3>
@@ -65,31 +65,31 @@
     </section>
 
     <section class="adaptivity">
-      <div class="container">
-        <img src="/static/time/vp-adaptive.png" alt="Адаптивность в подарок" class="adaptivity__picture _first" />
+      <div class="container" >
+        <img data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" src="/static/time/vp-adaptive.png" alt="Адаптивность в подарок" class="adaptivity__picture _first" />
         <div class="adaptivity-column"></div>
         <div class="adaptivity-column">
-          <h3 class="adaptivity__title">
+          <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="200"><h3 class="adaptivity__title">
             Адаптивность
             в подарок
           </h3>
-          <p class="adaptivity__text">
+          <p class="adaptivity__text" >
             Изначально запланировано не было,
             но как-то так получилось, что
             дополнительно к каждой странице
             были отрисованы макеты под
             смартфон и планшет.
-          </p>
+          </p></div>
         </div>
-        <img src="/static/time/News.jpg" alt="Страница новых задач" class="adaptivity__picture _second" />
+        <img data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" src="/static/time/Profile.jpg" alt="Страница новых задач" class="adaptivity__picture _second" />
       </div>
     </section>
 
     <section class="workflow">
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <h3 class="workflow__title">Процесс работы:</h3>
         <p class="workflow__text">
-          Второй этап - разработка интеррактивных прототипов страниц в <strong>Axure RP</strong> для презентации заказчику. <br /><br />
+          Второй этап — разработка интерактивных прототипов страниц в <strong>Axure RP</strong> для презентации заказчику. <br /><br />
 
           Когда все предложения и замечания были рассмотрены, а прототипы утверждены, пришло время разработки дизайна в <strong>Sketch</strong> и анимации готовых макетов в <strong>After Effects</strong>, чтобы заказчик мог представить проект инвесторам. <br /><br />
 

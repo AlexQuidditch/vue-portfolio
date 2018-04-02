@@ -3,11 +3,11 @@
     <section class="intro">
       <div class="container">
         <div class="intro-column">
-          <h1 class="intro__title">
+          <h1 class="intro__title" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
             Разработка дизайна сайта
             и веб-приложения MPU Leicht
           </h1>
-          <h2 class="intro__sub-title">
+          <h2 class="intro__sub-title" data-aos="fade-right" data-aos-delay="400" data-aos-duration="600">
             Разработка дизайна сайта и веб-приложения для
             компании, специализирующейся на подготовке к MPU
             тесту (медицинская психологическая экспертиза).
@@ -23,7 +23,7 @@
       </div>
     </section>
 
-    <section class="description">
+    <section class="description" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <div class="description-column">
           <h1 class="description__title">
@@ -46,8 +46,8 @@
       </div>
     </section>
 
-    <section class="first-step">
-      <div class="container" data-aos="fade-up">
+    <section class="first-step" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+      <div class="container">
         <h3 class="first-step__title">Описание ТЗ:</h3>
         <p class="first-step__text">
           Компания специализируется на предоставлении полномочий на подготовку людей потерявших
@@ -57,13 +57,19 @@
       </div>
     </section>
 
-    <section class="mpu-image">
+    <section class="mpu-image" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
-        <img src="/static/mpu/screen-statistic.jpg" alt="Страница новых задач" class="mpu-image__picture" />
+        <video class="mpu-image__picture" controls loop autoplay poster="/static/mpu/poster-2.jpg">
+          <source src="/static/mpu/mpu.ogv" type='video/ogg'>
+          <source src="/static/mpu/mpu.mp4" type='video/mp4'>
+          <source src="/static/mpu/mpu.webm" type='video/webm'>
+          Элемент video не поддерживается вашим браузером.
+          <a href="/static/mpu/Statistic.mp4">Скачайте видео</a>.
+        </video>
       </div>
     </section>
 
-    <section class="workflow">
+    <section class="workflow" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <h3 class="workflow__title">Процесс работы:</h3>
         <p class="workflow__text">
@@ -86,12 +92,12 @@
       </div>
     </section>
 
-    <section class="adaptivity">
-      <div class="container">
+    <section class="adaptivity" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
         <img src="/static/mpu/mpu-mobile.png" alt="Адаптивность в подарок"
              class="adaptivity__picture _first" />
         <div class="adaptivity-column">
-          <h3 class="adaptivity__title">Адаптивность</h3>
+          <h3 class="adaptivity__title">Адаптивность:</h3>
           <p class="adaptivity__text">
             Помимо десктоп версии, были также отрисованы макеты под разрешения мобильных устройств и планшетов.
             <br/><br/>
@@ -110,18 +116,18 @@
       </div>
     </section>
 
-    <section class="mpu-image _about">
+    <section class="mpu-image _about" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <img src="/static/mpu/screen-about.jpg" alt=""
              class="mpu-image__picture" />
       </div>
     </section>
 
-    <section class="concept">
+    <section class="concept" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <h3 class="concept__title">Веб-приложение:</h3>
         <p class="concept__text">
-          Дизайн сайта выполнен в формате одноэкранника SPA — т.е. Single Page Application. Здесь нет классического скролла, а при нажатии на кнопки навигации/скроллом колесиком мышки экраны сменяются анимацией. Смотрится стильно и очень приятно.
+          Отдельно от посадочной страницы требовалось разработать интерфейс веб-приложения для обучения и прохождения текста, а также все с этим связанное — страница регистрации, личный кабинет, страница оплаты, страница результатов теста.
         </p>
       </div>
     </section>
@@ -196,21 +202,19 @@
 </template>
 
 <script>
-
   import BottomNavigation from '../../layout/bottom-nav/index.vue';
-
   export default {
     name: "Travel-App",
     components: { BottomNavigation },
     data: () => ({
       Apps: [
         {
-          name: 'Cinema 4D',
-          icon: 'C4D_Logo.png'
+          name: 'Sketch',
+          icon: 'sketch.png'
         },
         {
-          name: 'Adobe Photoshop CC',
-          icon: 'photoshop-cc.png'
+          name: 'Adobe After Effects',
+          icon: 'after-effects-cc.png'
         },
         {
           name: 'Zeplin',
@@ -230,7 +234,6 @@
       window.AOS.init();
     }
   };
-
 </script>
 
-<style lang="scss" src="./style.scss"></style>
+<style lang="scss" src="./style.scss"></style>   s

@@ -175,6 +175,10 @@
     border-radius: 100px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     transition: .3s ease-in-out;
+    &:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    transform: scale3d( 1.025 , 1.025 , 1.025 )
+  }
     @include MQ(Pp) {
       width: 100%;
       margin-top: 40px;
@@ -205,9 +209,9 @@
     @include center(xy);
     display: block;
     width: 100%;
-    font-family: 'Panton-Bold', Arial, Helvetica, sans-serif;
+    font-family: 'Panton-bold', Arial, Helvetica, sans-serif;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
     color: #fff;
     color: var(--whited)
